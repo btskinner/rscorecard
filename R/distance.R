@@ -2,15 +2,15 @@
 #'
 #' @param sccall Current list of parameters carried forward from prior
 #'     functions in the chain (ignore)
-#' @param zip A zipcode
+#' @param zip A zipcode string
 #' @param distance An integer distance in miles or kilometers
 #' @param km A boolean value set to \code{TRUE} if distance should be
 #'     in kilometers (default is \code{FALSE} for miles)
 #' @examples
 #' \dontrun{
-#' sc_zip(37203)
-#' sc_zip(37203, 50)
-#' sc_zip(37203, 50, km = TRUE)
+#' sc_zip("37203")
+#' sc_zip("37203", 50)
+#' sc_zip("37203", 50, km = TRUE)
 #' }
 
 #' @export
@@ -24,8 +24,8 @@ sc_zip <- function(sccall, zip, distance = 25, km = FALSE) {
     }
 
     ## check second argument
-    if (missing(zip) || !is.numeric(zip) || nchar(zip) != 5) {
-        stop('Must provide a 5-digit zip code.', call. = FALSE)
+    if (missing(zip) || !is.character(zip) || nchar(zip) != 5) {
+        stop('Must provide a 5-digit zip code string.', call. = FALSE)
     }
 
     stub <- '&_zip=' %+% zip %+% '&_distance=' %+% distance
@@ -39,6 +39,3 @@ sc_zip <- function(sccall, zip, distance = 25, km = FALSE) {
     sccall
 
 }
-
-
-
