@@ -38,18 +38,8 @@ sc_get <- function(sccall, api_key, debug = FALSE, print_key_debug = FALSE) {
     }
 
     ## add year
-    re <- '(=|,)(' %+% 'academics' %+|%
-                'admissions' %+|%
-                'aid' %+|%
-                'completion' %+|%
-                'cost' %+|%
-                'earnings' %+|%
-                'repayment' %+|%
-                'student' %+% '\\.)'
-    sccall[['select']] <- gsub(re, '\\1' %+% sccall[['year']] %+%
-                                      '.' %+% '\\2', sccall[['select']])
-    sccall[['filter']] <- gsub(re, '\\1' %+% sccall[['year']] %+%
-                                      '.' %+% '\\2', sccall[['filter']])
+    sccall[['select']] <- add_year(sccall[['select']], sccall[['year']])
+    sccall[['filter']] <- add_year(sccall[['filter']], sccall[['year']])
 
     ## create url for call
     url <- 'https://api.data.gov/ed/collegescorecard/v1/schools.json?' %+%
@@ -167,20 +157,8 @@ sc_get <- function(sccall, api_key, debug = FALSE, print_key_debug = FALSE) {
 
     ## convert names back to non-developer-friendly names and return
     if (!sccall[['dfvars']]) {
-        names(df) <- vapply(names(df), function(x) {
-            re <- '^latest|[0-9]{0,4}\\.?(' %+% 'academics' %+|%
-                         'admissions' %+|%
-                         'aid' %+|%
-                         'completion' %+|%
-                         'cost' %+|%
-                         'earnings' %+|%
-                         'repayment' %+|%
-                         'root' %+|%
-                         'school' %+|%
-                         'student' %+% ')\\.'
-            sc_hash[[gsub(re, '', x)]]},
-            character(1), USE.NAMES = FALSE
-            )
+        names(df) <- vapply(names(df), dev_to_var, character(1),
+                            USE.NAMES = FALSE)
     }
 
     ## add year column and return
