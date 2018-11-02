@@ -13,3 +13,4 @@
 ^_pkgdown.yml$
 ^docs$
 ^vignettes/introduction.Rmd$
+^CODE_OF_CONDUCT\.md$
