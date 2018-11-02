@@ -1,3 +1,14 @@
+# rscorecard 0.11.1
+
+## Bug fix
+- correct error in regular expression that converted dev-friendly
+  names back to variable names in `sc_get` (h/t @nguyentr17)
+- moved regular expression conversions to
+  `utility_functions::dev_to_var`
+  
+## Updates
+- added tests for conversion
+
 # rscorecard 0.11.0
 - update dictionary for 30 October 2018 release of data
 
