@@ -1,6 +1,10 @@
 Package: rscorecard
 Title: A Method to Download Department of Education College Scorecard Data
+<<<<<<< HEAD
 Version: 0.13.0
+=======
+Version: 0.12.0
+>>>>>>> f1f762549acfb3583efaa102fbc356d44c6d66d8
 Authors@R: person("Benjamin", "Skinner",
 	          email = "btskinner@coe.ufl.edu",
     	          role = c("aut", "cre"),

@@ -1,7 +1,11 @@
 ## make_dict_hash.R
 
 libs <- c('dplyr','readxl','zoo')
+<<<<<<< HEAD
 lapply(libs, require, character.only = TRUE)
+=======
+sapply(libs, require, character.only = TRUE)
+>>>>>>> f1f762549acfb3583efaa102fbc356d44c6d66d8
 
 ## get latest XLSX data dictionary file
 file <- 'CollegeScorecardDataDictionary.xlsx'
@@ -71,7 +75,10 @@ for(i in 1:nrow(tmp)) {
 }
 
 ## save to sysdata.R
+<<<<<<< HEAD
 ## devtools::use_data(dict, sc_hash, pkg = '..', overwrite = TRUE, internal = TRUE)
+=======
+>>>>>>> f1f762549acfb3583efaa102fbc356d44c6d66d8
 usethis::proj_set('..')
 usethis::use_data(dict, sc_hash, overwrite = TRUE, internal = TRUE)
 
