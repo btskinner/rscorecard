@@ -11,6 +11,7 @@
 ^data-raw$
 ^sticker$
 ^_pkgdown.yml$
+^pkgdown$
 ^docs$
 ^vignettes/introduction.Rmd$
 ^CODE_OF_CONDUCT\.md$
