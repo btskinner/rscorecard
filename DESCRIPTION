@@ -1,11 +1,11 @@
 Package: rscorecard
 Title: A Method to Download Department of Education College Scorecard Data
-Version: 0.11.1
+Version: 0.13.0
 Authors@R: person("Benjamin", "Skinner",
-	          email = "btskinner@virginia.edu",
+	          email = "btskinner@coe.ufl.edu",
     	          role = c("aut", "cre"),
 		  comment = c(ORCID = "0000-0002-0337-7415"))
-Maintainer: Benjamin Skinner <btskinner@virginia.edu>
+Maintainer: Benjamin Skinner <btskinner@coe.ufl.edu>
 URL: https://github.com/btskinner/rscorecard
 BugReports: https://github.com/btskinner/rscorecard/issues
 Description: A method to download Department of Education College
@@ -24,7 +24,7 @@ Imports: dplyr,
     lazyeval,
     magrittr,
     tidyselect
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Encoding: UTF-8
 Suggests: knitr,
     rmarkdown,
