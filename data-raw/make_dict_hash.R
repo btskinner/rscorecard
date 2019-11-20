@@ -1,19 +1,15 @@
 ## make_dict_hash.R
 
 libs <- c('dplyr','readxl','zoo')
-<<<<<<< HEAD
-lapply(libs, require, character.only = TRUE)
-=======
 sapply(libs, require, character.only = TRUE)
->>>>>>> f1f762549acfb3583efaa102fbc356d44c6d66d8
 
 ## get latest XLSX data dictionary file
 file <- 'CollegeScorecardDataDictionary.xlsx'
 link <- paste0('https://collegescorecard.ed.gov/assets/', file)
 download.file(link, file)
 
-## create dictionary
-df <- read_excel(file, sheet = 'data_dictionary') %>%
+## create dictionary: institution files
+df_inst <- read_excel(file, sheet = 'institution_data_dictionary') %>%
     ## lower names
     setNames(tolower(names(.))) %>%
     ## subset/rename
@@ -33,7 +29,7 @@ df <- read_excel(file, sheet = 'data_dictionary') %>%
            dev_friendly_name = na.locf(dev_friendly_name),
            varname = na.locf(varname))
 
-dict <- df %>% data.frame(.)
+dict <- df_inst %>% data.frame(.)
 
 ## create hash environment for quick conversion between varnames
 ## and developer-friendly names
@@ -74,11 +70,7 @@ for(i in 1:nrow(tmp)) {
     sc_hash[[key_c]] <- val_c
 }
 
-## save to sysdata.R
-<<<<<<< HEAD
 ## devtools::use_data(dict, sc_hash, pkg = '..', overwrite = TRUE, internal = TRUE)
-=======
->>>>>>> f1f762549acfb3583efaa102fbc356d44c6d66d8
 usethis::proj_set('..')
 usethis::use_data(dict, sc_hash, overwrite = TRUE, internal = TRUE)
 

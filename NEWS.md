@@ -1,3 +1,15 @@
+# rscorecard 0.14.0
+
+- update dictionary for 20 November 2019 release of data
+
+# rscorecard 0.13.0
+
+- update dictionary for 30 September 2019 release of data
+
+# rscorecard 0.12.0
+
+- update dictionary for 21 May 2019 release of data
+
 # rscorecard 0.11.1
 
 ## Bug fix
