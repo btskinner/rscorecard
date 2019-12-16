@@ -3,7 +3,6 @@
 \docType{package}
 \name{rscorecard}
 \alias{rscorecard}
-\alias{rscorecard-package}
 \title{rscorecard: A Method to Download College Scorecard Data.}
 \description{
 The rscorecard package provides a series of piped functions (a la

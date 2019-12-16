@@ -144,7 +144,7 @@ sc_get <- function(sccall, api_key, debug = FALSE, print_key_debug = FALSE) {
             message('Request chunk ' %+% i)
             con <- url %+% '&_page=' %+% i %+% '&_per_page=100&api_key=' %+% api_key
             content <- httr::content(httr::GET(con), as = 'text', encoding = 'UTF-8')
-            page_list[[i]] <- jsonlite::fromJSON(content)[['results']]
+            page_list[[i]] <- jsonlite::fromJSON(content, flatten = TRUE)[['results']]
         }
 
         df <- dplyr::bind_rows(dplyr::tbl_df(init[['results']]), page_list)

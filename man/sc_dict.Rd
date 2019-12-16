@@ -4,9 +4,14 @@
 \alias{sc_dict}
 \title{Search data dictionary.}
 \usage{
-sc_dict(search_string, search_col = c("all", "description", "varname",
-  "dev_friendly_name", "dev_category", "label"), ignore_case = TRUE,
-  limit = 10, confirm = FALSE)
+sc_dict(
+  search_string,
+  search_col = c("all", "description", "varname", "dev_friendly_name", "dev_category",
+    "label"),
+  ignore_case = TRUE,
+  limit = 10,
+  confirm = FALSE
+)
 }
 \arguments{
 \item{search_string}{Character string for search. Can use regular

@@ -21,6 +21,7 @@ add_year <- function(string, year) {
         'completion' %+|%
         'cost' %+|%
         'earnings' %+|%
+        'programs' %+|%
         'repayment' %+|%
         'student' %+% '\\.)'
     gsub(re, '\\1' %+% year %+% '.' %+% '\\2', string)
@@ -35,10 +36,11 @@ dev_to_var <- function(x, debug = FALSE) {
         'completion' %+|%
         'cost' %+|%
         'earnings' %+|%
+        'programs' %+|%
         'repayment' %+|%
         'root' %+|%
         'school' %+|%
-        'student' %+% ')\\.'
-    x <- gsub(re, '', x)
+        'student' %+% ')\\.(.+)$'
+    x <- gsub(re, '\\3', x)
     if (debug) x else sc_hash[[x]]
 }
