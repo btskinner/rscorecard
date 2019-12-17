@@ -40,7 +40,8 @@ sc_dict <- function(search_string,
                     limit = 10,
                     confirm = FALSE,
                     print_dev = FALSE,
-                    print_notes = FALSE) {
+                    print_notes = FALSE,
+                    return_df = FALSE) {
 
     ## only for confirm
     if (confirm) {
@@ -126,4 +127,13 @@ sc_dict <- function(search_string,
     cat(length(uniqv) %+% ' variables.\n')
     if (limit < length(uniqv)) cat('Increase limit to see more variables.\n')
     cat('\n')
+
+    ## return_df ? return (out) : <>
+    if (return_df) {
+        var_order <- c('varname', 'value', 'label', 'description', 'source',
+                       'dev_friendly_name', 'dev_category', 'notes')
+        out <- tidyr::as_tibble(out) %>%
+            dplyr::select(dplyr::one_of(var_order))
+        return(out)
+    }
 }
