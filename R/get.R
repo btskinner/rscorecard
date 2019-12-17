@@ -17,6 +17,8 @@
 #' @param print_key_debug Only used when \code{debug == TRUE}. Default
 #'     masks the \code{api_key} value. Set to \code{TRUE} to print the
 #'     full API call string with the \code{api_key} unmasked.
+#' @param return_json Return data in JSON format rather than as a
+#'     tibble.
 #'
 #' @examples
 #' \dontrun{
@@ -29,7 +31,8 @@
 #' To obtain an API key, visit \url{https://api.data.gov/signup}
 
 #' @export
-sc_get <- function(sccall, api_key, debug = FALSE, print_key_debug = FALSE) {
+sc_get <- function(sccall, api_key, debug = FALSE, print_key_debug = FALSE,
+                   return_json = FALSE) {
 
     ## check first argument
     if (identical(class(try(sccall, silent = TRUE)), 'try-error')) {
@@ -146,11 +149,12 @@ sc_get <- function(sccall, api_key, debug = FALSE, print_key_debug = FALSE) {
             content <- httr::content(httr::GET(con), as = 'text', encoding = 'UTF-8')
             page_list[[i]] <- jsonlite::fromJSON(content, flatten = TRUE)[['results']]
         }
-
+        if (return_json) return(list(init[['results']], page_list))
         df <- dplyr::bind_rows(dplyr::tbl_df(init[['results']]), page_list)
 
     } else {
 
+        if (return_json) return(init[['results']])
         df <- dplyr::tbl_df(init[['results']])
 
     }
