@@ -23,7 +23,8 @@ Imports: dplyr,
     jsonlite,
     lazyeval,
     magrittr,
-    tidyselect
+    tidyselect,
+    tidyr
 RoxygenNote: 7.0.2
 Encoding: UTF-8
 Suggests: knitr,

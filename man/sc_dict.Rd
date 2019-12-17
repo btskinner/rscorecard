@@ -12,7 +12,8 @@ sc_dict(
   limit = 10,
   confirm = FALSE,
   print_dev = FALSE,
-  print_notes = FALSE
+  print_notes = FALSE,
+  return_df = FALSE
 )
 }
 \arguments{
