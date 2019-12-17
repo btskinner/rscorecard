@@ -17,6 +17,10 @@
 #'     return all items matched in search'
 #' @param confirm Use to confirm status of variable name in
 #'     dictionary. Returns \code{TRUE} or \code{FALSE}.
+#' @param print_dev Set to \code{TRUE} if you want to see the
+#'     developer friendly name and category used in the API call.
+#' @param print_notes Set to \code{TRUE} if you want to see the notes
+#'     included in the data dictionary (if any).
 #'
 #' @examples
 #' sc_dict('state')
@@ -30,10 +34,13 @@ sc_dict <- function(search_string,
                                    'varname',
                                    'dev_friendly_name',
                                    'dev_category',
-                                   'label'),
+                                   'label',
+                                   'source'),
                     ignore_case = TRUE,
                     limit = 10,
-                    confirm = FALSE) {
+                    confirm = FALSE,
+                    print_dev = FALSE,
+                    print_notes = FALSE) {
 
     ## only for confirm
     if (confirm) {
@@ -47,7 +54,8 @@ sc_dict <- function(search_string,
                       'varname',
                       'dev_friendly_name',
                       'dev_category',
-                      'label')) {
+                      'label',
+                      'source')) {
             tmp_rows <- grepl(search_string,
                               dict[[col]],
                               ignore.case = ignore_case)
@@ -78,14 +86,25 @@ sc_dict <- function(search_string,
         ## console table
         cat('\n' %+% paste(rep('', 70), collapse = '-') %+% '\n')
         cat('varname: ' %+% d[['varname']][1])
-        cat(rep('', 51 - nchar(d[['varname']][1]) -
-                    nchar(d[['dev_category']][1])))
-        cat('category: ' %+% d[['dev_category']][1])
+        ## cat(rep('', 51 - nchar(d[['varname']][1]) -
+        ##             nchar(d[['dev_category']][1])))
+        ## cat('category: ' %+% d[['dev_category']][1])
+        cat(rep('', 53 - nchar(d[['varname']][1]) -
+                    nchar(d[['source']][1])))
+        cat('source: ' %+% d[['source']][1])
         cat('\n' %+% paste(rep('', 70), collapse = '-') %+% '\n')
-        cat('DEVELOPER FRIENDLY NAME:\n\n')
-        cat(d[['dev_friendly_name']][1] %+% '\n\n')
+        if (print_dev) {
+            cat('\nDEVELOPER FRIENDLY NAME:\n\n')
+            cat(d[['dev_friendly_name']][1] %+% '\n')
+            cat('\nDEVELOPER CATEGORY:\n\n')
+            cat(d[['dev_category']][1] %+% '\n\n')
+        }
         cat('DESCRIPTION:\n\n')
         cat(strwrap(d[['description']][1], 70) %+% '\n')
+        if (print_notes) {
+            cat('\nNOTES:\n\n')
+            cat(strwrap(d[['notes']][1], 70) %+% '\n')
+        }
         cat('\n')
         cat('VALUES: ')
         if (is.na(d[['value']][1])) {
@@ -102,6 +121,7 @@ sc_dict <- function(search_string,
 
     }
 
+    cat(paste(rep('', 70), collapse = '-') %+% '\n')
     cat('Printed information for ' %+% min(length(uniqv), limit) %+% ' of out ')
     cat(length(uniqv) %+% ' variables.\n')
     if (limit < length(uniqv)) cat('Increase limit to see more variables.\n')
