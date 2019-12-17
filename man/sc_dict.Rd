@@ -13,7 +13,8 @@ sc_dict(
   confirm = FALSE,
   print_dev = FALSE,
   print_notes = FALSE,
-  return_df = FALSE
+  return_df = FALSE,
+  print_off = FALSE
 )
 }
 \arguments{
@@ -41,6 +42,11 @@ developer friendly name and category used in the API call.}
 
 \item{print_notes}{Set to \code{TRUE} if you want to see the notes
 included in the data dictionary (if any).}
+
+\item{return_df}{Return a tibble of the subset data dictionary.}
+
+\item{print_off}{Do not print to console; useful if you only want
+to return a tibble of dictionary values.}
 }
 \description{
 This function is used to search the College Scorecard

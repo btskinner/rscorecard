@@ -21,6 +21,9 @@
 #'     developer friendly name and category used in the API call.
 #' @param print_notes Set to \code{TRUE} if you want to see the notes
 #'     included in the data dictionary (if any).
+#' @param return_df Return a tibble of the subset data dictionary.
+#' @param print_off Do not print to console; useful if you only want
+#'     to return a tibble of dictionary values.
 #'
 #' @examples
 #' sc_dict('state')
@@ -41,7 +44,8 @@ sc_dict <- function(search_string,
                     confirm = FALSE,
                     print_dev = FALSE,
                     print_notes = FALSE,
-                    return_df = FALSE) {
+                    return_df = FALSE,
+                    print_off = FALSE) {
 
     ## only for confirm
     if (confirm) {
@@ -79,54 +83,56 @@ sc_dict <- function(search_string,
     uniqv <- unique(out[['varname']])
 
     ## pretty print
-    for (i in 1:min(length(uniqv), limit)) {
+    if (!print_off) {
+        for (i in 1:min(length(uniqv), limit)) {
 
-        ## subset
-        d <- out[out[['varname']] == uniqv[i],]
+            ## subset
+            d <- out[out[['varname']] == uniqv[i],]
 
-        ## console table
-        cat('\n' %+% paste(rep('', 70), collapse = '-') %+% '\n')
-        cat('varname: ' %+% d[['varname']][1])
-        ## cat(rep('', 51 - nchar(d[['varname']][1]) -
-        ##             nchar(d[['dev_category']][1])))
-        ## cat('category: ' %+% d[['dev_category']][1])
-        cat(rep('', 53 - nchar(d[['varname']][1]) -
-                    nchar(d[['source']][1])))
-        cat('source: ' %+% d[['source']][1])
-        cat('\n' %+% paste(rep('', 70), collapse = '-') %+% '\n')
-        if (print_dev) {
-            cat('\nDEVELOPER FRIENDLY NAME:\n\n')
-            cat(d[['dev_friendly_name']][1] %+% '\n')
-            cat('\nDEVELOPER CATEGORY:\n\n')
-            cat(d[['dev_category']][1] %+% '\n\n')
-        }
-        cat('DESCRIPTION:\n\n')
-        cat(strwrap(d[['description']][1], 70) %+% '\n')
-        if (print_notes) {
-            cat('\nNOTES:\n\n')
-            cat(strwrap(d[['notes']][1], 70) %+% '\n')
-        }
-        cat('\n')
-        cat('VALUES: ')
-        if (is.na(d[['value']][1])) {
-            cat('NA\n\n')
-        } else {
-            cat('\n\n')
-            for (j in seq(nrow(d))) {
-
-                cat(d[['value']][j] %+% ' = ' %+% d[['label']][j] %+% '\n')
-
+            ## console table
+            cat('\n' %+% paste(rep('', 70), collapse = '-') %+% '\n')
+            cat('varname: ' %+% d[['varname']][1])
+            ## cat(rep('', 51 - nchar(d[['varname']][1]) -
+            ##             nchar(d[['dev_category']][1])))
+            ## cat('category: ' %+% d[['dev_category']][1])
+            cat(rep('', 53 - nchar(d[['varname']][1]) -
+                        nchar(d[['source']][1])))
+            cat('source: ' %+% d[['source']][1])
+            cat('\n' %+% paste(rep('', 70), collapse = '-') %+% '\n')
+            if (print_dev) {
+                cat('\nDEVELOPER FRIENDLY NAME:\n\n')
+                cat(d[['dev_friendly_name']][1] %+% '\n')
+                cat('\nDEVELOPER CATEGORY:\n\n')
+                cat(d[['dev_category']][1] %+% '\n\n')
+            }
+            cat('DESCRIPTION:\n\n')
+            cat(strwrap(d[['description']][1], 70) %+% '\n')
+            if (print_notes) {
+                cat('\nNOTES:\n\n')
+                cat(strwrap(d[['notes']][1], 70) %+% '\n')
             }
             cat('\n')
+            cat('VALUES: ')
+            if (is.na(d[['value']][1])) {
+                cat('NA\n\n')
+            } else {
+                cat('\n\n')
+                for (j in seq(nrow(d))) {
+
+                    cat(d[['value']][j] %+% ' = ' %+% d[['label']][j] %+% '\n')
+
+                }
+                cat('\n')
+            }
+
         }
 
+        cat(paste(rep('', 70), collapse = '-') %+% '\n')
+        cat('Printed information for ' %+% min(length(uniqv), limit) %+% ' of out ')
+        cat(length(uniqv) %+% ' variables.\n')
+        if (limit < length(uniqv)) cat('Increase limit to see more variables.\n')
+        cat('\n')
     }
-
-    cat(paste(rep('', 70), collapse = '-') %+% '\n')
-    cat('Printed information for ' %+% min(length(uniqv), limit) %+% ' of out ')
-    cat(length(uniqv) %+% ' variables.\n')
-    if (limit < length(uniqv)) cat('Increase limit to see more variables.\n')
-    cat('\n')
 
     ## return_df ? return (out) : <>
     if (return_df) {
