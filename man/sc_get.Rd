@@ -4,7 +4,13 @@
 \alias{sc_get}
 \title{Get scorecard data.}
 \usage{
-sc_get(sccall, api_key, debug = FALSE, print_key_debug = FALSE)
+sc_get(
+  sccall,
+  api_key,
+  debug = FALSE,
+  print_key_debug = FALSE,
+  return_json = FALSE
+)
 }
 \arguments{
 \item{sccall}{Current list of parameters carried forward from prior
@@ -23,6 +29,9 @@ debugging calls.}
 \item{print_key_debug}{Only used when \code{debug == TRUE}. Default
 masks the \code{api_key} value. Set to \code{TRUE} to print the
 full API call string with the \code{api_key} unmasked.}
+
+\item{return_json}{Return data in JSON format rather than as a
+tibble.}
 }
 \description{
 This function gets the College Scorecard data by compiling and

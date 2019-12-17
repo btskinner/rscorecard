@@ -125,8 +125,15 @@ sc_get <- function(sccall, api_key, debug = FALSE, print_key_debug = FALSE,
     }
 
     ## make first pull
-    content <- httr::content(resp, as = 'text', encoding = 'UTF-8')
-    init <- jsonlite::fromJSON(content)
+    init_content <- httr::content(resp, as = 'text', encoding = 'UTF-8')
+    ## init <- jsonlite::fromJSON(init_content) %>%
+    ##     purrr::pluck('results') %>%
+    ##     purrr::map_if(is.data.frame, list) %>%
+    ##     as_tibble
+    ## unnest_cols <- dplyr::select_if(init, is.list) %>% names
+    ## init <- init %>%
+    ##     tidyr::unnest(cols = unnest_cols, names_sep = '.')
+    init <- jsonlite::fromJSON(init_content, flatten = TRUE)
 
     ## return if no options
     if (init[['metadata']][['total']] == 0) {
@@ -147,14 +154,19 @@ sc_get <- function(sccall, api_key, debug = FALSE, print_key_debug = FALSE,
             message('Request chunk ' %+% i)
             con <- url %+% '&_page=' %+% i %+% '&_per_page=100&api_key=' %+% api_key
             content <- httr::content(httr::GET(con), as = 'text', encoding = 'UTF-8')
-            page_list[[i]] <- jsonlite::fromJSON(content, flatten = TRUE)[['results']]
+            if (return_json) {
+                page_list[[i]] <- content
+            } else {
+                page_list[[i]] <- jsonlite::fromJSON(content,
+                                                     flatten = TRUE)[['results']]
+            }
         }
-        if (return_json) return(list(init[['results']], page_list))
+        if (return_json) return(c(init_content, unlist(page_list, use.names = FALSE)))
         df <- dplyr::bind_rows(dplyr::tbl_df(init[['results']]), page_list)
 
     } else {
 
-        if (return_json) return(init[['results']])
+        if (return_json) return(init_content)
         df <- dplyr::tbl_df(init[['results']])
 
     }

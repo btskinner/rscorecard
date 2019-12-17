@@ -6,7 +6,7 @@ sapply(libs, require, character.only = TRUE)
 ## get latest XLSX data dictionary file
 file <- 'CollegeScorecardDataDictionary.xlsx'
 link <- paste0('https://collegescorecard.ed.gov/assets/', file)
-# download.file(link, file)
+download.file(link, file)
 
 ## sheet names
 sheets <- c('institution_data_dictionary',
@@ -28,8 +28,11 @@ df <- purrr::map(sheets,
                             notes) %>%
                      ## lower name values for varname column
                      mutate(varname = tolower(varname)) %>%
-                     ## remove extra \r\n from decription column
+                     ## remove extra \r\n from description column
                      mutate(description = gsub('^(.+)\r\n 0.*$', '\\1', description)) %>%
+                     ## remove trailing characters from dev_friendly_name
+                     mutate(dev_friendly_name = gsub('^(.+):$', '\\1',
+                                                     dev_friendly_name)) %>%
                      ## roll values forward to fill NA
                      mutate(description = na.locf(description),
                             dev_category = na.locf(dev_category),

@@ -29,18 +29,23 @@ add_year <- function(string, year) {
 
 ## dev names to var names
 dev_to_var <- function(x, debug = FALSE) {
-    re <- '^(latest|[0-9]{0,4})\\.?(' %+%
-        'academics' %+|%
-        'admissions' %+|%
-        'aid' %+|%
-        'completion' %+|%
-        'cost' %+|%
-        'earnings' %+|%
-        'programs' %+|%
-        'repayment' %+|%
-        'root' %+|%
-        'school' %+|%
-        'student' %+% ')\\.(.+)$'
-    x <- gsub(re, '\\3', x)
+    if (grepl('^.+\\$.+$', x)) {
+        re <- '^(.+\\$)(.+)$'
+        x <- gsub(re, '\\2', x)
+    } else {
+        re <- '^(latest|[0-9]{0,4})\\.?(' %+%
+            'academics' %+|%
+            'admissions' %+|%
+            'aid' %+|%
+            'completion' %+|%
+            'cost' %+|%
+            'earnings' %+|%
+            'programs' %+|%
+            'repayment' %+|%
+            'root' %+|%
+            'school' %+|%
+            'student' %+% ')\\.(.+)$'
+        x <- gsub(re, '\\3', x)
+    }
     if (debug) x else sc_hash[[x]]
 }

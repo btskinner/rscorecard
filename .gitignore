@@ -5,3 +5,4 @@
 inst/doc
 data-raw/*.xlsx
 builds/
+test_api_pulls/
