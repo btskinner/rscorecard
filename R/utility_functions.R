@@ -49,3 +49,20 @@ dev_to_var <- function(x, debug = FALSE) {
     }
     if (debug) x else sc_hash[[x]]
 }
+
+## repeated function to convert json --> tibble
+convert_json_to_tibble <- function(json_str) {
+    ## initial messy data frame
+    df <- jsonlite::fromJSON(json_str, flatten = TRUE) %>%
+        purrr::pluck('results')
+    ## get rows
+    df_nrow <- nrow(df)
+    ## convert to nested tibble
+    df <- purrr::map_if(df, is.data.frame, list) %>% tidyr::as_tibble()
+    ## get nested column names (those of class <list>)
+    unnest_cols <- dplyr::select_if(df, is.list) %>% names
+    ## unnest
+    df <- tidyr::unnest(df, cols = unnest_cols, names_sep = '.')
+    ## return
+    list('df' = df, 'df_nrow' = df_nrow)
+}

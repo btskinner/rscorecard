@@ -7,10 +7,14 @@
 sc_dict(
   search_string,
   search_col = c("all", "description", "varname", "dev_friendly_name", "dev_category",
-    "label"),
+    "label", "source"),
   ignore_case = TRUE,
   limit = 10,
-  confirm = FALSE
+  confirm = FALSE,
+  print_dev = FALSE,
+  print_notes = FALSE,
+  return_df = FALSE,
+  print_off = FALSE
 )
 }
 \arguments{
@@ -32,6 +36,17 @@ return all items matched in search'}
 
 \item{confirm}{Use to confirm status of variable name in
 dictionary. Returns \code{TRUE} or \code{FALSE}.}
+
+\item{print_dev}{Set to \code{TRUE} if you want to see the
+developer friendly name and category used in the API call.}
+
+\item{print_notes}{Set to \code{TRUE} if you want to see the notes
+included in the data dictionary (if any).}
+
+\item{return_df}{Return a tibble of the subset data dictionary.}
+
+\item{print_off}{Do not print to console; useful if you only want
+to return a tibble of dictionary values.}
 }
 \description{
 This function is used to search the College Scorecard

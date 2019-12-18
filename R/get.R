@@ -124,27 +124,28 @@ sc_get <- function(sccall, api_key, debug = FALSE, print_key_debug = FALSE,
         }
     }
 
-    ## make first pull
+    ## ---------------
+    ## initial pull
+    ## ---------------
+
+    ## get content
     init_content <- httr::content(resp, as = 'text', encoding = 'UTF-8')
-    ## init <- jsonlite::fromJSON(init_content) %>%
-    ##     purrr::pluck('results') %>%
-    ##     purrr::map_if(is.data.frame, list) %>%
-    ##     as_tibble
-    ## unnest_cols <- dplyr::select_if(init, is.list) %>% names
-    ## init <- init %>%
-    ##     tidyr::unnest(cols = unnest_cols, names_sep = '.')
-    init <- jsonlite::fromJSON(init_content, flatten = TRUE)
+    ## get metadata
+    init_meta <- jsonlite::fromJSON(init_content)[['metadata']]
+    ## get data and rows
+    init_list <- convert_json_to_tibble(init_content)
 
     ## return if no options
-    if (init[['metadata']][['total']] == 0) {
+    if (init_meta[['total']] == 0) {
         stop('No results! Broaden your search or try different variables.',
              call. = FALSE)
     }
 
-    if (init[['metadata']][['total']] > nrow(init[['results']])) {
+    ## if there are more rows than return, then need to pull in chunks
+    if (init_meta[['total']] > init_list[['df_nrow']]) {
 
         ## get number of pages needed
-        pages <- floor(init[['metadata']][['total']] / 100)
+        pages <- floor(init_meta[['total']] / 100)
 
         message('Large request will require: ' %+% pages %+% ' additional pulls.')
 
@@ -157,18 +158,25 @@ sc_get <- function(sccall, api_key, debug = FALSE, print_key_debug = FALSE,
             if (return_json) {
                 page_list[[i]] <- content
             } else {
-                page_list[[i]] <- jsonlite::fromJSON(content,
-                                                     flatten = TRUE)[['results']]
+                page_list[[i]] <- convert_json_to_tibble(content)[['df']]
             }
         }
-        if (return_json) return(c(init_content, unlist(page_list, use.names = FALSE)))
-        df <- dplyr::bind_rows(dplyr::tbl_df(init[['results']]), page_list)
+
+        ## return_json ? return(<json_st>) : bind tbl_dfs into one
+        if (return_json) {
+            return(c(init_content, unlist(page_list, use.names = FALSE)))
+        } else {
+            df <- dplyr::bind_rows(init_list[['df']], page_list)
+        }
 
     } else {
 
-        if (return_json) return(init_content)
-        df <- dplyr::tbl_df(init[['results']])
-
+        ## return_json ? return(<json_st>) : return single tbl_df pull
+        if (return_json) {
+            return(init_content)
+        } else {
+            df <- init_list[['df']]
+        }
     }
 
     ## convert names back to non-developer-friendly names and return
