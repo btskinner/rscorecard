@@ -3,14 +3,14 @@ context('sc_dict')
 test_that('Dictionary does not return correct object', {
 
     ## stabbr (short)
-    df1 <- tibble(varname = 'stabbr',
-                   value = NA_real_,
-                   label = NA_character_,
-                   description = 'State postcode',
-                   source = 'IPEDS',
-                   dev_friendly_name = 'state',
-                   dev_category = 'school',
-                   notes = 'Shown/used on consumer website.')
+    df1 <- tidyr::tibble(varname = 'stabbr',
+                         value = NA_real_,
+                         label = NA_character_,
+                         description = 'State postcode',
+                         source = 'IPEDS',
+                         dev_friendly_name = 'state',
+                         dev_category = 'school',
+                         notes = 'Shown/used on consumer website.')
 
     df2 <- sc_dict('stabbr', return_df = TRUE, print_off = TRUE)
 
@@ -38,14 +38,14 @@ test_that('Dictionary does not return correct object', {
                   "American Samoa", "Federated States of Micronesia",
                   "Guam", "Northern Mariana Islands", "Palau",
                   "Puerto Rico", "Virgin Islands")
-    df1 <- tibble(varname = 'st_fips',
-                   value = st_value,
-                   label = st_label,
-                   description = 'FIPS code for state',
-                   source = 'IPEDS',
-                   dev_friendly_name = 'state_fips',
-                   dev_category = 'school',
-                   notes = 'Shown/used on consumer website.')
+    df1 <- tidyr::tibble(varname = 'st_fips',
+                         value = st_value,
+                         label = st_label,
+                         description = 'FIPS code for state',
+                         source = 'IPEDS',
+                         dev_friendly_name = 'state_fips',
+                         dev_category = 'school',
+                         notes = 'Shown/used on consumer website.')
 
     df2 <- sc_dict('st_fips', return_df = TRUE, print_off = TRUE)
 
