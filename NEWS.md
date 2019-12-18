@@ -1,6 +1,26 @@
 # rscorecard 0.14.0
 
-- update dictionary for 20 November 2019 release of data
+- update dictionary for 12 December 2019 release of data
+- users can now request field of study-level data elements
+
+- updates to `sc_dict()` command:
+  - can now return tibble with dictionary information using
+    `return_df` argument
+  - can turn off printing with `print_off` argument	
+  - console-printed dictionary:
+    - now returns data element source
+	- does not return developer-friendly names by default; turn on
+      using `print_dev == TRUE` argument
+	- can return notes from data dictionary (if they exist) by setting
+      `print_notes == TRUE`
+	  
+- users can now request JSON version of returned data by using
+  `return_json == TRUE` in `sc_get()`
+  
+- returned data frame now puts variables in order requested in
+  `sc_select()`
+  
+- some new tests
 
 # rscorecard 0.13.0
 

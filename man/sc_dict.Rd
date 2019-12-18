@@ -53,7 +53,13 @@ This function is used to search the College Scorecard
 data dictionary.
 }
 \examples{
+## simple search for 'state' in any part of the dictionary
 sc_dict('state')
-sc_dict('^st', search_col = 'varname') # variable names starting with 'st'
-sc_dict('.', limit = Inf) # return full dictionary (not recommended)
+
+## variable names starting with 'st'
+sc_dict('^st', search_col = 'varname')
+
+## return full dictionary (only recommended if not printing and
+## storing in object)
+df <- sc_dict('.', limit = Inf, print_off = TRUE, return_df = TRUE)
 }

@@ -17,6 +17,7 @@ sc_init <- function(dfvars = FALSE) {
 
     list('dfvars' = dfvars,
          'select' = NULL,
+         'select_order' = NULL,
          'filter' = NULL,
          'zip' = NULL,
          'year' = 'latest')

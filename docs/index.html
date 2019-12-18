@@ -43,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.14.0</span>
       </span>
     </div>
 
@@ -56,7 +56,13 @@
   </a>
 </li>
 <li>
-  <a href="articles/introduction.html">Downloading College Scorecard Data</a>
+  <a href="articles/introduction.html">Getting started</a>
+</li>
+<li>
+  <a href="articles/commands.html">Commands</a>
+</li>
+<li>
+  <a href="articles/more_examples.html">More examples</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -133,25 +139,23 @@
 <span id="cb4-3"><a href="#cb4-3"></a>df &lt;-<span class="st"> </span><span class="kw"><a href="reference/sc_init.html">sc_init</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb4-4"><a href="#cb4-4"></a><span class="st">    </span><span class="kw"><a href="reference/sc_filter.html">sc_filter</a></span>(region <span class="op">==</span><span class="st"> </span><span class="dv">2</span>, ccbasic <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>), locale <span class="op">==</span><span class="st"> </span><span class="dv">41</span><span class="op">:</span><span class="dv">43</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb4-5"><a href="#cb4-5"></a><span class="st">    </span><span class="kw"><a href="reference/sc_select.html">sc_select</a></span>(unitid, instnm, stabbr) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="st">    </span><span class="kw"><a href="reference/sc_year.html">sc_year</a></span>(<span class="dv">2013</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="st">    </span><span class="kw"><a href="reference/sc_year.html">sc_year</a></span>(<span class="st">"latest"</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb4-7"><a href="#cb4-7"></a><span class="st">    </span><span class="kw"><a href="reference/sc_get.html">sc_get</a></span>()</span>
 <span id="cb4-8"><a href="#cb4-8"></a></span>
 <span id="cb4-9"><a href="#cb4-9"></a><span class="co">## Request complete!</span></span>
 <span id="cb4-10"><a href="#cb4-10"></a></span>
 <span id="cb4-11"><a href="#cb4-11"></a>df</span>
 <span id="cb4-12"><a href="#cb4-12"></a></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="co">## # A tibble: 8 x 4</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="co">##   instnm                                                   stabbr unitid  year</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="co">## * &lt;chr&gt;                                                    &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt;</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="co">## 1 Pennsylvania State University-Penn State Wilkes-Barre    PA     214643  2013</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="co">## 2 Pennsylvania State University-Penn State New Kensington  PA     214625  2013</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a><span class="co">## 3 Paul Smiths College of Arts and Science                  NY     194392  2013</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a><span class="co">## 4 Houghton College                                         NY     191676  2013</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a><span class="co">## 5 Hamilton College                                         NY     191515  2013</span></span>
-<span id="cb4-21"><a href="#cb4-21"></a><span class="co">## 6 Morrisville State College                                NY     196051  2013</span></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="co">## 7 Wells College                                            NY     197230  2013</span></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="co">## 8 Pennsylvania State University-Penn State Fayette- Eberly PA     214759  2013</span></span></code></pre></div>
-<p>For more example calls, see the <a href="http://btskinner.me/rscorecard">extended vignette</a>.</p>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="co">## # A tibble: 6 x 4</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="co">##   instnm                                                  stabbr unitid year  </span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co">##   &lt;chr&gt;                                                   &lt;chr&gt;   &lt;int&gt; &lt;chr&gt; </span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="co">## 1 SUNY Morrisville                                        NY     196051 latest</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="co">## 2 Pennsylvania State University-Penn State New Kensington PA     214625 latest</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="co">## 3 Paul Smiths College of Arts and Science                 NY     194392 latest</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="co">## 4 Houghton College                                        NY     191676 latest</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="co">## 5 Pennsylvania State University-Penn State Wilkes-Barre   PA     214643 latest</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a><span class="co">## 6 Wells College                                           NY     197230 latest</span></span></code></pre></div>
+<p>For more example calls and information about other package commands, see the <a href="https://www.btskinner.io/rscorecard/articles/introduction.html">extended vignette</a>.</p>
 </div>
 <div id="data-dictionary" class="section level3">
 <h3 class="hasAnchor">
@@ -161,23 +165,38 @@
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="co">## </span></span>
 <span id="cb5-4"><a href="#cb5-4"></a><span class="co">## ---------------------------------------------------------------------</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="co">## varname: control                                     category: school</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">## varname: control                                        source: IPEDS</span></span>
 <span id="cb5-6"><a href="#cb5-6"></a><span class="co">## ---------------------------------------------------------------------</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co">## DEVELOPER FRIENDLY NAME:</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">## DESCRIPTION:</span></span>
 <span id="cb5-8"><a href="#cb5-8"></a><span class="co">## </span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="co">## ownership</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">## Control of institution</span></span>
 <span id="cb5-10"><a href="#cb5-10"></a><span class="co">## </span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="co">## DESCRIPTION:</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="co">## VALUES: </span></span>
 <span id="cb5-12"><a href="#cb5-12"></a><span class="co">## </span></span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="co">## Control of institution</span></span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="co">## </span></span>
-<span id="cb5-15"><a href="#cb5-15"></a><span class="co">## VALUES: </span></span>
-<span id="cb5-16"><a href="#cb5-16"></a><span class="co">## </span></span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="co">## 1 = Public</span></span>
-<span id="cb5-18"><a href="#cb5-18"></a><span class="co">## 2 = Private nonprofit</span></span>
-<span id="cb5-19"><a href="#cb5-19"></a><span class="co">## 3 = Private for-profit</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co">## 1 = Public</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="co">## 2 = Private nonprofit</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="co">## 3 = Private for-profit</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="co">## 1 = Public</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="co">## 2 = Private nonprofit</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="co">## 3 = Private for-profit</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="co">## 4 = Foreign</span></span>
 <span id="cb5-20"><a href="#cb5-20"></a><span class="co">## </span></span>
-<span id="cb5-21"><a href="#cb5-21"></a><span class="co">## Printed information for 1 of out 1 variables.</span></span></code></pre></div>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="co">## </span></span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="co">## ---------------------------------------------------------------------</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="co">## varname: schtype                                          source: FSA</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="co">## ---------------------------------------------------------------------</span></span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="co">## DESCRIPTION:</span></span>
+<span id="cb5-26"><a href="#cb5-26"></a><span class="co">## </span></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="co">## Control of institution, per PEPS</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a><span class="co">## </span></span>
+<span id="cb5-29"><a href="#cb5-29"></a><span class="co">## VALUES: </span></span>
+<span id="cb5-30"><a href="#cb5-30"></a><span class="co">## </span></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="co">## 1 = Public</span></span>
+<span id="cb5-32"><a href="#cb5-32"></a><span class="co">## 2 = Private, Nonprofit</span></span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="co">## 3 = Proprietary</span></span>
+<span id="cb5-34"><a href="#cb5-34"></a><span class="co">## </span></span>
+<span id="cb5-35"><a href="#cb5-35"></a><span class="co">## ---------------------------------------------------------------------</span></span>
+<span id="cb5-36"><a href="#cb5-36"></a><span class="co">## Printed information for 2 of out 2 variables.</span></span></code></pre></div>
 </div>
 </div>
 <div id="further-references" class="section level2">

@@ -1,11 +1,7 @@
 ---
-title: "Downloading Department of Education College Scorecard Data"
-author: "Benjamin Skinner"
+title: "Getting started"
 date: "`r Sys.Date()`"
-# output: 
-#     md_document:
-#         variant: markdown_github
-# output: rmarkdown::html_vignette
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{rscorecard}
   %\VignetteEngine{knitr::rmarkdown}
@@ -20,109 +16,151 @@ knitr::opts_chunk$set(purl = NOT_CRAN)
 
 ```{r}
 library(rscorecard)
-df <- sc_init() %>% 
-    sc_filter(region == 2, ccbasic == c(21,22,23), locale == 41:43) %>% 
-    sc_select(unitid, instnm, stabbr) %>% 
-    sc_year(2013) %>% 
-    sc_get()
-df
 ```
 
+Using `{rscorecard}` to download data from the College Scorecard API
+requires two steps:
 
-## Bookend commands
+1. Setting your API key
+2. Making a request
 
-### `sc_init()`
+## 1. Setting your API key
 
-Use `sc_init()` to start the command chain. The only real option is whether you want to use standard variable names (as they are found in IPEDS) or the new developer-friendly variable names developed for the Scorecard API. Unless you have good reason for doing so, I recommend using the default standard names. If you want to use the developer-friendly names, set `dfvars = TRUE`. Whichever you choose, you're stuck with that option for the length of piped command chain;
-no switching from one type to another.
+If you don't already have one, reqest your (free) API key from
+[https://api.data.gov/signup](https://api.data.gov/signup). It should
+only take a few moments to register and receive your key.
 
-### `sc_get()`
-
-Use `sc_get()` as the last command in the chain. If you haven't used `sc_key` to store your data.gov API key in the system environment, then you must supply your key as an argument.
-
-## Subsetting commands
-
-The following commands are structured to behave like [`dplyr`](https://CRAN.R-project.org/package=dplyr). They
-can be placed in any order in the piped command chain and each one relies (for the most part) on [non-standard evaluation](https://cran.r-project.org/package=dplyr/vignettes/programming.html) for its arguments. This means that you don't have to quote variable names.
-
-### `sc_select()`
-
-Use `sc_select()` to select the variables (columns) you want in your final dataframe. These variables do not have to be the same as those used to filter the data and are case insensitive. Separate the variable names with commas. The Scorecard API requires that most of the variables be prepended with their category. `sc_select()` uses a hash table to do this automatically for you so you do not have to know or include those (and in fact should not). This command is the only one of the subsetting commands that is required to pull data. 
-
-### `sc_filter()`
-
-Use `sc_filter()` to filter the rows you want in your final dataframe. Its main job is to convert idiomatic R code into the format required by the Scorecard API. Like `sc_select()`, `sc_filter` prepends variable categories automatically and variables are case insensitive. Like with `dplyr::filter()`, separate each filtering expression with a comma.There are a few points to note owing to the idiosyncracies of the Scorecard API. First, there are the conversions between R and the Scorecard, shown in the table below.
-
-|Scorecard|R|R example|Conversion|
-|:--------|:-----------:|:------:|:----:|
-|`,`|`c()`|`sc_filter(stabbr == c('KY','TN'))`|`school.state=KY,TN`|
-|`__not`|`!=`|`sc_filter(stabbr != 'KY')`|`school.state__not=KY`|
-|`__range`,`..`|`#:#`|`sc_filter(ccbasic==10:14)`|`school.carnegie_basic__range=1..14`|
-|spaces (`%20`)|' '|`sc_filter(instnm == 'New York')`|`school.name=New%20York`|
-
-A few notes:
-
-1. While R can handle a mixture of discrete and ranged values of a single variable (`c(1,2,5:10)`), it does not appear that Scorecard API can. You will either have to overselect and then filter the downloaded dataframe or list every value discretely.
-2. The Scorecard API does not appear to handle `>` or `<` symbols. This means that if you want to select a range of values above a certain threshold (_e.g.,_ enrollments above 10,000 students), you may have to give a range of from 10001 to an artifically large number. Same thing but reversed for values under a certain threshold.
-3. Ranged values are inclusive so `1:10` will convert to `__range=1..10` and include both 1 and 10.
-
-### `sc_year()`
-
-All Scorecard variables except those in the root and school categories take a year option. Simply set the data year you want.
-
-**Two important points:**  
-
-1. There is not a consistent scheme mapping data to year. In some cases, data year is the year of collection. In school-year spans (_e.g.,_ 2010-2011), the data year is 2010. In some cases, the Scorecard data are defaulted to a different year. You should consult the [Scorecard Documentation](https://collegescorecard.ed.gov/assets/FullDataDocumentation.pdf) to be sure you are getting what you expect.
-2. At this time is only possible to pull down a single year of data at a time.
-
-### `sc_zip()`
-
-Use `sc_zip()` to subset the sample to those institutions within a certain distance around a given zip code. Only one zip code may be given. The default is
-distance is 25 miles, but both the distance and metric (miles or kilometers) can be changed.
-
-## Set API key
-
-Once you've gotten your API key from [https://api.data.gov/signup](https://api.data.gov/signup), you can store it usig `sc_key()`. In the absence of a key value argument, `sc_get()` will search your R environment for `DATAGOV_API_KEY`. It will complete the data request if found. `sc_key()` command will store your key in `DATAGOV_API_KEY`, which will persist until the R session is closed. 
+Once you've gotten your key, you can store it usig `sc_key()`. In the
+absence of a key value argument, `sc_get()` will search your R
+environment for `DATAGOV_API_KEY`. It will complete the data request
+if found. `sc_key()` command will store your key in `DATAGOV_API_KEY`,
+which will persist until the R session is closed.
 
 ```{r, eval = FALSE}
 # NB: You must use a real key, of course... 
 sc_key('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
 ```
 
-If you want a more permanent solution, you can add the following line (with your actual key, of course) to your `.Renviron` file.  See this [appendix](ftp://cran.r-project.org/pub/R/web/packages/httr/vignettes/api-packages.html) for more information.
+If you want a more permanent solution, you can add the following line
+(with your actual key, of course) to your `.Renviron` file.  See this
+[appendix](ftp://cran.r-project.org/pub/R/web/packages/httr/vignettes/api-packages.html)
+for more information.
 
 ```{r, eval = FALSE}
 # NB: You must use a real key, of course... 
 DATAGOV_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-## More examples
+## Simple request
 
-### Using area within zip code
+Each request requires the following four commands piped together using
+`%>%`:
+
+1. `sc_init()`
+2. `sc_filter()`
+3. `sc_select()`
+4. `sc_get()`
+
+The command chain must begin with `sc_init()` and end with
+`sc_get`. All other commands can come in any order.
+
+The request belower should return a tibble with the name, IPEDS ID,
+state, and degree-seeking undergrad enrollment of all primarily
+Baccalaureate colleges in the Mid East region located in rural areas:
 
 ```{r}
-## public schools within 50 miles of midtown Nashville, TN
 df <- sc_init() %>% 
-    sc_filter(control == 1) %>% 
-    sc_select(unitid, instnm, stabbr) %>% 
-    sc_year(2013) %>% 
-    sc_zip(37203, 50) %>%
+    sc_filter(region == 2, ccbasic == c(21,22,23), locale == 41:43) %>% 
+    sc_select(unitid, instnm, stabbr, ugds) %>% 
     sc_get()
+```
+```{r}
 df
 ```
 
-### Large pull
+Because we didn't include a specific year, the `latest` data are
+returned. We could have specifically asked for the latest data using
+`sc_year('latest')`:
 
 ```{r}
-## median earnings for students who first enrolled in a public
-## college in the New England or Mid-Atlantic regions: 10 years later
 df <- sc_init() %>% 
-    sc_filter(control == 1, region == 1:2, ccbasic == 1:24) %>% 
-    sc_select(unitid, instnm, md_earn_wne_p10) %>% 
-    sc_year(2009) %>%
+    sc_filter(region == 2, ccbasic == c(21,22,23), locale == 41:43) %>% 
+    sc_select(unitid, instnm, stabbr, ugds) %>%
+    sc_year('latest') %>% 
     sc_get()
+```
+```{r}
 df
 ```
+
+For a prior year's data, change the value in `sc_year()`:
+
+
+```{r}
+df <- sc_init() %>% 
+    sc_filter(region == 2, ccbasic == c(21,22,23), locale == 41:43) %>% 
+    sc_select(unitid, instnm, stabbr, ugds) %>%
+    sc_year(2005) %>% 
+    sc_get()
+```
+```{r}
+df
+```
+
+### Field of study data
+
+In the fall of 2019, the College Scorecard released field of
+study-level data elements (4 digit CIP code level). These data
+elements can be requested alongside institution-level data:
+
+```{r}
+df <- sc_init() %>% 
+    sc_filter(region == 2, ccbasic == c(21,22,23), locale == 41:43) %>% 
+    sc_select(unitid, instnm, stabbr, ugds, cipcode, cipdesc, debtmedian) %>%
+    sc_year('latest') %>% 
+    sc_get()
+```
+
+```{r}
+## filter to show only those with non-NA values for median debt
+df %>% dplyr::filter(!is.na(debtmedian))
+```
+
+**Important note:**
+
+The mapping scheme of data across years isn't consistent across data
+elements. From the [technical documentation for institution-level
+data](https://collegescorecard.ed.gov/assets/FullDataDocumentation.pdf):
+
+> The data contain diverse measures of institutional performance
+> constructed both with an eye towards the type of information that
+> would be most useful to prospective students, as well as towards how
+> the measures might promote accountability for institutions. The
+> measures require different definitions of cohorts. Users of the data
+> should be aware of this, particularly when constructing analyses of
+> the relationship between different measures. Moreover, reporting
+> inaccuracies in some data elements used for cohort definitions are
+> also important. (p. 37)
+
+That is, while the _reporting_ year (_e.g._, `sc_year(2016)`) may be
+the same, the _measurement_ year may not directly align. The same
+holds true when trying to align institution-level data with field of
+study-level data (see the [technical documentation for field of
+study-level
+data](https://collegescorecard.ed.gov/assets/FieldOfStudyDataDocumentation.pdf)
+for more information). 
+
+The upshot is that `{rscorecard}` will return data based on what the
+API call returns, but the user should take care to ensure that
+returned data elements align with expectations and project needs.
+
+# More information and examples
+
+For more information about each command, see
+[Commands](https://www.btskinner.io/rscorecard/articles/commands.html).
+
+For more examples, see [More
+examples](https://www.btskinner.io/rscorecard/articles/more_examples.html).
 
 
 

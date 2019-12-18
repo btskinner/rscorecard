@@ -79,7 +79,7 @@ that is used to get the data." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.14.0</span>
       </span>
     </div>
 
@@ -92,7 +92,13 @@ that is used to get the data." />
   </a>
 </li>
 <li>
-  <a href="../articles/introduction.html">Downloading College Scorecard Data</a>
+  <a href="../articles/introduction.html">Getting started</a>
+</li>
+<li>
+  <a href="../articles/commands.html">Commands</a>
+</li>
+<li>
+  <a href="../articles/more_examples.html">More examples</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -148,7 +154,13 @@ converting all the previous piped output into a single URL string
 that is used to get the data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>sc_get</span>(<span class='no'>sccall</span>, <span class='no'>api_key</span>, <span class='kw'>debug</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>print_key_debug</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>sc_get</span>(
+  <span class='no'>sccall</span>,
+  <span class='no'>api_key</span>,
+  <span class='kw'>debug</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>print_key_debug</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>return_json</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -177,6 +189,11 @@ debugging calls.</p></td>
       <td><p>Only used when <code>debug == TRUE</code>. Default
 masks the <code>api_key</code> value. Set to <code>TRUE</code> to print the
 full API call string with the <code>api_key</code> unmasked.</p></td>
+    </tr>
+    <tr>
+      <th>return_json</th>
+      <td><p>Return data in JSON format rather than as a
+tibble.</p></td>
     </tr>
     </table>
 

@@ -26,8 +26,12 @@ navbar:
   left:
     - icon: fa-home
       href: index.html
-    - text: 'Downloading College Scorecard Data'
+    - text: 'Getting started'
       href: articles/introduction.html
+    - text: 'Commands'
+      href: articles/commands.html
+    - text: 'More examples'
+      href: articles/more_examples.html
   right:
     - icon: fa-file-code-o
       text: 'functions'

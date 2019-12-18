@@ -185,8 +185,13 @@ sc_get <- function(sccall, api_key, debug = FALSE, print_key_debug = FALSE,
                             USE.NAMES = FALSE)
     }
 
-    ## add year column and return
+    ## add year column
     df[['year']] <- sccall[['year']]
+
+    ## put in order of variable request
+    df <- dplyr::select(df, dplyr::one_of(sccall[['select_order']], 'year'))
+
+    ## message and return
     message('Request complete!')
     df
 

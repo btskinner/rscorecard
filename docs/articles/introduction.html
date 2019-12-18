@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Downloading Department of Education College Scorecard Data • rscorecard</title>
+<title>Getting started • rscorecard</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -16,7 +16,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Downloading Department of Education College Scorecard Data">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Getting started">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://www.btskinner.io/rscorecard/logo.png">
 <meta name="twitter:card" content="summary">
@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.14.0</span>
       </span>
     </div>
 
@@ -51,7 +51,13 @@
   </a>
 </li>
 <li>
-  <a href="../articles/introduction.html">Downloading College Scorecard Data</a>
+  <a href="../articles/introduction.html">Getting started</a>
+</li>
+<li>
+  <a href="../articles/commands.html">Commands</a>
+</li>
+<li>
+  <a href="../articles/more_examples.html">More examples</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -93,13 +99,12 @@
 
       
 
-      </header><div class="row">
+      </header><script src="introduction_files/jquery-1.11.3/jquery.min.js"></script><script src="introduction_files/elevate-section-attrs-2.0/elevate-section-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Downloading Department of Education College Scorecard Data</h1>
-                        <h4 class="author">Benjamin Skinner</h4>
+      <h1>Getting started</h1>
             
-            <h4 class="date">2019-10-01</h4>
+            <h4 class="date">2019-12-18</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/master/vignettes/introduction.Rmd"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
@@ -108,184 +113,124 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(rscorecard)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>df &lt;-<span class="st"> </span><span class="kw"><a href="../reference/sc_init.html">sc_init</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_filter.html">sc_filter</a></span>(region <span class="op">==</span><span class="st"> </span><span class="dv">2</span>, ccbasic <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>), locale <span class="op">==</span><span class="st"> </span><span class="dv">41</span><span class="op">:</span><span class="dv">43</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_select.html">sc_select</a></span>(unitid, instnm, stabbr) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_year.html">sc_year</a></span>(<span class="dv">2013</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_get.html">sc_get</a></span>()</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#&gt; Request complete!</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a>df</span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co">#&gt; # A tibble: 6 x 4</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co">#&gt;   instnm                                                stabbr unitid  year</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co">#&gt;   &lt;chr&gt;                                                 &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt;</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co">#&gt; 1 SUNY Morrisville                                      NY     196051  2013</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="co">#&gt; 2 Pennsylvania State University-Penn State New Kensing… PA     214625  2013</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="co">#&gt; 3 Paul Smiths College of Arts and Science               NY     194392  2013</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="co">#&gt; 4 Houghton College                                      NY     191676  2013</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="co">#&gt; 5 Wells College                                         NY     197230  2013</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="co">#&gt; 6 Pennsylvania State University-Penn State Wilkes-Barre PA     214643  2013</span></span></code></pre></div>
-<div id="bookend-commands" class="section level2">
-<h2 class="hasAnchor">
-<a href="#bookend-commands" class="anchor"></a>Bookend commands</h2>
-<div id="sc_init" class="section level3">
-<h3 class="hasAnchor">
-<a href="#sc_init" class="anchor"></a><code>sc_init()</code>
-</h3>
-<p>Use <code><a href="../reference/sc_init.html">sc_init()</a></code> to start the command chain. The only real option is whether you want to use standard variable names (as they are found in IPEDS) or the new developer-friendly variable names developed for the Scorecard API. Unless you have good reason for doing so, I recommend using the default standard names. If you want to use the developer-friendly names, set <code>dfvars = TRUE</code>. Whichever you choose, you’re stuck with that option for the length of piped command chain; no switching from one type to another.</p>
-</div>
-<div id="sc_get" class="section level3">
-<h3 class="hasAnchor">
-<a href="#sc_get" class="anchor"></a><code>sc_get()</code>
-</h3>
-<p>Use <code><a href="../reference/sc_get.html">sc_get()</a></code> as the last command in the chain. If you haven’t used <code>sc_key</code> to store your data.gov API key in the system environment, then you must supply your key as an argument.</p>
-</div>
-</div>
-<div id="subsetting-commands" class="section level2">
-<h2 class="hasAnchor">
-<a href="#subsetting-commands" class="anchor"></a>Subsetting commands</h2>
-<p>The following commands are structured to behave like <a href="https://CRAN.R-project.org/package=dplyr"><code>dplyr</code></a>. They can be placed in any order in the piped command chain and each one relies (for the most part) on <a href="https://cran.r-project.org/package=dplyr/vignettes/programming.html">non-standard evaluation</a> for its arguments. This means that you don’t have to quote variable names.</p>
-<div id="sc_select" class="section level3">
-<h3 class="hasAnchor">
-<a href="#sc_select" class="anchor"></a><code>sc_select()</code>
-</h3>
-<p>Use <code><a href="../reference/sc_select.html">sc_select()</a></code> to select the variables (columns) you want in your final dataframe. These variables do not have to be the same as those used to filter the data and are case insensitive. Separate the variable names with commas. The Scorecard API requires that most of the variables be prepended with their category. <code><a href="../reference/sc_select.html">sc_select()</a></code> uses a hash table to do this automatically for you so you do not have to know or include those (and in fact should not). This command is the only one of the subsetting commands that is required to pull data.</p>
-</div>
-<div id="sc_filter" class="section level3">
-<h3 class="hasAnchor">
-<a href="#sc_filter" class="anchor"></a><code>sc_filter()</code>
-</h3>
-<p>Use <code><a href="../reference/sc_filter.html">sc_filter()</a></code> to filter the rows you want in your final dataframe. Its main job is to convert idiomatic R code into the format required by the Scorecard API. Like <code><a href="../reference/sc_select.html">sc_select()</a></code>, <code>sc_filter</code> prepends variable categories automatically and variables are case insensitive. Like with <code><a href="https://dplyr.tidyverse.org/reference/filter.html">dplyr::filter()</a></code>, separate each filtering expression with a comma.There are a few points to note owing to the idiosyncracies of the Scorecard API. First, there are the conversions between R and the Scorecard, shown in the table below.</p>
-<table class="table">
-<thead><tr class="header">
-<th align="left">Scorecard</th>
-<th align="center">R</th>
-<th align="center">R example</th>
-<th align="center">Conversion</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left"><code>,</code></td>
-<td align="center"><code><a href="https://rdrr.io/r/base/c.html">c()</a></code></td>
-<td align="center"><code><a href="../reference/sc_filter.html">sc_filter(stabbr == c('KY','TN'))</a></code></td>
-<td align="center"><code>school.state=KY,TN</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>__not</code></td>
-<td align="center"><code><a href="https://rdrr.io/r/base/Comparison.html">!=</a></code></td>
-<td align="center"><code><a href="../reference/sc_filter.html">sc_filter(stabbr != 'KY')</a></code></td>
-<td align="center"><code>school.state__not=KY</code></td>
-</tr>
-<tr class="odd">
-<td align="left">
-<code>__range</code>,<code>..</code>
-</td>
-<td align="center"><code>#:#</code></td>
-<td align="center"><code><a href="../reference/sc_filter.html">sc_filter(ccbasic==10:14)</a></code></td>
-<td align="center"><code>school.carnegie_basic__range=1..14</code></td>
-</tr>
-<tr class="even">
-<td align="left">spaces (<code>%20</code>)</td>
-<td align="center">’ ’</td>
-<td align="center"><code><a href="../reference/sc_filter.html">sc_filter(instnm == 'New York')</a></code></td>
-<td align="center"><code>school.name=New%20York</code></td>
-</tr>
-</tbody>
-</table>
-<p>A few notes:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(rscorecard)</span></code></pre></div>
+<p>Using <code>{rscorecard}</code> to download data from the College Scorecard API requires two steps:</p>
 <ol style="list-style-type: decimal">
-<li>While R can handle a mixture of discrete and ranged values of a single variable (<code><a href="https://rdrr.io/r/base/c.html">c(1,2,5:10)</a></code>), it does not appear that Scorecard API can. You will either have to overselect and then filter the downloaded dataframe or list every value discretely.</li>
-<li>The Scorecard API does not appear to handle <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code> or <code><a href="https://rdrr.io/r/base/Comparison.html">&lt;</a></code> symbols. This means that if you want to select a range of values above a certain threshold (<em>e.g.,</em> enrollments above 10,000 students), you may have to give a range of from 10001 to an artifically large number. Same thing but reversed for values under a certain threshold.</li>
-<li>Ranged values are inclusive so <code>1:10</code> will convert to <code>__range=1..10</code> and include both 1 and 10.</li>
+<li>Setting your API key</li>
+<li>Making a request</li>
 </ol>
-</div>
-<div id="sc_year" class="section level3">
-<h3 class="hasAnchor">
-<a href="#sc_year" class="anchor"></a><code>sc_year()</code>
-</h3>
-<p>All Scorecard variables except those in the root and school categories take a year option. Simply set the data year you want.</p>
-<p><strong>Two important points:</strong></p>
-<ol style="list-style-type: decimal">
-<li>There is not a consistent scheme mapping data to year. In some cases, data year is the year of collection. In school-year spans (<em>e.g.,</em> 2010-2011), the data year is 2010. In some cases, the Scorecard data are defaulted to a different year. You should consult the <a href="https://collegescorecard.ed.gov/assets/FullDataDocumentation.pdf">Scorecard Documentation</a> to be sure you are getting what you expect.</li>
-<li>At this time is only possible to pull down a single year of data at a time.</li>
-</ol>
-</div>
-<div id="sc_zip" class="section level3">
-<h3 class="hasAnchor">
-<a href="#sc_zip" class="anchor"></a><code>sc_zip()</code>
-</h3>
-<p>Use <code><a href="../reference/sc_zip.html">sc_zip()</a></code> to subset the sample to those institutions within a certain distance around a given zip code. Only one zip code may be given. The default is distance is 25 miles, but both the distance and metric (miles or kilometers) can be changed.</p>
-</div>
-</div>
-<div id="set-api-key" class="section level2">
+<div id="setting-your-api-key" class="section level2">
 <h2 class="hasAnchor">
-<a href="#set-api-key" class="anchor"></a>Set API key</h2>
-<p>Once you’ve gotten your API key from <a href="https://api.data.gov/signup">https://api.data.gov/signup</a>, you can store it usig <code><a href="../reference/sc_key.html">sc_key()</a></code>. In the absence of a key value argument, <code><a href="../reference/sc_get.html">sc_get()</a></code> will search your R environment for <code>DATAGOV_API_KEY</code>. It will complete the data request if found. <code><a href="../reference/sc_key.html">sc_key()</a></code> command will store your key in <code>DATAGOV_API_KEY</code>, which will persist until the R session is closed.</p>
+<a href="#setting-your-api-key" class="anchor"></a>1. Setting your API key</h2>
+<p>If you don’t already have one, reqest your (free) API key from <a href="https://api.data.gov/signup">https://api.data.gov/signup</a>. It should only take a few moments to register and receive your key.</p>
+<p>Once you’ve gotten your key, you can store it usig <code><a href="../reference/sc_key.html">sc_key()</a></code>. In the absence of a key value argument, <code><a href="../reference/sc_get.html">sc_get()</a></code> will search your R environment for <code>DATAGOV_API_KEY</code>. It will complete the data request if found. <code><a href="../reference/sc_key.html">sc_key()</a></code> command will store your key in <code>DATAGOV_API_KEY</code>, which will persist until the R session is closed.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># NB: You must use a real key, of course... </span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="kw"><a href="../reference/sc_key.html">sc_key</a></span>(<span class="st">'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'</span>)</span></code></pre></div>
 <p>If you want a more permanent solution, you can add the following line (with your actual key, of course) to your <code>.Renviron</code> file. See this <a href="ftp://cran.r-project.org/pub/R/web/packages/httr/vignettes/api-packages.html">appendix</a> for more information.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># NB: You must use a real key, of course... </span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>DATAGOV_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></code></pre></div>
 </div>
-<div id="more-examples" class="section level2">
+<div id="simple-request" class="section level2">
 <h2 class="hasAnchor">
-<a href="#more-examples" class="anchor"></a>More examples</h2>
-<div id="using-area-within-zip-code" class="section level3">
+<a href="#simple-request" class="anchor"></a>Simple request</h2>
+<p>Each request requires the following four commands piped together using <code><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></code>:</p>
+<ol style="list-style-type: decimal">
+<li><code><a href="../reference/sc_init.html">sc_init()</a></code></li>
+<li><code><a href="../reference/sc_filter.html">sc_filter()</a></code></li>
+<li><code><a href="../reference/sc_select.html">sc_select()</a></code></li>
+<li><code><a href="../reference/sc_get.html">sc_get()</a></code></li>
+</ol>
+<p>The command chain must begin with <code><a href="../reference/sc_init.html">sc_init()</a></code> and end with <code>sc_get</code>. All other commands can come in any order.</p>
+<p>The request belower should return a tibble with the name, IPEDS ID, state, and degree-seeking undergrad enrollment of all primarily Baccalaureate colleges in the Mid East region located in rural areas:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>df &lt;-<span class="st"> </span><span class="kw"><a href="../reference/sc_init.html">sc_init</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_filter.html">sc_filter</a></span>(region <span class="op">==</span><span class="st"> </span><span class="dv">2</span>, ccbasic <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>), locale <span class="op">==</span><span class="st"> </span><span class="dv">41</span><span class="op">:</span><span class="dv">43</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_select.html">sc_select</a></span>(unitid, instnm, stabbr, ugds) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_get.html">sc_get</a></span>()</span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">#&gt; Request complete!</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>df</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt; # A tibble: 6 x 5</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt;   unitid instnm                                               stabbr  ugds year </span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                                                &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt; 1 196051 SUNY Morrisville                                     NY      2815 late…</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt; 2 214625 Pennsylvania State University-Penn State New Kensin… PA       573 late…</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; 3 194392 Paul Smiths College of Arts and Science              NY       767 late…</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt; 4 191676 Houghton College                                     NY      1026 late…</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">#&gt; 5 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA       404 late…</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">#&gt; 6 197230 Wells College                                        NY       482 late…</span></span></code></pre></div>
+<p>Because we didn’t include a specific year, the <code>latest</code> data are returned. We could have specifically asked for the latest data using <code><a href="../reference/sc_year.html">sc_year('latest')</a></code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>df &lt;-<span class="st"> </span><span class="kw"><a href="../reference/sc_init.html">sc_init</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_filter.html">sc_filter</a></span>(region <span class="op">==</span><span class="st"> </span><span class="dv">2</span>, ccbasic <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>), locale <span class="op">==</span><span class="st"> </span><span class="dv">41</span><span class="op">:</span><span class="dv">43</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_select.html">sc_select</a></span>(unitid, instnm, stabbr, ugds) <span class="op">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_year.html">sc_year</a></span>(<span class="st">'latest'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_get.html">sc_get</a></span>()</span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#&gt; Request complete!</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>df</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">#&gt; # A tibble: 6 x 5</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt;   unitid instnm                                               stabbr  ugds year </span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                                                &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; 1 196051 SUNY Morrisville                                     NY      2815 late…</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; 2 214625 Pennsylvania State University-Penn State New Kensin… PA       573 late…</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; 3 194392 Paul Smiths College of Arts and Science              NY       767 late…</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; 4 191676 Houghton College                                     NY      1026 late…</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; 5 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA       404 late…</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">#&gt; 6 197230 Wells College                                        NY       482 late…</span></span></code></pre></div>
+<p>For a prior year’s data, change the value in <code><a href="../reference/sc_year.html">sc_year()</a></code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>df &lt;-<span class="st"> </span><span class="kw"><a href="../reference/sc_init.html">sc_init</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_filter.html">sc_filter</a></span>(region <span class="op">==</span><span class="st"> </span><span class="dv">2</span>, ccbasic <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>), locale <span class="op">==</span><span class="st"> </span><span class="dv">41</span><span class="op">:</span><span class="dv">43</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_select.html">sc_select</a></span>(unitid, instnm, stabbr, ugds) <span class="op">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_year.html">sc_year</a></span>(<span class="dv">2005</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_get.html">sc_get</a></span>()</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#&gt; Request complete!</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>df</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co">#&gt; # A tibble: 6 x 5</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#&gt;   unitid instnm                                               stabbr  ugds  year</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                                                &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt; 1 196051 SUNY Morrisville                                     NY      2964  2005</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt; 2 214625 Pennsylvania State University-Penn State New Kensin… PA       733  2005</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt; 3 194392 Paul Smiths College of Arts and Science              NY       841  2005</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt; 4 191676 Houghton College                                     NY      1368  2005</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt; 5 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA       565  2005</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#&gt; 6 197230 Wells College                                        NY       407  2005</span></span></code></pre></div>
+<div id="field-of-study-data" class="section level3">
 <h3 class="hasAnchor">
-<a href="#using-area-within-zip-code" class="anchor"></a>Using area within zip code</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">## public schools within 50 miles of midtown Nashville, TN</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>df &lt;-<span class="st"> </span><span class="kw"><a href="../reference/sc_init.html">sc_init</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_filter.html">sc_filter</a></span>(control <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_select.html">sc_select</a></span>(unitid, instnm, stabbr) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_year.html">sc_year</a></span>(<span class="dv">2013</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_zip.html">sc_zip</a></span>(<span class="dv">37203</span>, <span class="dv">50</span>) <span class="op">%&gt;%</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_get.html">sc_get</a></span>()</span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="co">#&gt; Request complete!</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a>df</span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co">#&gt; # A tibble: 10 x 4</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="co">#&gt;    instnm                                               stabbr unitid  year</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="co">#&gt;    &lt;chr&gt;                                                &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt;</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="co">#&gt;  1 Middle Tennessee State University                    TN     220978  2013</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="co">#&gt;  2 Columbia State Community College                     TN     219888  2013</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="co">#&gt;  3 Tennessee College of Applied Technology Nashville    TN     248925  2013</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="co">#&gt;  4 Tennessee College of Applied Technology-Murfreesboro TN     221102  2013</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="co">#&gt;  5 Austin Peay State University                         TN     219602  2013</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a><span class="co">#&gt;  6 Tennessee State University                           TN     221838  2013</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a><span class="co">#&gt;  7 Nashville State Community College                    TN     221184  2013</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a><span class="co">#&gt;  8 Tennessee College of Applied Technology-Dickson      TN     219994  2013</span></span>
-<span id="cb4-21"><a href="#cb4-21"></a><span class="co">#&gt;  9 Volunteer State Community College                    TN     222053  2013</span></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="co">#&gt; 10 Tennessee College of Applied Technology-Hartsville   TN     220279  2013</span></span></code></pre></div>
+<a href="#field-of-study-data" class="anchor"></a>Field of study data</h3>
+<p>In the fall of 2019, the College Scorecard released field of study-level data elements (4 digit CIP code level). These data elements can be requested alongside institution-level data:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>df &lt;-<span class="st"> </span><span class="kw"><a href="../reference/sc_init.html">sc_init</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_filter.html">sc_filter</a></span>(region <span class="op">==</span><span class="st"> </span><span class="dv">2</span>, ccbasic <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>), locale <span class="op">==</span><span class="st"> </span><span class="dv">41</span><span class="op">:</span><span class="dv">43</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_select.html">sc_select</a></span>(unitid, instnm, stabbr, ugds, cipcode, cipdesc, debtmedian) <span class="op">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_year.html">sc_year</a></span>(<span class="st">'latest'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_get.html">sc_get</a></span>()</span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; Request complete!</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">## filter to show only those with non-NA values for median debt</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>df <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span>(debtmedian))</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co">#&gt; # A tibble: 50 x 8</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co">#&gt;    unitid instnm         stabbr  ugds cipcode cipdesc           debtmedian year </span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="co">#&gt;  1 196051 SUNY Morrisvi… NY      2815 0103    Agricultural Pro…      26000 late…</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co">#&gt;  2 196051 SUNY Morrisvi… NY      2815 0105    Agricultural and…      12000 late…</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="co">#&gt;  3 196051 SUNY Morrisvi… NY      2815 1110    Computer/Informa…      26250 late…</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="co">#&gt;  4 196051 SUNY Morrisvi… NY      2815 2401    Liberal Arts and…      18500 late…</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a><span class="co">#&gt;  5 196051 SUNY Morrisvi… NY      2815 4301    Criminal Justice…      29687 late…</span></span>
+<span id="cb11-11"><a href="#cb11-11"></a><span class="co">#&gt;  6 196051 SUNY Morrisvi… NY      2815 4706    Vehicle Maintena…      12000 late…</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a><span class="co">#&gt;  7 196051 SUNY Morrisvi… NY      2815 4706    Vehicle Maintena…      27000 late…</span></span>
+<span id="cb11-13"><a href="#cb11-13"></a><span class="co">#&gt;  8 196051 SUNY Morrisvi… NY      2815 5138    Registered Nursi…      22919 late…</span></span>
+<span id="cb11-14"><a href="#cb11-14"></a><span class="co">#&gt;  9 196051 SUNY Morrisvi… NY      2815 5202    Business Adminis…      27000 late…</span></span>
+<span id="cb11-15"><a href="#cb11-15"></a><span class="co">#&gt; 10 214625 Pennsylvania … PA       573 0901    Communication an…      27000 late…</span></span>
+<span id="cb11-16"><a href="#cb11-16"></a><span class="co">#&gt; # … with 40 more rows</span></span></code></pre></div>
+<p><strong>Important note:</strong></p>
+<p>The mapping scheme of data across years isn’t consistent across data elements. From the <a href="https://collegescorecard.ed.gov/assets/FullDataDocumentation.pdf">technical documentation for institution-level data</a>:</p>
+<blockquote>
+<p>The data contain diverse measures of institutional performance constructed both with an eye towards the type of information that would be most useful to prospective students, as well as towards how the measures might promote accountability for institutions. The measures require different definitions of cohorts. Users of the data should be aware of this, particularly when constructing analyses of the relationship between different measures. Moreover, reporting inaccuracies in some data elements used for cohort definitions are also important. (p. 37)</p>
+</blockquote>
+<p>That is, while the <em>reporting</em> year (<em>e.g.</em>, <code><a href="../reference/sc_year.html">sc_year(2016)</a></code>) may be the same, the <em>measurement</em> year may not directly align. The same holds true when trying to align institution-level data with field of study-level data (see the <a href="https://collegescorecard.ed.gov/assets/FieldOfStudyDataDocumentation.pdf">technical documentation for field of study-level data</a> for more information).</p>
+<p>The upshot is that <code>{rscorecard}</code> will return data based on what the API call returns, but the user should take care to ensure that returned data elements align with expectations and project needs.</p>
 </div>
-<div id="large-pull" class="section level3">
-<h3 class="hasAnchor">
-<a href="#large-pull" class="anchor"></a>Large pull</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">## median earnings for students who first enrolled in a public</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co">## college in the New England or Mid-Atlantic regions: 10 years later</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>df &lt;-<span class="st"> </span><span class="kw"><a href="../reference/sc_init.html">sc_init</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_filter.html">sc_filter</a></span>(control <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, region <span class="op">==</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, ccbasic <span class="op">==</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">24</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_select.html">sc_select</a></span>(unitid, instnm, md_earn_wne_p10) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_year.html">sc_year</a></span>(<span class="dv">2009</span>) <span class="op">%&gt;%</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="st">    </span><span class="kw"><a href="../reference/sc_get.html">sc_get</a></span>()</span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt; Large request will require: 2 additional pulls.</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="co">#&gt; Request chunk 1</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="co">#&gt; Request chunk 2</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="co">#&gt; Request complete!</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a>df</span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="co">#&gt; # A tibble: 280 x 4</span></span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="co">#&gt;    instnm                                      md_earn_wne_p10 unitid  year</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a><span class="co">#&gt;    &lt;chr&gt;                                                 &lt;int&gt;  &lt;int&gt; &lt;dbl&gt;</span></span>
-<span id="cb5-16"><a href="#cb5-16"></a><span class="co">#&gt;  1 Community College of Baltimore County                 36200 434672  2009</span></span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="co">#&gt;  2 Suffolk County Community College                      38200 366395  2009</span></span>
-<span id="cb5-18"><a href="#cb5-18"></a><span class="co">#&gt;  3 Capital Community College                             34100 129367  2009</span></span>
-<span id="cb5-19"><a href="#cb5-19"></a><span class="co">#&gt;  4 Quinebaug Valley Community College                    28600 130217  2009</span></span>
-<span id="cb5-20"><a href="#cb5-20"></a><span class="co">#&gt;  5 Delaware Technical Community College-Terry            30900 130907  2009</span></span>
-<span id="cb5-21"><a href="#cb5-21"></a><span class="co">#&gt;  6 Central Connecticut State University                  46400 128771  2009</span></span>
-<span id="cb5-22"><a href="#cb5-22"></a><span class="co">#&gt;  7 Norwalk Community College                             34100 130004  2009</span></span>
-<span id="cb5-23"><a href="#cb5-23"></a><span class="co">#&gt;  8 Asnuntuck Community College                           30200 128577  2009</span></span>
-<span id="cb5-24"><a href="#cb5-24"></a><span class="co">#&gt;  9 Delaware State University                             38100 130934  2009</span></span>
-<span id="cb5-25"><a href="#cb5-25"></a><span class="co">#&gt; 10 Stella and Charles Guttman Community Colle…              NA 475565  2009</span></span>
-<span id="cb5-26"><a href="#cb5-26"></a><span class="co">#&gt; # … with 270 more rows</span></span></code></pre></div>
 </div>
+<div id="more-information-and-examples" class="section level1">
+<h1 class="hasAnchor">
+<a href="#more-information-and-examples" class="anchor"></a>More information and examples</h1>
+<p>For more information about each command, see <a href="https://www.btskinner.io/rscorecard/articles/commands.html">Commands</a>.</p>
+<p>For more examples, see <a href="https://www.btskinner.io/rscorecard/articles/more_examples.html">More examples</a>.</p>
 </div>
   </div>
 
@@ -295,10 +240,9 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#bookend-commands">Bookend commands</a></li>
-      <li><a href="#subsetting-commands">Subsetting commands</a></li>
-      <li><a href="#set-api-key">Set API key</a></li>
-      <li><a href="#more-examples">More examples</a></li>
+<li><a href="#setting-your-api-key">1. Setting your API key</a></li>
+      <li><a href="#simple-request">Simple request</a></li>
+      <li><a href="#more-information-and-examples">More information and examples</a></li>
       </ul>
 </div>
       </div>

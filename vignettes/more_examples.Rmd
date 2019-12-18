@@ -1,0 +1,62 @@
+---
+title: "More examples"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{rscorecard}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
+knitr::opts_chunk$set(purl = NOT_CRAN)
+```
+
+```{r}
+library(rscorecard)
+```
+
+## Using area within zip code
+
+```{r}
+## public schools within 50 miles of midtown Nashville, TN
+df <- sc_init() %>% 
+    sc_filter(control == 1) %>% 
+    sc_select(unitid, instnm, stabbr) %>% 
+    sc_year(2013) %>% 
+    sc_zip(37203, 50) %>%
+    sc_get()
+```
+```{r}
+df
+```
+
+## Large pull
+
+The College Scorecard will only return 100 results at a time. When
+there are more than 100 results, the package will make
+multiple pulls and append all results before returning. 
+
+```{r}
+## median earnings for students who first enrolled in a public
+## college in the New England or Mid-Atlantic regions: 10 years later
+df <- sc_init() %>% 
+    sc_filter(control == 1, region == 1:2, ccbasic == 1:24) %>% 
+    sc_select(unitid, instnm, md_earn_wne_p10) %>% 
+    sc_year(2009) %>%
+    sc_get()
+```
+
+```{r}
+df
+```
+
+
+
+
+
+
+
+

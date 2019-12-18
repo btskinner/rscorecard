@@ -13,6 +13,6 @@
 ^_pkgdown.yml$
 ^pkgdown$
 ^docs$
-^vignettes/introduction.Rmd$
+^vignettes$
 ^CODE_OF_CONDUCT\.md$
 ^test_api_pulls$

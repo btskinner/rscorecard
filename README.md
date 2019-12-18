@@ -48,27 +48,26 @@ key in your R environment at the start of your R session using
     df <- sc_init() %>% 
         sc_filter(region == 2, ccbasic == c(21,22,23), locale == 41:43) %>% 
         sc_select(unitid, instnm, stabbr) %>% 
-        sc_year(2013) %>% 
+        sc_year("latest") %>% 
         sc_get()
 
     ## Request complete!
 
     df
 
-    ## # A tibble: 8 x 4
-    ##   instnm                                                   stabbr unitid  year
-    ## * <chr>                                                    <chr>   <int> <dbl>
-    ## 1 Pennsylvania State University-Penn State Wilkes-Barre    PA     214643  2013
-    ## 2 Pennsylvania State University-Penn State New Kensington  PA     214625  2013
-    ## 3 Paul Smiths College of Arts and Science                  NY     194392  2013
-    ## 4 Houghton College                                         NY     191676  2013
-    ## 5 Hamilton College                                         NY     191515  2013
-    ## 6 Morrisville State College                                NY     196051  2013
-    ## 7 Wells College                                            NY     197230  2013
-    ## 8 Pennsylvania State University-Penn State Fayette- Eberly PA     214759  2013
+    ## # A tibble: 6 x 4
+    ##   instnm                                                  stabbr unitid year  
+    ##   <chr>                                                   <chr>   <int> <chr> 
+    ## 1 SUNY Morrisville                                        NY     196051 latest
+    ## 2 Pennsylvania State University-Penn State New Kensington PA     214625 latest
+    ## 3 Paul Smiths College of Arts and Science                 NY     194392 latest
+    ## 4 Houghton College                                        NY     191676 latest
+    ## 5 Pennsylvania State University-Penn State Wilkes-Barre   PA     214643 latest
+    ## 6 Wells College                                           NY     197230 latest
 
-For more example calls, see the [extended
-vignette](http://btskinner.me/rscorecard).
+For more example calls and information about other package commands, see
+the [extended
+vignette](https://www.btskinner.io/rscorecard/articles/introduction.html).
 
 ### Data dictionary
 
@@ -79,12 +78,8 @@ function.
 
     ## 
     ## ---------------------------------------------------------------------
-    ## varname: control                                     category: school
+    ## varname: control                                        source: IPEDS
     ## ---------------------------------------------------------------------
-    ## DEVELOPER FRIENDLY NAME:
-    ## 
-    ## ownership
-    ## 
     ## DESCRIPTION:
     ## 
     ## Control of institution
@@ -94,8 +89,27 @@ function.
     ## 1 = Public
     ## 2 = Private nonprofit
     ## 3 = Private for-profit
+    ## 1 = Public
+    ## 2 = Private nonprofit
+    ## 3 = Private for-profit
+    ## 4 = Foreign
     ## 
-    ## Printed information for 1 of out 1 variables.
+    ## 
+    ## ---------------------------------------------------------------------
+    ## varname: schtype                                          source: FSA
+    ## ---------------------------------------------------------------------
+    ## DESCRIPTION:
+    ## 
+    ## Control of institution, per PEPS
+    ## 
+    ## VALUES: 
+    ## 
+    ## 1 = Public
+    ## 2 = Private, Nonprofit
+    ## 3 = Proprietary
+    ## 
+    ## ---------------------------------------------------------------------
+    ## Printed information for 2 of out 2 variables.
 
 Further references
 ------------------

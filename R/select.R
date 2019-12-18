@@ -96,6 +96,9 @@ sc_select_ <- function(sccall, vars) {
         }
     }
 
+    ## store vars in order for later ordering
+    sccall[['select_order']] <- trimws(unlist(strsplit(toString(vars), split = ',')))
+
     ## convert to developer-friendly names
     if (!sccall[['dfvars']]) {
         vars <- vapply(vars, function(x) { sc_hash[[tolower(as.character(x))]] },

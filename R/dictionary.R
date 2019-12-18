@@ -26,9 +26,15 @@
 #'     to return a tibble of dictionary values.
 #'
 #' @examples
+#' ## simple search for 'state' in any part of the dictionary
 #' sc_dict('state')
-#' sc_dict('^st', search_col = 'varname') # variable names starting with 'st'
-#' sc_dict('.', limit = Inf) # return full dictionary (not recommended)
+#'
+#' ## variable names starting with 'st'
+#' sc_dict('^st', search_col = 'varname')
+#'
+#' ## return full dictionary (only recommended if not printing and
+#' ## storing in object)
+#' df <- sc_dict('.', limit = Inf, print_off = TRUE, return_df = TRUE)
 
 #' @export
 sc_dict <- function(search_string,
@@ -39,13 +45,9 @@ sc_dict <- function(search_string,
                                    'dev_category',
                                    'label',
                                    'source'),
-                    ignore_case = TRUE,
-                    limit = 10,
-                    confirm = FALSE,
-                    print_dev = FALSE,
-                    print_notes = FALSE,
-                    return_df = FALSE,
-                    print_off = FALSE) {
+                    ignore_case = TRUE, limit = 10, confirm = FALSE,
+                    print_dev = FALSE, print_notes = FALSE,
+                    return_df = FALSE, print_off = FALSE) {
 
     ## only for confirm
     if (confirm) {
