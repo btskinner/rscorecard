@@ -17,11 +17,11 @@ Installation
 
 Install the latest released version from CRAN with
 
-    install.packages('rscorecard')
+    install.packages("rscorecard")
 
 Install the latest development version from Github with
 
-    devtools::install_github('btskinner/rscorecard')
+    devtools::install_github("btskinner/rscorecard")
 
 This package relies on the Scorecard data dictionary, so I will attempt
 to update it in a timely fashion whenever new Scorecard data are
@@ -74,7 +74,7 @@ vignette](https://www.btskinner.io/rscorecard/articles/introduction.html).
 To look up information about data elements, use the `sc_dict()`
 function.
 
-    sc_dict('control')
+    sc_dict("control")
 
     ## 
     ## ---------------------------------------------------------------------

@@ -25,13 +25,13 @@ la [`dplyr`](http://github.com/hadley/dplyr).
 Install the latest released version from CRAN with
 
 ```r
-install.packages('rscorecard')
+install.packages("rscorecard")
 ```
 
 Install the latest development version from Github with
 
 ```r
-devtools::install_github('btskinner/rscorecard')
+devtools::install_github("btskinner/rscorecard")
 ```
 
 This package relies on the Scorecard data dictionary, so I will
@@ -77,7 +77,7 @@ To look up information about data elements, use the `sc_dict()`
 function.
 
 ```{r}
-sc_dict('control')
+sc_dict("control")
 ```
 
 ## Further references
