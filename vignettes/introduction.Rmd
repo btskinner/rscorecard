@@ -3,7 +3,7 @@ title: "Getting started"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{rscorecard}
+  %\VignetteIndexEntry{Getting started}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -116,14 +116,14 @@ elements can be requested alongside institution-level data:
 ```{r}
 df <- sc_init() %>% 
     sc_filter(region == 2, ccbasic == c(21,22,23), locale == 41:43) %>% 
-    sc_select(unitid, instnm, stabbr, ugds, cipcode, cipdesc, debtmedian) %>%
-    sc_year('latest') %>% 
+    sc_select(unitid, instnm, stabbr, ugds, cipcode, cipdesc, debt_mdn) %>%
+    sc_year("latest") %>% 
     sc_get()
 ```
 
 ```{r}
 ## filter to show only those with non-NA values for median debt
-df %>% dplyr::filter(!is.na(debtmedian))
+df %>% dplyr::filter(!is.na(debt_mdn))
 ```
 
 **Important note:**

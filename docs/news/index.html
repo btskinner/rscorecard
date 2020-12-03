@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -44,7 +48,6 @@
 
 <meta property="og:title" content="Changelog" />
 <meta property="og:image" content="https://www.btskinner.io/rscorecard/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -62,7 +65,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -76,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.14.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.0</span>
       </span>
     </div>
 
@@ -140,261 +143,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
+      <h1 data-toc-skip>Changelog <small></small></h1>
       <small>Source: <a href='https://github.com/btskinner/rscorecard/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="rscorecard-0140" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-0140" class="anchor"></a>rscorecard 0.14.0<small> Unreleased </small>
-</h1>
-<ul>
-<li><p>update dictionary for 12 December 2019 release of data</p></li>
-<li><p>users can now request field of study-level data elements</p></li>
-<li>
-<p>updates to <code><a href="../reference/sc_dict.html">sc_dict()</a></code> command:</p>
-<ul>
-<li>can now return tibble with dictionary information using <code>return_df</code> argument</li>
-<li>can turn off printing with <code>print_off</code> argument</li>
-<li>console-printed dictionary:
-<ul>
-<li>now returns data element source</li>
-<li>does not return developer-friendly names by default; turn on using <code>print_dev == TRUE</code> argument</li>
-<li>can return notes from data dictionary (if they exist) by setting <code>print_notes == TRUE</code>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>users can now request JSON version of returned data by using <code>return_json == TRUE</code> in <code><a href="../reference/sc_get.html">sc_get()</a></code></p></li>
-<li><p>returned data frame now puts variables in order requested in <code><a href="../reference/sc_select.html">sc_select()</a></code></p></li>
-<li><p>some new tests</p></li>
-</ul>
-</div>
-    <div id="rscorecard-0130" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-0130" class="anchor"></a>rscorecard 0.13.0<small> 2019-10-01 </small>
-</h1>
-<ul>
-<li>update dictionary for 30 September 2019 release of data</li>
-</ul>
-</div>
-    <div id="rscorecard-0120" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-0120" class="anchor"></a>rscorecard 0.12.0<small> 2019-05-21 </small>
-</h1>
-<ul>
-<li>update dictionary for 21 May 2019 release of data</li>
-</ul>
-</div>
-    <div id="rscorecard-0111" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-0111" class="anchor"></a>rscorecard 0.11.1<small> 2018-11-05 </small>
-</h1>
-<div id="bug-fix" class="section level2">
-<h2 class="hasAnchor">
-<a href="#bug-fix" class="anchor"></a>Bug fix</h2>
-<ul>
-<li>correct error in regular expression that converted dev-friendly names back to variable names in <code>sc_get</code> (h/t <a href='https://github.com/nguyentr17'>@nguyentr17</a>)</li>
-<li>moved regular expression conversions to <code>utility_functions::dev_to_var</code>
-</li>
-</ul>
-</div>
-<div id="updates" class="section level2">
-<h2 class="hasAnchor">
-<a href="#updates" class="anchor"></a>Updates</h2>
-<ul>
-<li>added tests for conversion</li>
-</ul>
-</div>
-</div>
-    <div id="rscorecard-0110" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-0110" class="anchor"></a>rscorecard 0.11.0<small> 2018-10-30 </small>
-</h1>
-<ul>
-<li>update dictionary for 30 October 2018 release of data</li>
-</ul>
-</div>
-    <div id="rscorecard-0100" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-0100" class="anchor"></a>rscorecard 0.10.0<small> 2018-10-01 </small>
-</h1>
-<ul>
-<li>update dictionary for 28 September 2018 release of data</li>
-</ul>
-</div>
-    <div id="rscorecard-090" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-090" class="anchor"></a>rscorecard 0.9.0<small> 2018-09-10 </small>
-</h1>
-<div id="potentially-breaking-changes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#potentially-breaking-changes" class="anchor"></a>Potentially breaking changes</h2>
-<ul>
-<li>default value for <code><a href="../reference/sc_year.html">sc_year()</a></code> is now <code>'latest'</code> rather than 2013. With continued data updates, this makes more sense than keeping an old year. Existing scripts that relied on the default for data from 2013 will need to be updated.<br>
-</li>
-<li>also note that the <code>year</code> column will be a character column with <code>latest</code> as the value when the most recent data are choosen. The College Scorecard doesn’t clearly note which data are the latest, so I have left the string. When building a panel dataset across multiple years, it will be best to use numeric year values for all years so that the resulting tibbles can be bound together cleanly.</li>
-</ul>
-</div>
-<div id="other-changes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#other-changes" class="anchor"></a>Other changes</h2>
-<ul>
-<li>add support for using some tidyselect helper functions when selecting variables with <code><a href="../reference/sc_select.html">sc_select()</a></code>: <code>starts_with()</code>, <code>ends_with()</code>, <code>contains()</code>, and <code>matches()</code> should now be available.</li>
-<li>update dictionary for 6 September 2018 release of data</li>
-</ul>
-</div>
-</div>
-    <div id="rscorecard-080" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-080" class="anchor"></a>rscorecard 0.8.0<small> 2018-08-26 </small>
-</h1>
-<div id="changes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#changes" class="anchor"></a>Changes</h2>
-<ul>
-<li>improved error handling when submitting bad request</li>
-<li>added <code><a href="../reference/sc_select.html">sc_select_()</a></code> and <code><a href="../reference/sc_filter.html">sc_filter_()</a></code>, which allow users to select and filter variables using strings stored in environment variable</li>
-</ul>
-</div>
-</div>
-    <div id="rscorecard-071" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-071" class="anchor"></a>rscorecard 0.7.1<small> 2018-03-29 </small>
-</h1>
-<div id="changes-1" class="section level2">
-<h2 class="hasAnchor">
-<a href="#changes-1" class="anchor"></a>Changes</h2>
-<ul>
-<li>update dictionary for March 2018 release of scorecard data</li>
-</ul>
-</div>
-</div>
-    <div id="rscorecard-070" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-070" class="anchor"></a>rscorecard 0.7.0<small> 2018-03-08 </small>
-</h1>
-<div id="changes-2" class="section level2">
-<h2 class="hasAnchor">
-<a href="#changes-2" class="anchor"></a>Changes</h2>
-<ul>
-<li>update dictionary for 19 December 2017 release of scorecard data</li>
-</ul>
-</div>
-</div>
-    <div id="rscorecard-060" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-060" class="anchor"></a>rscorecard 0.6.0<small> 2017-12-12 </small>
-</h1>
-<div id="changes-3" class="section level2">
-<h2 class="hasAnchor">
-<a href="#changes-3" class="anchor"></a>Changes</h2>
-<ul>
-<li>allow <code><a href="../reference/sc_zip.html">sc_zip()</a></code> to take zip codes that start with zero (h/t <a href='https://github.com/nateaff'>@nateaff</a>), either with string value or by returning leading zeros to numeric values that R drops</li>
-</ul>
-</div>
-</div>
-    <div id="rscorecard-050" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-050" class="anchor"></a>rscorecard 0.5.0<small> 2017-10-20 </small>
-</h1>
-<div id="changes-4" class="section level2">
-<h2 class="hasAnchor">
-<a href="#changes-4" class="anchor"></a>Changes</h2>
-<ul>
-<li>changed way API call is made (now using <a href="https://CRAN.R-project.org/package=httr"><code>httr</code></a> to make call rather than <code>jsonlite</code> directly) in order to improve parsing on bad lines</li>
-<li>added <code>debug</code> option to <code><a href="../reference/sc_get.html">sc_get()</a></code> so that the API URL string could be returned when debugging call</li>
-<li>removed old namespace import/exports no longer being used</li>
-</ul>
-</div>
-</div>
-    <div id="rscorecard-040" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-040" class="anchor"></a>rscorecard 0.4.0<small> 2017-09-28 </small>
-</h1>
-<ul>
-<li>update dictionary for 28 September 2017 release of scorecard data</li>
-<li>update link in introduction vignette</li>
-<li>change contact information</li>
-<li>read data dictionary sheet by name instead of sheet number when making <code>sysdata.rda</code> in <code>./data-raw/make_dict_hash.R</code>
-</li>
-<li>correct <code><a href="../reference/sc_get.html">sc_get()</a></code> to use <code><a href="https://rdrr.io/r/base/Round.html">floor()</a></code> instead of <code><a href="https://rdrr.io/r/base/Round.html">ceiling()</a></code> so that it doesn’t make unnecessary API request/pull (h/t <a href='https://github.com/jjchern'>@jjchern</a>)</li>
-</ul>
-</div>
-    <div id="rscorecard-033" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-033" class="anchor"></a>rscorecard 0.3.3<small> Unreleased </small>
-</h1>
-<div id="bug-fix-1" class="section level2">
-<h2 class="hasAnchor">
-<a href="#bug-fix-1" class="anchor"></a>Bug fix</h2>
-<ul>
-<li>allow <code><a href="../reference/sc_filter.html">sc_filter()</a></code> to use subset object vectors</li>
-</ul>
-</div>
-</div>
-    <div id="rscorecard-032" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-032" class="anchor"></a>rscorecard 0.3.2<small> Unreleased </small>
-</h1>
-<ul>
-<li>allow <code><a href="../reference/sc_filter.html">sc_filter()</a></code> to use vectors stored in objects</li>
-<li>allow <code><a href="../reference/sc_filter.html">sc_filter()</a></code> to use <code><a href="https://rdrr.io/r/base/match.html">%in%</a></code> operator</li>
-</ul>
-</div>
-    <div id="rscorecard-031" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-031" class="anchor"></a>rscorecard 0.3.1<small> 2017-01-14 </small>
-</h1>
-<ul>
-<li>update dictionary for 13 January 2017 release of scorecard data</li>
-<li>update <code><a href="../reference/sc_dict.html">sc_dict()</a></code> to search all columns by default</li>
-<li>update internal hash lookup environment to have less generic name</li>
-</ul>
-</div>
-    <div id="rscorecard-025" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-025" class="anchor"></a>rscorecard 0.2.5<small> 2016-05-18 </small>
-</h1>
-<ul>
-<li>fixed <code><a href="../reference/sc_dict.html">sc_dict()</a></code> bug that wouldn’t allow for search by developer friendly names</li>
-</ul>
-</div>
-    <div id="rscorecard-024" class="section level1">
-<h1 class="page-header">
-<a href="#rscorecard-024" class="anchor"></a>rscorecard 0.2.4<small> 2016-03-26 </small>
-</h1>
-<ul>
-<li>initial release</li>
-</ul>
-</div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#rscorecard-0140">0.14.0</a></li>
-        <li><a href="#rscorecard-0130">0.13.0</a></li>
-        <li><a href="#rscorecard-0120">0.12.0</a></li>
-        <li><a href="#rscorecard-0111">0.11.1</a></li>
-        <li><a href="#rscorecard-0110">0.11.0</a></li>
-        <li><a href="#rscorecard-0100">0.10.0</a></li>
-        <li><a href="#rscorecard-090">0.9.0</a></li>
-        <li><a href="#rscorecard-080">0.8.0</a></li>
-        <li><a href="#rscorecard-071">0.7.1</a></li>
-        <li><a href="#rscorecard-070">0.7.0</a></li>
-        <li><a href="#rscorecard-060">0.6.0</a></li>
-        <li><a href="#rscorecard-050">0.5.0</a></li>
-        <li><a href="#rscorecard-040">0.4.0</a></li>
-        <li><a href="#rscorecard-033">0.3.3</a></li>
-        <li><a href="#rscorecard-032">0.3.2</a></li>
-        <li><a href="#rscorecard-031">0.3.1</a></li>
-        <li><a href="#rscorecard-025">0.2.5</a></li>
-        <li><a href="#rscorecard-024">0.2.4</a></li>
-      </ul>
-    </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
@@ -406,7 +164,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

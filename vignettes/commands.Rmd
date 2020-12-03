@@ -1,9 +1,9 @@
 ---
-title: "More examples"
+title: "Commands"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{rscorecard}
+  %\VignetteIndexEntry{Commands}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
