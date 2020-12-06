@@ -6,7 +6,6 @@
 ^README\.md$
 ^README\.Rmd$
 ^.Rmd$
-^.travis\.yml$
 ^builds$
 ^data-raw$
 ^sticker$
