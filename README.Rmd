@@ -9,8 +9,8 @@ output: md_document
 options(width = 100)
 ```
 
-[![Build
-Status](https://travis-ci.org/btskinner/rscorecard.svg?branch=master)](https://travis-ci.org/btskinner/rscorecard)
+[![R build
+status](https://github.com/btskinner/rscorecard/workflows/R-CMD-check/badge.svg)](https://github.com/btskinner/rscorecard/actions)
 [![GitHub
 release](https://img.shields.io/github/release/btskinner/rscorecard.svg)](https://github.com/btskinner/rscorecard)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rscorecard)](http://cran.r-project.org/package=rscorecard)

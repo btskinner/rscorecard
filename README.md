@@ -1,8 +1,7 @@
-rscorecard <img src="man/figures/logo.png" align="right" />
-===========================================================
+# rscorecard <img src="man/figures/logo.png" align="right" />
 
-[![Build
-Status](https://travis-ci.org/btskinner/rscorecard.svg?branch=master)](https://travis-ci.org/btskinner/rscorecard)
+[![R build
+status](https://github.com/btskinner/rscorecard/workflows/R-CMD-check/badge.svg)](https://github.com/btskinner/rscorecard/actions)
 [![GitHub
 release](https://img.shields.io/github/release/btskinner/rscorecard.svg)](https://github.com/btskinner/rscorecard)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/rscorecard)](http://cran.r-project.org/package=rscorecard)
@@ -12,8 +11,7 @@ College Scorecard](https://collegescorecard.ed.gov) API. It allows users
 to select and filter Scorecard variables with piped commands a la
 [`dplyr`](http://github.com/hadley/dplyr).
 
-Installation
-------------
+## Installation
 
 Install the latest released version from CRAN with
 
@@ -29,8 +27,7 @@ released. Because it sometimes takes a few days to get a package on
 CRAN, you may want to download the developmental version in the days
 immediately following a data update.
 
-Usage
------
+## Usage
 
 ### Set API key
 
@@ -56,14 +53,14 @@ key in your R environment at the start of your R session using
     df
 
     ## # A tibble: 6 x 4
-    ##   instnm                                                  stabbr unitid year  
-    ##   <chr>                                                   <chr>   <int> <chr> 
-    ## 1 SUNY Morrisville                                        NY     196051 latest
-    ## 2 Pennsylvania State University-Penn State New Kensington PA     214625 latest
-    ## 3 Paul Smiths College of Arts and Science                 NY     194392 latest
-    ## 4 Houghton College                                        NY     191676 latest
-    ## 5 Pennsylvania State University-Penn State Wilkes-Barre   PA     214643 latest
-    ## 6 Wells College                                           NY     197230 latest
+    ##   unitid instnm                                                  stabbr year  
+    ##    <int> <chr>                                                   <chr>  <chr> 
+    ## 1 214625 Pennsylvania State University-Penn State New Kensington PA     latest
+    ## 2 196051 SUNY Morrisville                                        NY     latest
+    ## 3 194392 Paul Smiths College of Arts and Science                 NY     latest
+    ## 4 214643 Pennsylvania State University-Penn State Wilkes-Barre   PA     latest
+    ## 5 191676 Houghton College                                        NY     latest
+    ## 6 197230 Wells College                                           NY     latest
 
 For more example calls and information about other package commands, see
 the [extended
@@ -111,8 +108,7 @@ function.
     ## ---------------------------------------------------------------------
     ## Printed information for 2 of out 2 variables.
 
-Further references
-------------------
+## Further references
 
 -   [College Scorecard Website](https://collegescorecard.ed.gov)
 -   [Data
@@ -124,4 +120,3 @@ Further references
         paper](https://collegescorecard.ed.gov/assets/BetterInformationForBetterCollegeChoiceAndInstitutionalPerformance.pdf)
     -   [Technical
         paper](https://collegescorecard.ed.gov/assets/UsingFederalDataToMeasureAndImprovePerformance.pdf)
-		
