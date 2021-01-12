@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.18.0</span>
       </span>
     </div>
 
@@ -46,7 +46,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
   </a>
 </li>
@@ -63,28 +63,28 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="../reference/index.html">
-    <span class="fa fa-file-code-o"></span>
+    <span class="fas fa-file-code-o"></span>
      
     functions
   </a>
 </li>
 <li>
   <a href="../news/index.html">
-    <span class="fa fa-newspaper-o"></span>
+    <span class="fas fa-newspaper-o"></span>
      
     news
   </a>
 </li>
 <li>
   <a href="https://github.com/btskinner/rscorecard">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
     github
   </a>
 </li>
 <li>
   <a href="https://twitter.com/btskinner">
-    <span class="fab fa fab fa-twitter"></span>
+    <span class="fab fa-twitter"></span>
      
     twitter
   </a>
@@ -99,13 +99,12 @@
 
       
 
-      </header><script src="introduction_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="introduction_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="introduction_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><script src="introduction_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Getting started</h1>
             
-            <h4 class="date">2020-12-06</h4>
+            <h4 class="date">2021-01-12</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/master/vignettes/introduction.Rmd"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
@@ -157,8 +156,8 @@
 <span class="co">#&gt; # A tibble: 6 x 5</span>
 <span class="co">#&gt;   unitid instnm                                               stabbr  ugds year </span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                                                &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;</span>
-<span class="co">#&gt; 1 214625 Pennsylvania State University-Penn State New Kensin… PA       567 late…</span>
-<span class="co">#&gt; 2 196051 SUNY Morrisville                                     NY      2758 late…</span>
+<span class="co">#&gt; 1 196051 SUNY Morrisville                                     NY      2758 late…</span>
+<span class="co">#&gt; 2 214625 Pennsylvania State University-Penn State New Kensin… PA       567 late…</span>
 <span class="co">#&gt; 3 194392 Paul Smiths College of Arts and Science              NY       740 late…</span>
 <span class="co">#&gt; 4 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA       401 late…</span>
 <span class="co">#&gt; 5 191676 Houghton College                                     NY       981 late…</span>
@@ -176,8 +175,8 @@
 <span class="co">#&gt; # A tibble: 6 x 5</span>
 <span class="co">#&gt;   unitid instnm                                               stabbr  ugds year </span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                                                &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;</span>
-<span class="co">#&gt; 1 214625 Pennsylvania State University-Penn State New Kensin… PA       567 late…</span>
-<span class="co">#&gt; 2 196051 SUNY Morrisville                                     NY      2758 late…</span>
+<span class="co">#&gt; 1 196051 SUNY Morrisville                                     NY      2758 late…</span>
+<span class="co">#&gt; 2 214625 Pennsylvania State University-Penn State New Kensin… PA       567 late…</span>
 <span class="co">#&gt; 3 194392 Paul Smiths College of Arts and Science              NY       740 late…</span>
 <span class="co">#&gt; 4 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA       401 late…</span>
 <span class="co">#&gt; 5 191676 Houghton College                                     NY       981 late…</span>
@@ -195,8 +194,8 @@
 <span class="co">#&gt; # A tibble: 6 x 5</span>
 <span class="co">#&gt;   unitid instnm                                               stabbr  ugds  year</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                                                &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 214625 Pennsylvania State University-Penn State New Kensin… PA       733  2005</span>
-<span class="co">#&gt; 2 196051 SUNY Morrisville                                     NY      2964  2005</span>
+<span class="co">#&gt; 1 196051 SUNY Morrisville                                     NY      2964  2005</span>
+<span class="co">#&gt; 2 214625 Pennsylvania State University-Penn State New Kensin… PA       733  2005</span>
 <span class="co">#&gt; 3 194392 Paul Smiths College of Arts and Science              NY       841  2005</span>
 <span class="co">#&gt; 4 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA       565  2005</span>
 <span class="co">#&gt; 5 191676 Houghton College                                     NY      1368  2005</span>
@@ -216,18 +215,18 @@
 <code class="sourceCode R"><span class="co">## filter to show only those with non-NA values for median debt</span>
 <span class="va">df</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">debt_mdn</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 216 x 8</span>
-<span class="co">#&gt;    unitid instnm          stabbr  ugds cipcode cipdesc            debt_mdn year </span>
-<span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;</span>
-<span class="co">#&gt;  1 214625 Pennsylvania S… PA       567 0901    Communication and…    19500 late…</span>
-<span class="co">#&gt;  2 214625 Pennsylvania S… PA       567 1104    Information Scien…    19500 late…</span>
-<span class="co">#&gt;  3 214625 Pennsylvania S… PA       567 1104    Information Scien…    19500 late…</span>
-<span class="co">#&gt;  4 214625 Pennsylvania S… PA       567 1110    Computer/Informat…    19500 late…</span>
-<span class="co">#&gt;  5 214625 Pennsylvania S… PA       567 1410    Electrical, Elect…    19500 late…</span>
-<span class="co">#&gt;  6 214625 Pennsylvania S… PA       567 1504    Electromechanical…    19500 late…</span>
-<span class="co">#&gt;  7 214625 Pennsylvania S… PA       567 1508    Mechanical Engine…    19500 late…</span>
-<span class="co">#&gt;  8 214625 Pennsylvania S… PA       567 2401    Liberal Arts and …    19500 late…</span>
-<span class="co">#&gt;  9 214625 Pennsylvania S… PA       567 2401    Liberal Arts and …    19500 late…</span>
-<span class="co">#&gt; 10 214625 Pennsylvania S… PA       567 2699    Biological and Bi…    19500 late…</span>
+<span class="co">#&gt;    unitid instnm      stabbr  ugds cipcode cipdesc                debt_mdn year </span>
+<span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;                     &lt;dbl&gt; &lt;chr&gt;</span>
+<span class="co">#&gt;  1 196051 SUNY Morri… NY      2758 0100    Agriculture, General.     12000 late…</span>
+<span class="co">#&gt;  2 196051 SUNY Morri… NY      2758 0101    Agricultural Business…    12000 late…</span>
+<span class="co">#&gt;  3 196051 SUNY Morri… NY      2758 0101    Agricultural Business…    12000 late…</span>
+<span class="co">#&gt;  4 196051 SUNY Morri… NY      2758 0102    Agricultural Mechaniz…    12000 late…</span>
+<span class="co">#&gt;  5 196051 SUNY Morri… NY      2758 0102    Agricultural Mechaniz…    12000 late…</span>
+<span class="co">#&gt;  6 196051 SUNY Morri… NY      2758 0103    Agricultural Producti…    12000 late…</span>
+<span class="co">#&gt;  7 196051 SUNY Morri… NY      2758 0103    Agricultural Producti…    12000 late…</span>
+<span class="co">#&gt;  8 196051 SUNY Morri… NY      2758 0105    Agricultural and Dome…    12000 late…</span>
+<span class="co">#&gt;  9 196051 SUNY Morri… NY      2758 0109    Animal Sciences.          12000 late…</span>
+<span class="co">#&gt; 10 196051 SUNY Morri… NY      2758 0111    Plant Sciences.           12000 late…</span>
 <span class="co">#&gt; # … with 206 more rows</span></code></pre></div>
 <p><strong>Important note:</strong></p>
 <p>The mapping scheme of data across years isn’t consistent across data elements. From the <a href="https://collegescorecard.ed.gov/assets/FullDataDocumentation.pdf">technical documentation for institution-level data</a>:</p>

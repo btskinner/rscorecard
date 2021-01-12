@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.18.0</span>
       </span>
     </div>
 
@@ -46,7 +46,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
   </a>
 </li>
@@ -63,28 +63,28 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="../reference/index.html">
-    <span class="fa fa-file-code-o"></span>
+    <span class="fas fa-file-code-o"></span>
      
     functions
   </a>
 </li>
 <li>
   <a href="../news/index.html">
-    <span class="fa fa-newspaper-o"></span>
+    <span class="fas fa-newspaper-o"></span>
      
     news
   </a>
 </li>
 <li>
   <a href="https://github.com/btskinner/rscorecard">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
     github
   </a>
 </li>
 <li>
   <a href="https://twitter.com/btskinner">
-    <span class="fab fa fab fa-twitter"></span>
+    <span class="fab fa-twitter"></span>
      
     twitter
   </a>
@@ -99,13 +99,12 @@
 
       
 
-      </header><script src="more_examples_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="more_examples_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="more_examples_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><script src="more_examples_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>More examples</h1>
             
-            <h4 class="date">2020-12-06</h4>
+            <h4 class="date">2021-01-12</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/master/vignettes/more_examples.Rmd"><code>vignettes/more_examples.Rmd</code></a></small>
       <div class="hidden name"><code>more_examples.Rmd</code></div>
@@ -133,16 +132,16 @@
 <span class="co">#&gt; # A tibble: 10 x 4</span>
 <span class="co">#&gt;    unitid instnm                                               stabbr  year</span>
 <span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;                                                &lt;chr&gt;  &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 248925 Tennessee College of Applied Technology Nashville    TN      2013</span>
-<span class="co">#&gt;  2 221102 Tennessee College of Applied Technology-Murfreesboro TN      2013</span>
-<span class="co">#&gt;  3 221838 Tennessee State University                           TN      2013</span>
-<span class="co">#&gt;  4 219602 Austin Peay State University                         TN      2013</span>
-<span class="co">#&gt;  5 219888 Columbia State Community College                     TN      2013</span>
-<span class="co">#&gt;  6 220978 Middle Tennessee State University                    TN      2013</span>
+<span class="co">#&gt;  1 219602 Austin Peay State University                         TN      2013</span>
+<span class="co">#&gt;  2 221838 Tennessee State University                           TN      2013</span>
+<span class="co">#&gt;  3 219888 Columbia State Community College                     TN      2013</span>
+<span class="co">#&gt;  4 220978 Middle Tennessee State University                    TN      2013</span>
+<span class="co">#&gt;  5 221102 Tennessee College of Applied Technology-Murfreesboro TN      2013</span>
+<span class="co">#&gt;  6 248925 Tennessee College of Applied Technology Nashville    TN      2013</span>
 <span class="co">#&gt;  7 219994 Tennessee College of Applied Technology-Dickson      TN      2013</span>
 <span class="co">#&gt;  8 221184 Nashville State Community College                    TN      2013</span>
-<span class="co">#&gt;  9 222053 Volunteer State Community College                    TN      2013</span>
-<span class="co">#&gt; 10 220279 Tennessee College of Applied Technology-Hartsville   TN      2013</span></code></pre></div>
+<span class="co">#&gt;  9 220279 Tennessee College of Applied Technology-Hartsville   TN      2013</span>
+<span class="co">#&gt; 10 222053 Volunteer State Community College                    TN      2013</span></code></pre></div>
 </div>
 <div id="large-pull" class="section level2">
 <h2 class="hasAnchor">
@@ -163,18 +162,18 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span>
 <span class="co">#&gt; # A tibble: 283 x 4</span>
-<span class="co">#&gt;    unitid instnm                                    md_earn_wne_p10  year</span>
-<span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;                                               &lt;int&gt; &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 434672 Community College of Baltimore County               36200  2009</span>
-<span class="co">#&gt;  2 245625 Warren County Community College                     36200  2009</span>
-<span class="co">#&gt;  3 366252 Pennsylvania College of Technology                  38200  2009</span>
-<span class="co">#&gt;  4 167534 Quinsigamond Community College                      31700  2009</span>
-<span class="co">#&gt;  5 166647 Massachusetts Bay Community College                 40100  2009</span>
-<span class="co">#&gt;  6 183044 University of New Hampshire-Main Campus             47300  2009</span>
-<span class="co">#&gt;  7 183071 University of New Hampshire at Manchester           47300  2009</span>
-<span class="co">#&gt;  8 186201 Ramapo College of New Jersey                        50900  2009</span>
-<span class="co">#&gt;  9 186371 Rutgers University-Camden                           56500  2009</span>
-<span class="co">#&gt; 10 190664 CUNY Queens College                                 49600  2009</span>
+<span class="co">#&gt;    unitid instnm                                           md_earn_wne_p10  year</span>
+<span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;                                                      &lt;int&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;  1 210605 Community College of Allegheny County                      30900  2009</span>
+<span class="co">#&gt;  2 212115 East Stroudsburg University of Pennsylvania                44000  2009</span>
+<span class="co">#&gt;  3 212878 Harrisburg Area Community College                          35600  2009</span>
+<span class="co">#&gt;  4 213525 Lehigh Carbon Community College                            32700  2009</span>
+<span class="co">#&gt;  5 214768 Pennsylvania State University-Penn State Hazlet…           47200  2009</span>
+<span class="co">#&gt;  6 215275 University of Pittsburgh-Greensburg                        47500  2009</span>
+<span class="co">#&gt;  7 216038 Slippery Rock University of Pennsylvania                   39300  2009</span>
+<span class="co">#&gt;  8 216825 Westmoreland County Community College                      28100  2009</span>
+<span class="co">#&gt;  9 190521 CUNY Borough of Manhattan Community College                36300  2009</span>
+<span class="co">#&gt; 10 197294 SUNY Westchester Community College                         38300  2009</span>
 <span class="co">#&gt; # … with 273 more rows</span></code></pre></div>
 </div>
   </div>
