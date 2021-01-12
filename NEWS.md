@@ -1,3 +1,7 @@
+# v0.18.0
+
+- update dictionary for 12 January 2021 release of data
+
 # v0.17.0
 
 - update dictionary for 2 December 2020 release of data
