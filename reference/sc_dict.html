@@ -81,7 +81,7 @@ data dictionary." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.18.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.19.0</span>
       </span>
     </div>
 
@@ -89,7 +89,7 @@ data dictionary." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa-home"></span>
+    <span class="fa fa-home"></span>
      
   </a>
 </li>
@@ -106,21 +106,21 @@ data dictionary." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../reference/index.html">
-    <span class="fas fa-file-code-o"></span>
+    <span class="fa fa-file-code-o"></span>
      
     functions
   </a>
 </li>
 <li>
   <a href="../news/index.html">
-    <span class="fas fa-newspaper-o"></span>
+    <span class="fa fa-newspaper-o"></span>
      
     news
   </a>
 </li>
 <li>
   <a href="https://github.com/btskinner/rscorecard">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
     github
   </a>
@@ -165,7 +165,9 @@ data dictionary.</p>
   print_dev <span class='op'>=</span> <span class='cn'>FALSE</span>,
   print_notes <span class='op'>=</span> <span class='cn'>FALSE</span>,
   return_df <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  print_off <span class='op'>=</span> <span class='cn'>FALSE</span>
+  print_off <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  can_filter <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  filter_vars <span class='op'>=</span> <span class='cn'>FALSE</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -219,6 +221,18 @@ included in the data dictionary (if any).</p></td>
       <td><p>Do not print to console; useful if you only want
 to return a tibble of dictionary values.</p></td>
     </tr>
+    <tr>
+      <th>can_filter</th>
+      <td><p>Use to confirm that a variable can be used as a
+filtering variable. Returns <code>TRUE</code> or <code>FALSE</code></p></td>
+    </tr>
+    <tr>
+      <th>filter_vars</th>
+      <td><p>Use to print variables that can be used to
+filter calls. Use with argument <code>return_df = TRUE</code> to
+return a tibble of these variables in addition to console
+output.</p></td>
+    </tr>
     </table>
 
 
@@ -235,6 +249,8 @@ to return a tibble of dictionary values.</p></td>
 #&gt; 
 #&gt; VALUES: NA
 #&gt; 
+#&gt; CAN FILTER? Yes
+#&gt; 
 #&gt; 
 #&gt; ---------------------------------------------------------------------
 #&gt; varname: st_fips                                        source: IPEDS
@@ -304,6 +320,8 @@ to return a tibble of dictionary values.</p></td>
 #&gt; 72 = Puerto Rico
 #&gt; 78 = Virgin Islands
 #&gt; 
+#&gt; CAN FILTER? Yes
+#&gt; 
 #&gt; 
 #&gt; ---------------------------------------------------------------------
 #&gt; varname: tuitionfee_in                                  source: IPEDS
@@ -314,6 +332,8 @@ to return a tibble of dictionary values.</p></td>
 #&gt; 
 #&gt; VALUES: NA
 #&gt; 
+#&gt; CAN FILTER? Yes
+#&gt; 
 #&gt; 
 #&gt; ---------------------------------------------------------------------
 #&gt; varname: tuitionfee_out                                 source: IPEDS
@@ -323,6 +343,8 @@ to return a tibble of dictionary values.</p></td>
 #&gt; Out-of-state tuition and fees
 #&gt; 
 #&gt; VALUES: NA
+#&gt; 
+#&gt; CAN FILTER? Yes
 #&gt; 
 #&gt; ---------------------------------------------------------------------
 #&gt; Printed information for 4 of out 4 variables.
@@ -339,6 +361,8 @@ to return a tibble of dictionary values.</p></td>
 #&gt; 
 #&gt; VALUES: NA
 #&gt; 
+#&gt; CAN FILTER? Yes
+#&gt; 
 #&gt; 
 #&gt; ---------------------------------------------------------------------
 #&gt; varname: st_fips                                        source: IPEDS
@@ -408,13 +432,74 @@ to return a tibble of dictionary values.</p></td>
 #&gt; 72 = Puerto Rico
 #&gt; 78 = Virgin Islands
 #&gt; 
+#&gt; CAN FILTER? Yes
+#&gt; 
 #&gt; ---------------------------------------------------------------------
 #&gt; Printed information for 2 of out 2 variables.
 #&gt; </div><div class='input'>
 <span class='co'>## return full dictionary (only recommended if not printing and</span>
 <span class='co'>## storing in object)</span>
 <span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'>sc_dict</span><span class='op'>(</span><span class='st'>'.'</span>, limit <span class='op'>=</span> <span class='cn'>Inf</span>, print_off <span class='op'>=</span> <span class='cn'>TRUE</span>, return_df <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div></pre>
+
+<span class='co'>## print list of variables that can be used to filter</span>
+<span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'>sc_dict</span><span class='op'>(</span><span class='st'>'.'</span>, filter_vars <span class='op'>=</span> <span class='cn'>TRUE</span>, return_df <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
+#&gt; ---------------------------------------------------------------------
+#&gt; The following variables can be used in sc_filter():
+#&gt; ---------------------------------------------------------------------
+#&gt; 
+#&gt;  - aanapii
+#&gt;  - actcmmid
+#&gt;  - adm_rate
+#&gt;  - annhi
+#&gt;  - ccbasic
+#&gt;  - cipcode
+#&gt;  - city
+#&gt;  - cntover150_3yr
+#&gt;  - control
+#&gt;  - creddesc
+#&gt;  - credlev
+#&gt;  - curroper
+#&gt;  - debt_all_stgp_any_mdn
+#&gt;  - earn_mdn_hi_2yr
+#&gt;  - fedschcd
+#&gt;  - gt_25k_p6
+#&gt;  - hbcu
+#&gt;  - hcm2
+#&gt;  - highdeg
+#&gt;  - hsi
+#&gt;  - instnm
+#&gt;  - insturl
+#&gt;  - ipedscount1
+#&gt;  - ipedscount2
+#&gt;  - locale
+#&gt;  - locale2
+#&gt;  - main
+#&gt;  - md_earn_wne_p10
+#&gt;  - menonly
+#&gt;  - mn_earn_wne_inc1_p6
+#&gt;  - nanti
+#&gt;  - numbranch
+#&gt;  - opeid
+#&gt;  - opeid6
+#&gt;  - pbi
+#&gt;  - preddeg
+#&gt;  - region
+#&gt;  - relaffil
+#&gt;  - sat_avg
+#&gt;  - satmtmid
+#&gt;  - satvrmid
+#&gt;  - satwrmid
+#&gt;  - st_fips
+#&gt;  - stabbr
+#&gt;  - tribal
+#&gt;  - tuitionfee_in
+#&gt;  - tuitionfee_out
+#&gt;  - ugds
+#&gt;  - unitid
+#&gt;  - womenonly
+#&gt;  - zip
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.18.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.19.0</span>
       </span>
     </div>
 
@@ -46,7 +46,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa-home"></span>
+    <span class="fa fa-home"></span>
      
   </a>
 </li>
@@ -63,21 +63,21 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="../reference/index.html">
-    <span class="fas fa-file-code-o"></span>
+    <span class="fa fa-file-code-o"></span>
      
     functions
   </a>
 </li>
 <li>
   <a href="../news/index.html">
-    <span class="fas fa-newspaper-o"></span>
+    <span class="fa fa-newspaper-o"></span>
      
     news
   </a>
 </li>
 <li>
   <a href="https://github.com/btskinner/rscorecard">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
     github
   </a>
@@ -104,7 +104,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Commands</h1>
             
-            <h4 class="date">2021-01-12</h4>
+            <h4 class="date">2021-07-12</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/master/vignettes/commands.Rmd"><code>vignettes/commands.Rmd</code></a></small>
       <div class="hidden name"><code>commands.Rmd</code></div>
@@ -232,6 +232,8 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt; VALUES: NA</span>
 <span class="co">#&gt; </span>
+<span class="co">#&gt; CAN FILTER? Yes</span>
+<span class="co">#&gt; </span>
 <span class="co">#&gt; ---------------------------------------------------------------------</span>
 <span class="co">#&gt; Printed information for 1 of out 1 variables.</span></code></pre></div>
 <p>You can also search using regular expressions and limit the search to only one dictionary column. For example, the search below only looks for <strong>varnames</strong> starting with “st”:</p>
@@ -247,6 +249,8 @@
 <span class="co">#&gt; State postcode</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; VALUES: NA</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; CAN FILTER? Yes</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ---------------------------------------------------------------------</span>
@@ -317,21 +321,24 @@
 <span class="co">#&gt; 72 = Puerto Rico</span>
 <span class="co">#&gt; 78 = Virgin Islands</span>
 <span class="co">#&gt; </span>
+<span class="co">#&gt; CAN FILTER? Yes</span>
+<span class="co">#&gt; </span>
 <span class="co">#&gt; ---------------------------------------------------------------------</span>
 <span class="co">#&gt; Printed information for 2 of out 2 variables.</span></code></pre></div>
 <p>You can also return the data dictionary as a tibble. When storing the dictionary in an object, it may be useful to set <code>print_off = TRUE</code> so that the dictionary results don’t print to the console:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dict_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'stabbr'</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">dict_df</span>
-<span class="co">#&gt; # A tibble: 1 x 8</span>
+<span class="co">#&gt; # A tibble: 1 x 9</span>
 <span class="co">#&gt;   varname value label description  source dev_friendly_na… dev_category notes   </span>
 <span class="co">#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;   </span>
-<span class="co">#&gt; 1 stabbr     NA &lt;NA&gt;  State postc… IPEDS  state            school       Shown/u…</span></code></pre></div>
+<span class="co">#&gt; 1 stabbr     NA &lt;NA&gt;  State postc… IPEDS  state            school       Shown/u…</span>
+<span class="co">#&gt; # … with 1 more variable: can_filter &lt;dbl&gt;</span></code></pre></div>
 <p>If you want the full data dictionary, simply search for <code>'.'</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dict_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'.'</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">dict_df</span>
-<span class="co">#&gt; # A tibble: 2,727 x 8</span>
+<span class="co">#&gt; # A tibble: 2,743 x 9</span>
 <span class="co">#&gt;    varname  value label description  source dev_friendly_na… dev_category notes </span>
 <span class="co">#&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt; </span>
 <span class="co">#&gt;  1 unitid      NA &lt;NA&gt;  Unit ID for… IPEDS  id               root         Shown…</span>
@@ -344,7 +351,7 @@
 <span class="co">#&gt;  8 accreda…    NA &lt;NA&gt;  Accreditor … FSA    accreditor       school       Shown…</span>
 <span class="co">#&gt;  9 insturl     NA &lt;NA&gt;  URL for ins… IPEDS  school_url       school       Shown…</span>
 <span class="co">#&gt; 10 npcurl      NA &lt;NA&gt;  URL for ins… IPEDS  price_calculato… school       Shown…</span>
-<span class="co">#&gt; # … with 2,717 more rows</span></code></pre></div>
+<span class="co">#&gt; # … with 2,733 more rows, and 1 more variable: can_filter &lt;dbl&gt;</span></code></pre></div>
 </div>
   </div>
 

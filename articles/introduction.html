@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.18.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.19.0</span>
       </span>
     </div>
 
@@ -46,7 +46,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa-home"></span>
+    <span class="fa fa-home"></span>
      
   </a>
 </li>
@@ -63,21 +63,21 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="../reference/index.html">
-    <span class="fas fa-file-code-o"></span>
+    <span class="fa fa-file-code-o"></span>
      
     functions
   </a>
 </li>
 <li>
   <a href="../news/index.html">
-    <span class="fas fa-newspaper-o"></span>
+    <span class="fa fa-newspaper-o"></span>
      
     news
   </a>
 </li>
 <li>
   <a href="https://github.com/btskinner/rscorecard">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
     github
   </a>
@@ -104,7 +104,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Getting started</h1>
             
-            <h4 class="date">2021-01-12</h4>
+            <h4 class="date">2021-07-12</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/master/vignettes/introduction.Rmd"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
@@ -127,7 +127,7 @@
 <p>Once you’ve gotten your key, you can store it usig <code><a href="../reference/sc_key.html">sc_key()</a></code>. In the absence of a key value argument, <code><a href="../reference/sc_get.html">sc_get()</a></code> will search your R environment for <code>DATAGOV_API_KEY</code>. It will complete the data request if found. <code><a href="../reference/sc_key.html">sc_key()</a></code> command will store your key in <code>DATAGOV_API_KEY</code>, which will persist until the R session is closed.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># NB: You must use a real key, of course... </span>
-<span class="fu"><a href="../reference/sc_key.html">sc_key</a></span><span class="op">(</span><span class="st">'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="../reference/sc_key.html">sc_key</a></span><span class="op">(</span><span class="st">"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span><span class="op">)</span></code></pre></div>
 <p>If you want a more permanent solution, you can add the following line (with your actual key, of course) to your <code>.Renviron</code> file. See this <a href="ftp://cran.r-project.org/pub/R/web/packages/httr/vignettes/api-packages.html">appendix</a> for more information.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># NB: You must use a real key, of course... </span>
@@ -135,7 +135,7 @@
 </div>
 <div id="simple-request" class="section level2">
 <h2 class="hasAnchor">
-<a href="#simple-request" class="anchor"></a>Simple request</h2>
+<a href="#simple-request" class="anchor"></a>2. Simple request</h2>
 <p>Each request requires the following four commands piped together using <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code>:</p>
 <ol style="list-style-type: decimal">
 <li><code><a href="../reference/sc_init.html">sc_init()</a></code></li>
@@ -156,18 +156,18 @@
 <span class="co">#&gt; # A tibble: 6 x 5</span>
 <span class="co">#&gt;   unitid instnm                                               stabbr  ugds year </span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                                                &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;</span>
-<span class="co">#&gt; 1 196051 SUNY Morrisville                                     NY      2758 late…</span>
-<span class="co">#&gt; 2 214625 Pennsylvania State University-Penn State New Kensin… PA       567 late…</span>
-<span class="co">#&gt; 3 194392 Paul Smiths College of Arts and Science              NY       740 late…</span>
-<span class="co">#&gt; 4 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA       401 late…</span>
-<span class="co">#&gt; 5 191676 Houghton College                                     NY       981 late…</span>
-<span class="co">#&gt; 6 197230 Wells College                                        NY       463 late…</span></code></pre></div>
+<span class="co">#&gt; 1 191676 Houghton College                                     NY       981 late…</span>
+<span class="co">#&gt; 2 194392 Paul Smiths College of Arts and Science              NY       740 late…</span>
+<span class="co">#&gt; 3 196051 SUNY Morrisville                                     NY      2758 late…</span>
+<span class="co">#&gt; 4 197230 Wells College                                        NY       463 late…</span>
+<span class="co">#&gt; 5 214625 Pennsylvania State University-Penn State New Kensin… PA       567 late…</span>
+<span class="co">#&gt; 6 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA       401 late…</span></code></pre></div>
 <p>Because we didn’t include a specific year, the <code>latest</code> data are returned. We could have specifically asked for the latest data using <code><a href="../reference/sc_year.html">sc_year('latest')</a></code>:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_init.html">sc_init</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
     <span class="fu"><a href="../reference/sc_filter.html">sc_filter</a></span><span class="op">(</span><span class="va">region</span> <span class="op">==</span> <span class="fl">2</span>, <span class="va">ccbasic</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">21</span>,<span class="fl">22</span>,<span class="fl">23</span><span class="op">)</span>, <span class="va">locale</span> <span class="op">==</span> <span class="fl">41</span><span class="op">:</span><span class="fl">43</span><span class="op">)</span> <span class="op">%&gt;%</span> 
     <span class="fu"><a href="../reference/sc_select.html">sc_select</a></span><span class="op">(</span><span class="va">unitid</span>, <span class="va">instnm</span>, <span class="va">stabbr</span>, <span class="va">ugds</span><span class="op">)</span> <span class="op">%&gt;%</span>
-    <span class="fu"><a href="../reference/sc_year.html">sc_year</a></span><span class="op">(</span><span class="st">'latest'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu"><a href="../reference/sc_year.html">sc_year</a></span><span class="op">(</span><span class="st">"latest"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
     <span class="fu"><a href="../reference/sc_get.html">sc_get</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; Request complete!</span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
@@ -175,12 +175,12 @@
 <span class="co">#&gt; # A tibble: 6 x 5</span>
 <span class="co">#&gt;   unitid instnm                                               stabbr  ugds year </span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                                                &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;</span>
-<span class="co">#&gt; 1 196051 SUNY Morrisville                                     NY      2758 late…</span>
-<span class="co">#&gt; 2 214625 Pennsylvania State University-Penn State New Kensin… PA       567 late…</span>
-<span class="co">#&gt; 3 194392 Paul Smiths College of Arts and Science              NY       740 late…</span>
-<span class="co">#&gt; 4 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA       401 late…</span>
-<span class="co">#&gt; 5 191676 Houghton College                                     NY       981 late…</span>
-<span class="co">#&gt; 6 197230 Wells College                                        NY       463 late…</span></code></pre></div>
+<span class="co">#&gt; 1 191676 Houghton College                                     NY       981 late…</span>
+<span class="co">#&gt; 2 194392 Paul Smiths College of Arts and Science              NY       740 late…</span>
+<span class="co">#&gt; 3 196051 SUNY Morrisville                                     NY      2758 late…</span>
+<span class="co">#&gt; 4 197230 Wells College                                        NY       463 late…</span>
+<span class="co">#&gt; 5 214625 Pennsylvania State University-Penn State New Kensin… PA       567 late…</span>
+<span class="co">#&gt; 6 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA       401 late…</span></code></pre></div>
 <p>For a prior year’s data, change the value in <code><a href="../reference/sc_year.html">sc_year()</a></code>:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_init.html">sc_init</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
@@ -194,12 +194,12 @@
 <span class="co">#&gt; # A tibble: 6 x 5</span>
 <span class="co">#&gt;   unitid instnm                                               stabbr  ugds  year</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                                                &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 196051 SUNY Morrisville                                     NY      2964  2005</span>
-<span class="co">#&gt; 2 214625 Pennsylvania State University-Penn State New Kensin… PA       733  2005</span>
-<span class="co">#&gt; 3 194392 Paul Smiths College of Arts and Science              NY       841  2005</span>
-<span class="co">#&gt; 4 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA       565  2005</span>
-<span class="co">#&gt; 5 191676 Houghton College                                     NY      1368  2005</span>
-<span class="co">#&gt; 6 197230 Wells College                                        NY       407  2005</span></code></pre></div>
+<span class="co">#&gt; 1 191676 Houghton College                                     NY      1368  2005</span>
+<span class="co">#&gt; 2 194392 Paul Smiths College of Arts and Science              NY       841  2005</span>
+<span class="co">#&gt; 3 196051 SUNY Morrisville                                     NY      2964  2005</span>
+<span class="co">#&gt; 4 197230 Wells College                                        NY       407  2005</span>
+<span class="co">#&gt; 5 214625 Pennsylvania State University-Penn State New Kensin… PA       733  2005</span>
+<span class="co">#&gt; 6 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA       565  2005</span></code></pre></div>
 <div id="field-of-study-data" class="section level3">
 <h3 class="hasAnchor">
 <a href="#field-of-study-data" class="anchor"></a>Field of study data</h3>
@@ -214,20 +214,20 @@
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## filter to show only those with non-NA values for median debt</span>
 <span class="va">df</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">debt_mdn</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 216 x 8</span>
-<span class="co">#&gt;    unitid instnm      stabbr  ugds cipcode cipdesc                debt_mdn year </span>
-<span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;                     &lt;dbl&gt; &lt;chr&gt;</span>
-<span class="co">#&gt;  1 196051 SUNY Morri… NY      2758 0100    Agriculture, General.     12000 late…</span>
-<span class="co">#&gt;  2 196051 SUNY Morri… NY      2758 0101    Agricultural Business…    12000 late…</span>
-<span class="co">#&gt;  3 196051 SUNY Morri… NY      2758 0101    Agricultural Business…    12000 late…</span>
-<span class="co">#&gt;  4 196051 SUNY Morri… NY      2758 0102    Agricultural Mechaniz…    12000 late…</span>
-<span class="co">#&gt;  5 196051 SUNY Morri… NY      2758 0102    Agricultural Mechaniz…    12000 late…</span>
-<span class="co">#&gt;  6 196051 SUNY Morri… NY      2758 0103    Agricultural Producti…    12000 late…</span>
-<span class="co">#&gt;  7 196051 SUNY Morri… NY      2758 0103    Agricultural Producti…    12000 late…</span>
-<span class="co">#&gt;  8 196051 SUNY Morri… NY      2758 0105    Agricultural and Dome…    12000 late…</span>
-<span class="co">#&gt;  9 196051 SUNY Morri… NY      2758 0109    Animal Sciences.          12000 late…</span>
-<span class="co">#&gt; 10 196051 SUNY Morri… NY      2758 0111    Plant Sciences.           12000 late…</span>
-<span class="co">#&gt; # … with 206 more rows</span></code></pre></div>
+<span class="co">#&gt; # A tibble: 712 x 8</span>
+<span class="co">#&gt;    unitid instnm    stabbr  ugds cipcode cipdesc                  debt_mdn year </span>
+<span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;                       &lt;int&gt; &lt;chr&gt;</span>
+<span class="co">#&gt;  1 191676 Houghton… NY       981 0105    Agricultural and Domest…    19500 late…</span>
+<span class="co">#&gt;  2 191676 Houghton… NY       981 0501    Area Studies.               19500 late…</span>
+<span class="co">#&gt;  3 191676 Houghton… NY       981 0901    Communication and Media…    19500 late…</span>
+<span class="co">#&gt;  4 191676 Houghton… NY       981 1101    Computer and Informatio…    19500 late…</span>
+<span class="co">#&gt;  5 191676 Houghton… NY       981 1104    Information Science/Stu…    19500 late…</span>
+<span class="co">#&gt;  6 191676 Houghton… NY       981 1312    Teacher Education and P…    19500 late…</span>
+<span class="co">#&gt;  7 191676 Houghton… NY       981 1313    Teacher Education and P…    19500 late…</span>
+<span class="co">#&gt;  8 191676 Houghton… NY       981 1314    Teaching English or Fre…    19500 late…</span>
+<span class="co">#&gt;  9 191676 Houghton… NY       981 1412    Engineering Physics.        19500 late…</span>
+<span class="co">#&gt; 10 191676 Houghton… NY       981 1609    Romance Languages, Lite…    19500 late…</span>
+<span class="co">#&gt; # … with 702 more rows</span></code></pre></div>
 <p><strong>Important note:</strong></p>
 <p>The mapping scheme of data across years isn’t consistent across data elements. From the <a href="https://collegescorecard.ed.gov/assets/FullDataDocumentation.pdf">technical documentation for institution-level data</a>:</p>
 <blockquote>
