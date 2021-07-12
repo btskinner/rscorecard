@@ -14,9 +14,9 @@ sheets <- c("institution_data_dictionary",
 
 ## read in each sheet, munge, and bind
 df <- purrr::map(sheets,
-                 ~ read_excel(file, sheet = .x) %>%
+                 ~ read_excel(file, sheet = .x) |>
                      ## lower names
-                     setNames(tolower(names(.))) %>%
+                     rename_all(tolower) |>
                      ## subset/rename
                      select(description = `name of data element`,
                             dev_category = `dev-category`,
@@ -25,27 +25,39 @@ df <- purrr::map(sheets,
                             value,
                             label,
                             source,
-                            notes) %>%
+                            notes,
+                            can_filter = index) |>
                      ## lower name values for varname column
-                     mutate(varname = tolower(varname)) %>%
+                     mutate(varname = tolower(varname)) |>
                      ## remove extra \r\n from description column
-                     mutate(description = gsub("^(.+)\r\n 0.*$", "\\1", description)) %>%
+                     mutate(description = gsub("^(.+)\r\n 0.*$", "\\1", description)) |>
                      ## remove trailing characters from dev_friendly_name
                      mutate(dev_friendly_name = gsub("^(.+):$", "\\1",
-                                                     dev_friendly_name)) %>%
+                                                     dev_friendly_name)) |>
+                     ## convert can_filter column to 1 if there's text there
+                     mutate(can_filter = ifelse(!is.na(can_filter), 1, can_filter),
+                            ## fix unitid can_filter to 1 since it works for filtering
+                            can_filter = ifelse(varname == "unitid", 1, can_filter),
+                            ## convert to integer
+                            can_filter = as.integer(can_filter)) |>
                      ## roll values forward to fill NA
                      mutate(description = na.locf(description),
                             dev_category = na.locf(dev_category),
                             dev_friendly_name = na.locf(dev_friendly_name),
                             varname = na.locf(varname),
                             source = na.locf(source),
-                            notes = na.locf(notes))
-                 ) %>%
+                            notes = na.locf(notes)) |>
+                     ## roll values forward in can_filter, grouped by variable name
+                     group_by(varname) |>
+                     mutate(can_filter = na.locf(can_filter, na.rm = FALSE)) |>
+                     ungroup() |>
+                     mutate(can_filter = ifelse(is.na(can_filter), 0, can_filter))
+                 ) |>
     ## bind together
-    bind_rows
+    bind_rows()
 
 ## make dictionary data frame
-dict <- df %>% data.frame(.)
+dict <- df |> data.frame()
 
 ## create hash environment for quick conversion between varnames
 ## and developer-friendly names
@@ -55,7 +67,7 @@ sc_hash <- new.env(parent = emptyenv())
 ## (1) varname <- dev_friendly
 ## (2) varname_c <- root
 
-tmp <- df %>% distinct(varname, .keep_all = TRUE)
+tmp <- df |> distinct(varname, .keep_all = TRUE)
 
 for (i in 1:nrow(tmp)) {
     ## key/value pair (1)
@@ -72,7 +84,7 @@ for (i in 1:nrow(tmp)) {
 ## (3) dev_friendly <- varname
 ## (4) dev_friendly_c <- root
 
-tmp <- df %>% distinct(dev_friendly_name, .keep_all = TRUE)
+tmp <- df |> distinct(dev_friendly_name, .keep_all = TRUE)
 
 for (i in 1:nrow(tmp)) {
     ## key/value pair (3)
@@ -96,8 +108,8 @@ for (i in 1:nrow(tmp)) {
 ## the information will continue to come from the institution data
 both_sources <- c("unitid", "opeid6", "control", "main", "instnm")
 
-tmp <- df %>%
-    filter(varname %in% both_sources) %>%
+tmp <- df |>
+    filter(varname %in% both_sources) |>
     distinct(dev_category, varname, .keep_all = TRUE)
 
 for (i in 1:nrow(tmp)) {

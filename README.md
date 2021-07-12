@@ -55,12 +55,12 @@ key in your R environment at the start of your R session using
     ## # A tibble: 6 x 4
     ##   unitid instnm                                                  stabbr year  
     ##    <int> <chr>                                                   <chr>  <chr> 
-    ## 1 214625 Pennsylvania State University-Penn State New Kensington PA     latest
-    ## 2 196051 SUNY Morrisville                                        NY     latest
-    ## 3 194392 Paul Smiths College of Arts and Science                 NY     latest
-    ## 4 214643 Pennsylvania State University-Penn State Wilkes-Barre   PA     latest
-    ## 5 191676 Houghton College                                        NY     latest
-    ## 6 197230 Wells College                                           NY     latest
+    ## 1 191676 Houghton College                                        NY     latest
+    ## 2 194392 Paul Smiths College of Arts and Science                 NY     latest
+    ## 3 196051 SUNY Morrisville                                        NY     latest
+    ## 4 197230 Wells College                                           NY     latest
+    ## 5 214625 Pennsylvania State University-Penn State New Kensington PA     latest
+    ## 6 214643 Pennsylvania State University-Penn State Wilkes-Barre   PA     latest
 
 For more example calls and information about other package commands, see
 the [extended
@@ -91,6 +91,8 @@ function.
     ## 3 = Private for-profit
     ## 4 = Foreign
     ## 
+    ## CAN FILTER? Yes
+    ## 
     ## 
     ## ---------------------------------------------------------------------
     ## varname: schtype                                          source: FSA
@@ -104,6 +106,8 @@ function.
     ## 1 = Public
     ## 2 = Private, Nonprofit
     ## 3 = Proprietary
+    ## 
+    ## CAN FILTER? No
     ## 
     ## ---------------------------------------------------------------------
     ## Printed information for 2 of out 2 variables.

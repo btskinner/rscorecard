@@ -1,3 +1,8 @@
+# v0.19.0
+
+- update to only allow filtering on variables allowed due to API
+  changes on 4 April 2021
+
 # v0.18.0
 
 - update dictionary for 12 January 2021 release of data

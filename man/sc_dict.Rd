@@ -14,7 +14,9 @@ sc_dict(
   print_dev = FALSE,
   print_notes = FALSE,
   return_df = FALSE,
-  print_off = FALSE
+  print_off = FALSE,
+  can_filter = FALSE,
+  filter_vars = FALSE
 )
 }
 \arguments{
@@ -47,6 +49,14 @@ included in the data dictionary (if any).}
 
 \item{print_off}{Do not print to console; useful if you only want
 to return a tibble of dictionary values.}
+
+\item{can_filter}{Use to confirm that a variable can be used as a
+filtering variable. Returns \code{TRUE} or \code{FALSE}}
+
+\item{filter_vars}{Use to print variables that can be used to
+filter calls. Use with argument \code{return_df = TRUE} to
+return a tibble of these variables in addition to console
+output.}
 }
 \description{
 This function is used to search the College Scorecard
@@ -62,4 +72,7 @@ sc_dict('^st', search_col = 'varname')
 ## return full dictionary (only recommended if not printing and
 ## storing in object)
 df <- sc_dict('.', limit = Inf, print_off = TRUE, return_df = TRUE)
+
+## print list of variables that can be used to filter
+df <- sc_dict('.', filter_vars = TRUE, return_df = TRUE)
 }

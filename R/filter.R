@@ -72,6 +72,13 @@ sc_filter_ <- function(sccall, filter_string) {
             stop('Must use either \"==\", \"!=\", or \"%in%\" in sc_filter.',
                  call. = FALSE)
         }
+        if (!sc_dict(tolower(as.character(filter[[i]][[2]])), can_filter = TRUE)) {
+            stop('The variable \"' %+% filter[[i]][[2]]
+                 %+% '\" cannot be used as filter. '
+                 %+% 'Revise your call to remove this filtering variable.\n'
+                 %+% 'Use sc_dict(filter_vars = TRUE) to see available filters.',
+                 call. = FALSE)
+        }
         if (!sc_dict(tolower(as.character(filter[[i]][[2]])), confirm = TRUE)) {
             stop('Variable \"' %+% filter[[i]][[2]]
                  %+% '\" not found in dictionary. '

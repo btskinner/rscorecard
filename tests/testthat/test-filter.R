@@ -88,3 +88,8 @@ test_that('Filtered pulls not the same', {
 
     expect_equal(df1, df2)
 })
+
+test_that('Allows for filter variable that is not approved', {
+    check_api()
+    expect_error(sc_filter(dil, avgfacsal == 100000))
+})

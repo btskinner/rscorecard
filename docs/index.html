@@ -43,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.19.0</span>
       </span>
     </div>
 
@@ -89,7 +89,7 @@
 </li>
 <li>
   <a href="https://twitter.com/btskinner">
-    <span class="fab fa fab fa-twitter"></span>
+    <span class="fab fa-twitter"></span>
      
     twitter
   </a>
@@ -147,14 +147,14 @@
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>df</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 x 4</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="do">##   instnm                                                  stabbr unitid year  </span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;                                                   &lt;chr&gt;   &lt;int&gt; &lt;chr&gt; </span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 SUNY Morrisville                                        NY     196051 latest</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 Pennsylvania State University-Penn State New Kensington PA     214625 latest</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 Paul Smiths College of Arts and Science                 NY     194392 latest</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 Houghton College                                        NY     191676 latest</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 Pennsylvania State University-Penn State Wilkes-Barre   PA     214643 latest</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 Wells College                                           NY     197230 latest</span></span></code></pre></div>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="do">##   unitid instnm                                                  stabbr year  </span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;int&gt; &lt;chr&gt;                                                   &lt;chr&gt;  &lt;chr&gt; </span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 191676 Houghton College                                        NY     latest</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 194392 Paul Smiths College of Arts and Science                 NY     latest</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 196051 SUNY Morrisville                                        NY     latest</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 197230 Wells College                                           NY     latest</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 214625 Pennsylvania State University-Penn State New Kensington PA     latest</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 214643 Pennsylvania State University-Penn State Wilkes-Barre   PA     latest</span></span></code></pre></div>
 <p>For more example calls and information about other package commands, see the <a href="https://www.btskinner.io/rscorecard/articles/introduction.html">extended vignette</a>.</p>
 </div>
 <div id="data-dictionary" class="section level3">
@@ -181,22 +181,26 @@
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 = Private for-profit</span></span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 = Foreign</span></span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="do">## ---------------------------------------------------------------------</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="do">## varname: schtype                                          source: FSA</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="do">## CAN FILTER? Yes</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="do">## ---------------------------------------------------------------------</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="do">## DESCRIPTION:</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="do">## Control of institution, per PEPS</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="do">## varname: schtype                                          source: FSA</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="do">## ---------------------------------------------------------------------</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="do">## DESCRIPTION:</span></span>
 <span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="do">## VALUES: </span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="do">## Control of institution, per PEPS</span></span>
 <span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 = Public</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 = Private, Nonprofit</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 = Proprietary</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="do">## ---------------------------------------------------------------------</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="do">## Printed information for 2 of out 2 variables.</span></span></code></pre></div>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="do">## VALUES: </span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 = Public</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 = Private, Nonprofit</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 = Proprietary</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="do">## CAN FILTER? No</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="do">## ---------------------------------------------------------------------</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="do">## Printed information for 2 of out 2 variables.</span></span></code></pre></div>
 </div>
 </div>
 <div id="further-references" class="section level2">
@@ -254,7 +258,7 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://travis-ci.org/btskinner/rscorecard"><img src="https://travis-ci.org/btskinner/rscorecard.svg?branch=master" alt="Build Status"></a></li>
+<li><a href="https://github.com/btskinner/rscorecard/actions"><img src="https://github.com/btskinner/rscorecard/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
 <li><a href="https://github.com/btskinner/rscorecard"><img src="https://img.shields.io/github/release/btskinner/rscorecard.svg" alt="GitHub release"></a></li>
 <li><a href="http://cran.r-project.org/package=rscorecard"><img src="http://www.r-pkg.org/badges/version/rscorecard" alt="CRAN_Status_Badge"></a></li>
 </ul>
