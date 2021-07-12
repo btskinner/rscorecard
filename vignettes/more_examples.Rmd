@@ -42,15 +42,15 @@ multiple pulls and append all results before returning.
 ```{r}
 ## median earnings for students who first enrolled in a public
 ## college in the New England or Mid-Atlantic regions: 10 years later
-df <- sc_init() %>% 
-    sc_filter(control == 1, region == 1:2, ccbasic == 1:24) %>% 
-    sc_select(unitid, instnm, md_earn_wne_p10) %>% 
-    sc_year(2009) %>%
-    sc_get()
+## df <- sc_init() %>% 
+##     sc_filter(control == 1, region == 1:2, ccbasic == 1:24) %>% 
+##     sc_select(unitid, instnm, md_earn_wne_p10) %>% 
+##     sc_year(2009) %>%
+##     sc_get()
 ```
 
 ```{r}
-df
+## df
 ```
 
 

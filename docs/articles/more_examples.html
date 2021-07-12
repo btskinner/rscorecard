@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.19.0</span>
       </span>
     </div>
 
@@ -84,7 +84,7 @@
 </li>
 <li>
   <a href="https://twitter.com/btskinner">
-    <span class="fab fa fab fa-twitter"></span>
+    <span class="fab fa-twitter"></span>
      
     twitter
   </a>
@@ -99,13 +99,12 @@
 
       
 
-      </header><script src="more_examples_files/header-attrs-2.5/header-attrs.js"></script><link href="more_examples_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="more_examples_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><script src="more_examples_files/header-attrs-2.9/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>More examples</h1>
             
-            <h4 class="date">2020-12-03</h4>
+            <h4 class="date">2021-07-12</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/master/vignettes/more_examples.Rmd"><code>vignettes/more_examples.Rmd</code></a></small>
       <div class="hidden name"><code>more_examples.Rmd</code></div>
@@ -133,16 +132,16 @@
 <span class="co">#&gt; # A tibble: 10 x 4</span>
 <span class="co">#&gt;    unitid instnm                                               stabbr  year</span>
 <span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;                                                &lt;chr&gt;  &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 248925 Tennessee College of Applied Technology Nashville    TN      2013</span>
-<span class="co">#&gt;  2 221102 Tennessee College of Applied Technology-Murfreesboro TN      2013</span>
-<span class="co">#&gt;  3 221838 Tennessee State University                           TN      2013</span>
-<span class="co">#&gt;  4 219602 Austin Peay State University                         TN      2013</span>
-<span class="co">#&gt;  5 219888 Columbia State Community College                     TN      2013</span>
-<span class="co">#&gt;  6 220978 Middle Tennessee State University                    TN      2013</span>
-<span class="co">#&gt;  7 219994 Tennessee College of Applied Technology-Dickson      TN      2013</span>
-<span class="co">#&gt;  8 221184 Nashville State Community College                    TN      2013</span>
+<span class="co">#&gt;  1 219602 Austin Peay State University                         TN      2013</span>
+<span class="co">#&gt;  2 219888 Columbia State Community College                     TN      2013</span>
+<span class="co">#&gt;  3 219994 Tennessee College of Applied Technology-Dickson      TN      2013</span>
+<span class="co">#&gt;  4 220279 Tennessee College of Applied Technology-Hartsville   TN      2013</span>
+<span class="co">#&gt;  5 220978 Middle Tennessee State University                    TN      2013</span>
+<span class="co">#&gt;  6 221102 Tennessee College of Applied Technology-Murfreesboro TN      2013</span>
+<span class="co">#&gt;  7 221184 Nashville State Community College                    TN      2013</span>
+<span class="co">#&gt;  8 221838 Tennessee State University                           TN      2013</span>
 <span class="co">#&gt;  9 222053 Volunteer State Community College                    TN      2013</span>
-<span class="co">#&gt; 10 220279 Tennessee College of Applied Technology-Hartsville   TN      2013</span></code></pre></div>
+<span class="co">#&gt; 10 248925 Tennessee College of Applied Technology Nashville    TN      2013</span></code></pre></div>
 </div>
 <div id="large-pull" class="section level2">
 <h2 class="hasAnchor">
@@ -151,31 +150,13 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## median earnings for students who first enrolled in a public</span>
 <span class="co">## college in the New England or Mid-Atlantic regions: 10 years later</span>
-<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_init.html">sc_init</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu"><a href="../reference/sc_filter.html">sc_filter</a></span><span class="op">(</span><span class="va">control</span> <span class="op">==</span> <span class="fl">1</span>, <span class="va">region</span> <span class="op">==</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="va">ccbasic</span> <span class="op">==</span> <span class="fl">1</span><span class="op">:</span><span class="fl">24</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu"><a href="../reference/sc_select.html">sc_select</a></span><span class="op">(</span><span class="va">unitid</span>, <span class="va">instnm</span>, <span class="va">md_earn_wne_p10</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu"><a href="../reference/sc_year.html">sc_year</a></span><span class="op">(</span><span class="fl">2009</span><span class="op">)</span> <span class="op">%&gt;%</span>
-    <span class="fu"><a href="../reference/sc_get.html">sc_get</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Large request will require: 2 additional pulls.</span>
-<span class="co">#&gt; Request chunk 1</span>
-<span class="co">#&gt; Request chunk 2</span>
-<span class="co">#&gt; Request complete!</span></code></pre></div>
+<span class="co">## df &lt;- sc_init() %&gt;% </span>
+<span class="co">##     sc_filter(control == 1, region == 1:2, ccbasic == 1:24) %&gt;% </span>
+<span class="co">##     sc_select(unitid, instnm, md_earn_wne_p10) %&gt;% </span>
+<span class="co">##     sc_year(2009) %&gt;%</span>
+<span class="co">##     sc_get()</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df</span>
-<span class="co">#&gt; # A tibble: 283 x 4</span>
-<span class="co">#&gt;    unitid instnm                                    md_earn_wne_p10  year</span>
-<span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;                                               &lt;int&gt; &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 434672 Community College of Baltimore County               36200  2009</span>
-<span class="co">#&gt;  2 245625 Warren County Community College                     36200  2009</span>
-<span class="co">#&gt;  3 366252 Pennsylvania College of Technology                  38200  2009</span>
-<span class="co">#&gt;  4 167534 Quinsigamond Community College                      31700  2009</span>
-<span class="co">#&gt;  5 166647 Massachusetts Bay Community College                 40100  2009</span>
-<span class="co">#&gt;  6 183044 University of New Hampshire-Main Campus             47300  2009</span>
-<span class="co">#&gt;  7 183071 University of New Hampshire at Manchester           47300  2009</span>
-<span class="co">#&gt;  8 186201 Ramapo College of New Jersey                        50900  2009</span>
-<span class="co">#&gt;  9 186371 Rutgers University-Camden                           56500  2009</span>
-<span class="co">#&gt; 10 190664 CUNY Queens College                                 49600  2009</span>
-<span class="co">#&gt; # … with 273 more rows</span></code></pre></div>
+<code class="sourceCode R"><span class="co">## df</span></code></pre></div>
 </div>
   </div>
 
