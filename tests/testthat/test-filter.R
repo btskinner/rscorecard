@@ -1,7 +1,8 @@
 context('sc_filter')
 
 ## dummy init list
-dil <- list('dfvars' = FALSE,
+dil <- list('sc_init_list' = TRUE,
+            'dfvars' = FALSE,
             'select' = NULL,
             'filter' = NULL,
             'zip' = NULL,
@@ -27,7 +28,9 @@ test_that('Errors for bad symbols', {
 
 
 test_that('Error for bad variable names', {
-    expect_error(sc_filter(dil, uniti == 99999))
+    expect_error(sc_filter(dil, x == 99999),
+                 'Variable "x" not found in dictionary. Please check your spelling or search dictionary: ?sc_dict()',
+                 fixed = TRUE)
 })
 
 ids <- c(99999, 99998, 99997)

@@ -29,27 +29,23 @@
 
 #' @export
 sc_year <- function(sccall, year) {
+    suppressWarnings({
+        ## check first argument
+        confirm_chain(sccall)
 
-    ## check first argument
-    if (identical(class(try(sccall, silent = TRUE)), 'try-error')
-        || !is.list(sccall)) {
-        stop('Chain not properly initialized. Be sure to start with sc_init().',
-             call. = FALSE)
-    }
+        ## check second argument
+        if (missing(year)
+            || (!is.character(year) && !is.numeric(year))
+            || (is.character(year) && tolower(year) != 'latest')
+            || (is.numeric(year) && (year < 1900 || year > 2099))) {
+            stop('Must provide a 4-digit year in 1900s or 2000s or use the ',
+                 'string \'latest\'.', call. = FALSE)
+        }
 
-    ## check second argument
-    if (missing(year)
-        || (!is.character(year) && !is.numeric(year))
-        || (is.character(year) && tolower(year) != 'latest')
-        || (is.numeric(year) && (year < 1900 || year > 2099))) {
-        stop('Must provide a 4-digit year in 1900s or 2000s or use the ',
-             'string \'latest\'.', call. = FALSE)
-    }
-
-    ## get vars
-    sccall[['year']] <- ifelse(is.character(year), tolower(year), year)
-    sccall
-
+        ## get vars
+        sccall[['year']] <- ifelse(is.character(year), tolower(year), year)
+        sccall
+    })
 }
 
 

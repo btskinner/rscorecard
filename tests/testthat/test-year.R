@@ -1,7 +1,8 @@
 context('sc_year')
 
 ## dummy init list
-dil <- list('dfvars' = TRUE,
+dil <- list('sc_init_list' = TRUE,
+            'dfvars' = TRUE,
             'select' = NULL,
             'filter' = NULL,
             'zip' = NULL,

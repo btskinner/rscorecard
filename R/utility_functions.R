@@ -66,3 +66,35 @@ convert_json_to_tibble <- function(json_str) {
     ## return
     list('df' = df, 'df_nrow' = df_nrow)
 }
+
+## confirm that first argument is sccall list
+confirm_chain <- function(x) {
+    ## error message
+    m <- 'Chain not properly initialized. Be sure to start with sc_init().'
+    ## must force() the chain so it works in order, but need to try() first
+    ## and capture result
+    res <- try(force(x), silent = TRUE)
+    ## if try-error and any of following:
+    ## 1. "sccall" is missing
+    ## 2. error in filter (meaning no arguments at all in sc_filter())
+    ## 3. object isn't found (meaning sccall isn't first)
+    if (identical(class(res), 'try-error')
+        & (grepl("argument \"sccall\" is missing, with no default\n", res[1])
+            | grepl("Error in filter .+ : subscript out of bounds\n", res[1])
+            | grepl("object '.+' not found", res[1]))) {
+        stop(m, call. = FALSE)
+        ## if no try-error, but sc_year() is called, this will catch that
+    } else if (is.numeric(res) || res == "latest") {
+        stop(m, call. = FALSE)
+        ## if no try-error, but sc_select() is called with value that either:
+        ## 1. doesn't exist (catches NSE versions of variable names)
+        ## 2. isn't a list
+        ## 3. doesn't contain "sc_init_list" == TRUE
+    } else if (!exists(deparse(substitute(x)), parent.frame())
+               || !is.list(x)
+               || !x[["sc_init_list"]]) {
+        stop(m, call. = FALSE)
+    }
+}
+
+

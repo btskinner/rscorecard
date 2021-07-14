@@ -25,48 +25,45 @@
 
 #' @export
 sc_zip <- function(sccall, zip, distance = 25, km = FALSE) {
+    suppressWarnings({
+        ## check first argument
+        confirm_chain(sccall)
 
-    ## check first argument
-    if (identical(class(try(sccall, silent = TRUE)), 'try-error')
-        || !is.list(sccall)) {
-        stop('Chain not properly initialized. Be sure to start with sc_init().',
-             call. = FALSE)
-    }
+        ## check second argument
+        if (missing(zip)) {
+            stop('Must provide a 5-digit zip code.', call. = FALSE)
+        }
 
-    ## check second argument
-    if (missing(zip)) {
-        stop('Must provide a 5-digit zip code.', call. = FALSE)
-    }
+        if (suppressWarnings(is.na(as.numeric(zip)))) {
+            stop('Zip code must contain only digits.', call. = FALSE)
+        }
 
-    if (suppressWarnings(is.na(as.numeric(zip)))) {
-        stop('Zip code must contain only digits.', call. = FALSE)
-    }
+        if (nchar(zip) > 5) {
+            stop('Zip codes cannot be longer than 5 digits.', call. = FALSE)
+        }
 
-    if (nchar(zip) > 5) {
-        stop('Zip codes cannot be longer than 5 digits.', call. = FALSE)
-    }
+        if (nchar(zip) < 5) {
+            zip <- sprintf('%05d', zip)
+            message(paste('Note: Zip code has fewer than 5 characters.',
+                          'Leading zero(s) added.'))
+        }
 
-    if (nchar(zip) < 5) {
-        zip <- sprintf('%05d', zip)
-        message(paste('Note: Zip code has fewer than 5 characters.',
-                      'Leading zero(s) added.'))
-    }
+        ## check third argument
+        if (suppressWarnings(is.na(as.numeric(distance)))) {
+            stop('Distance may only contain digits.', call. = FALSE)
+        }
 
-    ## check third argument
-    if (suppressWarnings(is.na(as.numeric(distance)))) {
-        stop('Distance may only contain digits.', call. = FALSE)
-    }
+        ## add to stub
+        stub <- '&_zip=' %+% zip %+% '&_distance=' %+% distance
 
-    ## add to stub
-    stub <- '&_zip=' %+% zip %+% '&_distance=' %+% distance
+        if (km) {
+            sccall[['zip']] <- stub %+% 'km'
+        } else {
+            sccall[['zip']] <- stub
+        }
 
-    if (km) {
-        sccall[['zip']] <- stub %+% 'km'
-    } else {
-        sccall[['zip']] <- stub
-    }
-
-    sccall
+        sccall
+    })
 
 }
 

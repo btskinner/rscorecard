@@ -1,3 +1,17 @@
+# v0.19.1
+
+## Bug fix
+
+- corrected for changes to magrittr 2.0 function evaluation order
+  (last to first) that meant error messages weren't correctly
+  displaying
+
+## Updates
+
+- new error messages for missing `sc_select()` function
+- updated error messages
+- additional tests for new base R pipe `|>`
+
 # v0.19.0
 
 - update to only allow filtering on variables allowed due to API

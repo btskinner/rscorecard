@@ -15,7 +15,8 @@
 #' @export
 sc_init <- function(dfvars = FALSE) {
 
-    list('dfvars' = dfvars,
+    list('sc_init_list' = TRUE,
+         'dfvars' = dfvars,
          'select' = NULL,
          'select_order' = NULL,
          'filter' = NULL,

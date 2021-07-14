@@ -20,6 +20,13 @@
 #' @export
 sc_filter <- function(sccall, ...) {
 
+    ## confirm ...
+    if (missing(...)) {
+        confirm_chain(sccall)
+        stop('Incomplete sc_filter()! You must include a filter expression if using sc_filter().',
+             call. = FALSE)
+    }
+
     ## get expressions
     filter <- unlist(lapply(lazyeval::lazy_dots(...),
                             function(x) deparse(bquote(.(x[['expr']])))),
@@ -54,58 +61,64 @@ sc_filter <- function(sccall, ...) {
 
 #' @export
 sc_filter_ <- function(sccall, filter_string) {
+    suppressWarnings({
+        ## check first argument
+        confirm_chain(sccall)
 
-    ## check first argument
-    if (identical(class(try(sccall, silent = TRUE)), 'try-error')) {
-        stop('Chain not properly initialized. Be sure to start with sc_init().',
-             call. = FALSE)
-    }
-
-    ## get expressions
-    filter <- lapply(filter_string, function(x) as.list(parse(text = x)[[1]]))
-
-    ## error handling
-    for (i in 1:length(filter)) {
-        if (!identical(filter[[i]][[1]], as.symbol('=='))
-            && !identical(filter[[i]][[1]], as.symbol('!='))
-            && !identical(filter[[i]][[1]], as.symbol('%in%'))) {
-            stop('Must use either \"==\", \"!=\", or \"%in%\" in sc_filter.',
+        ## confirm filter_string
+        if (missing(filter_string)) {
+            stop('Incomplete sc_filter()! You must include a filter expression if using sc_filter().',
                  call. = FALSE)
         }
-        if (!sc_dict(tolower(as.character(filter[[i]][[2]])), can_filter = TRUE)) {
-            stop('The variable \"' %+% filter[[i]][[2]]
-                 %+% '\" cannot be used as filter. '
-                 %+% 'Revise your call to remove this filtering variable.\n'
-                 %+% 'Use sc_dict(filter_vars = TRUE) to see available filters.',
-                 call. = FALSE)
-        }
-        if (!sc_dict(tolower(as.character(filter[[i]][[2]])), confirm = TRUE)) {
-            stop('Variable \"' %+% filter[[i]][[2]]
-                 %+% '\" not found in dictionary. '
-                 %+% 'Please check your spelling or search dictionary: '
-                 %+% '?sc_dict()', call. = FALSE)
-        }
-    }
 
-    ## convert to developer-friendly names
-    if (!sccall[['dfvars']]) {
+        ## get expressions
+        filter <- lapply(filter_string, function(x) as.list(parse(text = x)[[1]]))
+
+        ## error handling
         for (i in 1:length(filter)) {
-            filter[[i]][[2]] <- sc_hash[[tolower(as.character(filter[[i]][[2]]))]]
+            ## illegal operators
+            if (!identical(filter[[i]][[1]], as.symbol('=='))
+                && !identical(filter[[i]][[1]], as.symbol('!='))
+                && !identical(filter[[i]][[1]], as.symbol('%in%'))) {
+                stop('Must use either \"==\", \"!=\", or \"%in%\" in sc_filter().',
+                     call. = FALSE)
+            }
+            ## variable not found in the dictionary
+            if (!sc_dict(tolower(as.character(filter[[i]][[2]])), confirm = TRUE)) {
+                stop('Variable \"' %+% filter[[i]][[2]]
+                     %+% '\" not found in dictionary. '
+                     %+% 'Please check your spelling or search dictionary: '
+                     %+% '?sc_dict()', call. = FALSE)
+            }
+            ## variable cannot allowed as filtering variable
+            if (!sc_dict(tolower(as.character(filter[[i]][[2]])), can_filter = TRUE)) {
+                stop('The variable \"' %+% filter[[i]][[2]]
+                     %+% '\" cannot be used as filter. '
+                     %+% 'Use sc_dict(filter_vars = TRUE) to see available filters.',
+                 call. = FALSE)
+            }
         }
-    }
 
-    ## grab categories
-    cats <- vapply(filter, function(x) { sc_hash[[as.character(x[[2]]) %+% '_c']] },
-                   character(1), USE.NAMES = FALSE)
+        ## convert to developer-friendly names
+        if (!sccall[['dfvars']]) {
+            for (i in 1:length(filter)) {
+                filter[[i]][[2]] <- sc_hash[[tolower(as.character(filter[[i]][[2]]))]]
+            }
+        }
 
-    ## convert idiomatic R to scorecard API style
-    filter <- vapply(filter, api_convert, character(1))
+        ## grab categories
+        cats <- vapply(filter, function(x) { sc_hash[[as.character(x[[2]]) %+% '_c']] },
+                       character(1), USE.NAMES = FALSE)
 
-    ## paste, clean, and return
-    filter <- paste(cats %+% '.' %+% filter, collapse = '&')
-    filter <- gsub('root.', '', filter, fixed = TRUE)
-    sccall[['filter']] <- filter
-    sccall
+        ## convert idiomatic R to scorecard API style
+        filter <- vapply(filter, api_convert, character(1))
+
+        ## paste, clean, and return
+        filter <- paste(cats %+% '.' %+% filter, collapse = '&')
+        filter <- gsub('root.', '', filter, fixed = TRUE)
+        sccall[['filter']] <- filter
+        sccall
+    })
 
 }
 

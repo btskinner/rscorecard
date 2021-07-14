@@ -1,7 +1,8 @@
 context('sc_zip')
 
 ## dummy init list
-dil <- list('dfvars' = TRUE,
+dil <- list('sc_init_list' = TRUE,
+            'dfvars' = TRUE,
             'select' = NULL,
             'filter' = NULL,
             'zip' = NULL,
@@ -14,8 +15,7 @@ test_that('Missing zip code', {
 
 test_that('Zip code with non-numeric characters', {
     expect_error(sc_zip(dil, '12sda'), 'Zip code must contain only digits.')
-    expect_error(sc_zip(dil, '37203-4444'),
-                 'Zip code must contain only digits.')
+    expect_error(sc_zip(dil, '37203-4444'), 'Zip code must contain only digits.')
 })
 
 test_that('Zip code longer than 5 digits', {

@@ -5,6 +5,12 @@ test_that('Errors for non-init()', {
                  'Chain not properly initialized. Be sure to start with sc_init().')
 })
 
+test_that('Errors for missing sc_select()', {
+    expect_error(sc_init() %>% sc_filter(unitid == 999999) %>% sc_get(),
+                 'No variables selected. Use sc_select() to choose variables.',
+                 fixed = TRUE)
+})
+
 ## not on CRAN -----------------------------------
 
 test_that('Request doesn\'t match expected', {
