@@ -84,15 +84,15 @@ confirm_chain <- function(x) {
             | grepl("object '.+' not found", res[1]))) {
         stop(m, call. = FALSE)
         ## if no try-error, but sc_year() is called, this will catch that
-    } else if (is.numeric(res) || res == "latest") {
+    } else if (is.numeric(x) | x == "latest") {
         stop(m, call. = FALSE)
         ## if no try-error, but sc_select() is called with value that either:
         ## 1. doesn't exist (catches NSE versions of variable names)
         ## 2. isn't a list
         ## 3. doesn't contain "sc_init_list" == TRUE
     } else if (!exists(deparse(substitute(x)), parent.frame())
-               || !is.list(x)
-               || !x[["sc_init_list"]]) {
+               | !is.list(x)
+               | !x[["sc_init_list"]]) {
         stop(m, call. = FALSE)
     }
 }
