@@ -83,18 +83,10 @@ confirm_chain <- function(x) {
             | grepl("Error in filter .+ : subscript out of bounds\n", res[1])
             | grepl("object '.+' not found", res[1]))) {
         stop(m, call. = FALSE)
-        ## if no try-error, but sc_year() is called, this will catch that
-    ## } else if (is.numeric(x) | x == "latest") {
-    ##     stop(m, call. = FALSE)
-    ##     ## if no try-error, but sc_select() is called with value that either:
-    ##     ## 1. doesn't exist (catches NSE versions of variable names)
-    ##     ## 2. isn't a list
-    ##     ## 3. doesn't contain "sc_init_list" == TRUE
-    ## } else if (!exists(deparse(substitute(x)), parent.frame())
-    ##            | !is.list(x)
-    ##            | !x[["sc_init_list"]]) {
-    ##     stop(m, call. = FALSE)
-        ## }
+        ## if no try-error and:
+        ## 1. is list
+        ## 2. is longer than 1 element
+        ## 3. contains "sc_init_list" == TRUE
     } else if (is.list(x) && length(x) > 1 && x[["sc_init_list"]]) {
         res
         ## if no try-error, but sc_year() is called, this will catch that
