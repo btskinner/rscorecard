@@ -2,8 +2,9 @@ context('sc_year')
 
 ## dummy init list
 dil <- list('sc_init_list' = TRUE,
-            'dfvars' = TRUE,
+            'dfvars' = FALSE,
             'select' = NULL,
+            'select_order' = NULL,
             'filter' = NULL,
             'zip' = NULL,
             'year' = 'latest')

@@ -4,9 +4,10 @@ context('sc_filter')
 dil <- list('sc_init_list' = TRUE,
             'dfvars' = FALSE,
             'select' = NULL,
+            'select_order' = NULL,
             'filter' = NULL,
             'zip' = NULL,
-            'year' = 2013)
+            'year' = "latest")
 
 test_that('Errors for non-init()', {
     expect_error(sc_filter(unitid == 99999),
