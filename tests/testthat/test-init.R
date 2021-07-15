@@ -27,18 +27,39 @@ test_that('Did not start with sc_init()', {
     expect_error(sc_zip(), message)
 
     ## otherwise correct chains
-    expect_error(sc_filter(unitid == 1000) %>% sc_select(unitid), message)
-    expect_error(sc_filter(unitid == 1000) %>% sc_select(unitid) %>% sc_year(2020), message)
-    expect_error(sc_filter(unitid == 1000) %>% sc_select(unitid) %>% sc_year(2020) %>% sc_get(), message)
+    expect_error(sc_filter(unitid == 1000) %>%
+                 sc_select(unitid), message)
+    expect_error(sc_filter(unitid == 1000) %>%
+                 sc_select(unitid) %>%
+                 sc_year(2020), message)
+    expect_error(sc_filter(unitid == 1000) %>%
+                 sc_select(unitid) %>%
+                 sc_year(2020) %>%
+                 sc_get(), message)
 
-    expect_error(sc_select(unitid) %>% sc_filter(unitid == 1000), message)
-    expect_error(sc_select(unitid) %>% sc_filter(unitid == 1000) %>% sc_year(2020), message)
-    expect_error(sc_select(unitid) %>% sc_filter(unitid == 1000) %>% sc_year(2020) %>% sc_get(), message)
+    expect_error(sc_select(unitid) %>%
+                 sc_filter(unitid == 1000), message)
+    expect_error(sc_select(unitid) %>%
+                 sc_filter(unitid == 1000) %>%
+                 sc_year(2020), message)
+    expect_error(sc_select(unitid) %>%
+                 sc_filter(unitid == 1000) %>%
+                 sc_year(2020) %>%
+                 sc_get(), message)
 
     ## uninitialized chains with other errors (un-init should take precedence)
-    expect_error(sc_filter(x == 1000) %>% sc_select(unitid), message)
-    expect_error(sc_filter(unitid == 1000) %>% sc_select(x) %>% sc_year(2020), message)
-    expect_error(sc_filter(unitid == 1000) %>% sc_select(unitid) %>% sc_year(1800) %>% sc_get(), message)
-    expect_error(sc_filter(unitid = 1000) %>% sc_select() %>% sc_year(1800) %>% sc_get(), message)
+    expect_error(sc_filter(x == 1000) %>%
+                 sc_select(unitid), message)
+    expect_error(sc_filter(unitid == 1000) %>%
+                 sc_select(x) %>%
+                 sc_year(2020), message)
+    expect_error(sc_filter(unitid == 1000) %>%
+                 sc_select(unitid) %>%
+                 sc_year(1800) %>%
+                 sc_get(), message)
+    expect_error(sc_filter(unitid = 1000) %>%
+                 sc_select() %>%
+                 sc_year(1800) %>%
+                 sc_get(), message)
 
 })

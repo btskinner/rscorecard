@@ -5,7 +5,7 @@ context('base pipe (|>)')
 test_that('Base R pipe works', {
 
     ## skip if R version is less than 4.1.0
-    skip_if(getRversion() < package_version("4.1.0"), "R version too low")
+    skip_if(getRversion() < "4.1.0", "R version too low")
 
     out <- list("sc_init_list" = TRUE,
                 "dfvars" = FALSE,
