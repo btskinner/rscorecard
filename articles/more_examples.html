@@ -150,11 +150,15 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## median earnings for students who first enrolled in a public</span>
 <span class="co">## college in the New England or Mid-Atlantic regions: 10 years later</span>
-<span class="co">## df &lt;- sc_init() %&gt;% </span>
-<span class="co">##     sc_filter(control == 1, region == 1:2, ccbasic == 1:24) %&gt;% </span>
-<span class="co">##     sc_select(unitid, instnm, md_earn_wne_p10) %&gt;% </span>
-<span class="co">##     sc_year(2009) %&gt;%</span>
-<span class="co">##     sc_get()</span></code></pre></div>
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_init.html">sc_init</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu"><a href="../reference/sc_filter.html">sc_filter</a></span><span class="op">(</span><span class="va">control</span> <span class="op">==</span> <span class="fl">1</span>, <span class="va">region</span> <span class="op">==</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="va">ccbasic</span> <span class="op">==</span> <span class="fl">1</span><span class="op">:</span><span class="fl">24</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu"><a href="../reference/sc_select.html">sc_select</a></span><span class="op">(</span><span class="va">unitid</span>, <span class="va">instnm</span>, <span class="va">md_earn_wne_p10</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu"><a href="../reference/sc_year.html">sc_year</a></span><span class="op">(</span><span class="fl">2009</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu"><a href="../reference/sc_get.html">sc_get</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Large request will require: 2 additional pulls.</span>
+<span class="co">#&gt; Request additional chunk 1</span>
+<span class="co">#&gt; Request additional chunk 2</span>
+<span class="co">#&gt; Request complete!</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## df</span></code></pre></div>
 </div>
