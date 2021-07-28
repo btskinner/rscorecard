@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.19.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.20.0</span>
       </span>
     </div>
 
@@ -104,7 +104,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Commands</h1>
             
-            <h4 class="date">2021-07-15</h4>
+            <h4 class="date">2021-07-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/master/vignettes/commands.Rmd"><code>vignettes/commands.Rmd</code></a></small>
       <div class="hidden name"><code>commands.Rmd</code></div>
@@ -329,29 +329,29 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dict_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'stabbr'</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">dict_df</span>
-<span class="co">#&gt; # A tibble: 1 x 9</span>
-<span class="co">#&gt;   varname value label description  source dev_friendly_na… dev_category notes   </span>
-<span class="co">#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;   </span>
-<span class="co">#&gt; 1 stabbr     NA &lt;NA&gt;  State postc… IPEDS  state            school       Shown/u…</span>
+<span class="co">#&gt; # A tibble: 1 × 9</span>
+<span class="co">#&gt;   varname value label description    source dev_friendly_name dev_category notes</span>
+<span class="co">#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;</span>
+<span class="co">#&gt; 1 stabbr     NA &lt;NA&gt;  State postcode IPEDS  state             school       &lt;NA&gt; </span>
 <span class="co">#&gt; # … with 1 more variable: can_filter &lt;dbl&gt;</span></code></pre></div>
 <p>If you want the full data dictionary, simply search for <code>'.'</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dict_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'.'</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">dict_df</span>
-<span class="co">#&gt; # A tibble: 2,743 x 9</span>
-<span class="co">#&gt;    varname  value label description  source dev_friendly_na… dev_category notes </span>
-<span class="co">#&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt; </span>
-<span class="co">#&gt;  1 unitid      NA &lt;NA&gt;  Unit ID for… IPEDS  id               root         Shown…</span>
-<span class="co">#&gt;  2 opeid       NA &lt;NA&gt;  8-digit OPE… IPEDS  ope8_id          root         Shown…</span>
-<span class="co">#&gt;  3 opeid6      NA &lt;NA&gt;  6-digit OPE… IPEDS  ope6_id          root         Shown…</span>
-<span class="co">#&gt;  4 instnm      NA &lt;NA&gt;  Institution… IPEDS  name             school       Shown…</span>
-<span class="co">#&gt;  5 city        NA &lt;NA&gt;  City         IPEDS  city             school       Shown…</span>
-<span class="co">#&gt;  6 stabbr      NA &lt;NA&gt;  State postc… IPEDS  state            school       Shown…</span>
-<span class="co">#&gt;  7 zip         NA &lt;NA&gt;  ZIP code     IPEDS  zip              school       Shown…</span>
-<span class="co">#&gt;  8 accreda…    NA &lt;NA&gt;  Accreditor … FSA    accreditor       school       Shown…</span>
-<span class="co">#&gt;  9 insturl     NA &lt;NA&gt;  URL for ins… IPEDS  school_url       school       Shown…</span>
-<span class="co">#&gt; 10 npcurl      NA &lt;NA&gt;  URL for ins… IPEDS  price_calculato… school       Shown…</span>
-<span class="co">#&gt; # … with 2,733 more rows, and 1 more variable: can_filter &lt;dbl&gt;</span></code></pre></div>
+<span class="co">#&gt; # A tibble: 2,751 × 9</span>
+<span class="co">#&gt;    varname  value label description   source dev_friendly_na… dev_category notes</span>
+<span class="co">#&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;</span>
+<span class="co">#&gt;  1 unitid      NA &lt;NA&gt;  Unit ID for … IPEDS  id               root         &lt;NA&gt; </span>
+<span class="co">#&gt;  2 opeid       NA &lt;NA&gt;  8-digit OPE … IPEDS  ope8_id          root         &lt;NA&gt; </span>
+<span class="co">#&gt;  3 opeid6      NA &lt;NA&gt;  6-digit OPE … IPEDS  ope6_id          root         &lt;NA&gt; </span>
+<span class="co">#&gt;  4 instnm      NA &lt;NA&gt;  Institution … IPEDS  name             school       &lt;NA&gt; </span>
+<span class="co">#&gt;  5 city        NA &lt;NA&gt;  City          IPEDS  city             school       &lt;NA&gt; </span>
+<span class="co">#&gt;  6 stabbr      NA &lt;NA&gt;  State postco… IPEDS  state            school       &lt;NA&gt; </span>
+<span class="co">#&gt;  7 zip         NA &lt;NA&gt;  ZIP code      IPEDS  zip              school       &lt;NA&gt; </span>
+<span class="co">#&gt;  8 accreda…    NA &lt;NA&gt;  Accreditor f… FSA    accreditor       school       &lt;NA&gt; </span>
+<span class="co">#&gt;  9 insturl     NA &lt;NA&gt;  URL for inst… IPEDS  school_url       school       &lt;NA&gt; </span>
+<span class="co">#&gt; 10 npcurl      NA &lt;NA&gt;  URL for inst… IPEDS  price_calculato… school       &lt;NA&gt; </span>
+<span class="co">#&gt; # … with 2,741 more rows, and 1 more variable: can_filter &lt;dbl&gt;</span></code></pre></div>
 </div>
   </div>
 

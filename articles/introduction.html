@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.19.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.20.0</span>
       </span>
     </div>
 
@@ -104,7 +104,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Getting started</h1>
             
-            <h4 class="date">2021-07-15</h4>
+            <h4 class="date">2021-07-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/master/vignettes/introduction.Rmd"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
@@ -153,15 +153,15 @@
 <span class="co">#&gt; Request complete!</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span>
-<span class="co">#&gt; # A tibble: 6 x 5</span>
+<span class="co">#&gt; # A tibble: 6 × 5</span>
 <span class="co">#&gt;   unitid instnm                                               stabbr  ugds year </span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                                                &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;</span>
-<span class="co">#&gt; 1 191676 Houghton College                                     NY       981 late…</span>
-<span class="co">#&gt; 2 194392 Paul Smiths College of Arts and Science              NY       740 late…</span>
-<span class="co">#&gt; 3 196051 SUNY Morrisville                                     NY      2758 late…</span>
-<span class="co">#&gt; 4 197230 Wells College                                        NY       463 late…</span>
-<span class="co">#&gt; 5 214625 Pennsylvania State University-Penn State New Kensin… PA       567 late…</span>
-<span class="co">#&gt; 6 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA       401 late…</span></code></pre></div>
+<span class="co">#&gt; 1 191676 Houghton College                                     NY       921 late…</span>
+<span class="co">#&gt; 2 194392 Paul Smiths College of Arts and Science              NY       712 late…</span>
+<span class="co">#&gt; 3 196051 SUNY Morrisville                                     NY      2604 late…</span>
+<span class="co">#&gt; 4 197230 Wells College                                        NY       413 late…</span>
+<span class="co">#&gt; 5 214625 Pennsylvania State University-Penn State New Kensin… PA         0 late…</span>
+<span class="co">#&gt; 6 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA         0 late…</span></code></pre></div>
 <p>Because we didn’t include a specific year, the <code>latest</code> data are returned. We could have specifically asked for the latest data using <code><a href="../reference/sc_year.html">sc_year('latest')</a></code>:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_init.html">sc_init</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
@@ -172,15 +172,15 @@
 <span class="co">#&gt; Request complete!</span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span>
-<span class="co">#&gt; # A tibble: 6 x 5</span>
+<span class="co">#&gt; # A tibble: 6 × 5</span>
 <span class="co">#&gt;   unitid instnm                                               stabbr  ugds year </span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                                                &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;</span>
-<span class="co">#&gt; 1 191676 Houghton College                                     NY       981 late…</span>
-<span class="co">#&gt; 2 194392 Paul Smiths College of Arts and Science              NY       740 late…</span>
-<span class="co">#&gt; 3 196051 SUNY Morrisville                                     NY      2758 late…</span>
-<span class="co">#&gt; 4 197230 Wells College                                        NY       463 late…</span>
-<span class="co">#&gt; 5 214625 Pennsylvania State University-Penn State New Kensin… PA       567 late…</span>
-<span class="co">#&gt; 6 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA       401 late…</span></code></pre></div>
+<span class="co">#&gt; 1 191676 Houghton College                                     NY       921 late…</span>
+<span class="co">#&gt; 2 194392 Paul Smiths College of Arts and Science              NY       712 late…</span>
+<span class="co">#&gt; 3 196051 SUNY Morrisville                                     NY      2604 late…</span>
+<span class="co">#&gt; 4 197230 Wells College                                        NY       413 late…</span>
+<span class="co">#&gt; 5 214625 Pennsylvania State University-Penn State New Kensin… PA         0 late…</span>
+<span class="co">#&gt; 6 214643 Pennsylvania State University-Penn State Wilkes-Bar… PA         0 late…</span></code></pre></div>
 <p>For a prior year’s data, change the value in <code><a href="../reference/sc_year.html">sc_year()</a></code>:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_init.html">sc_init</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
@@ -191,7 +191,7 @@
 <span class="co">#&gt; Request complete!</span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span>
-<span class="co">#&gt; # A tibble: 6 x 5</span>
+<span class="co">#&gt; # A tibble: 6 × 5</span>
 <span class="co">#&gt;   unitid instnm                                               stabbr  ugds  year</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                                                &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1 191676 Houghton College                                     NY      1368  2005</span>
@@ -214,19 +214,19 @@
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## filter to show only those with non-NA values for median debt</span>
 <span class="va">df</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">debt_mdn</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 712 x 8</span>
+<span class="co">#&gt; # A tibble: 712 × 8</span>
 <span class="co">#&gt;    unitid instnm    stabbr  ugds cipcode cipdesc                  debt_mdn year </span>
 <span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;                       &lt;int&gt; &lt;chr&gt;</span>
-<span class="co">#&gt;  1 191676 Houghton… NY       981 0105    Agricultural and Domest…    19500 late…</span>
-<span class="co">#&gt;  2 191676 Houghton… NY       981 0501    Area Studies.               19500 late…</span>
-<span class="co">#&gt;  3 191676 Houghton… NY       981 0901    Communication and Media…    19500 late…</span>
-<span class="co">#&gt;  4 191676 Houghton… NY       981 1101    Computer and Informatio…    19500 late…</span>
-<span class="co">#&gt;  5 191676 Houghton… NY       981 1104    Information Science/Stu…    19500 late…</span>
-<span class="co">#&gt;  6 191676 Houghton… NY       981 1312    Teacher Education and P…    19500 late…</span>
-<span class="co">#&gt;  7 191676 Houghton… NY       981 1313    Teacher Education and P…    19500 late…</span>
-<span class="co">#&gt;  8 191676 Houghton… NY       981 1314    Teaching English or Fre…    19500 late…</span>
-<span class="co">#&gt;  9 191676 Houghton… NY       981 1412    Engineering Physics.        19500 late…</span>
-<span class="co">#&gt; 10 191676 Houghton… NY       981 1609    Romance Languages, Lite…    19500 late…</span>
+<span class="co">#&gt;  1 191676 Houghton… NY       921 0105    Agricultural and Domest…    19500 late…</span>
+<span class="co">#&gt;  2 191676 Houghton… NY       921 0501    Area Studies.               19500 late…</span>
+<span class="co">#&gt;  3 191676 Houghton… NY       921 0901    Communication and Media…    19500 late…</span>
+<span class="co">#&gt;  4 191676 Houghton… NY       921 1101    Computer and Informatio…    19500 late…</span>
+<span class="co">#&gt;  5 191676 Houghton… NY       921 1104    Information Science/Stu…    19500 late…</span>
+<span class="co">#&gt;  6 191676 Houghton… NY       921 1312    Teacher Education and P…    19500 late…</span>
+<span class="co">#&gt;  7 191676 Houghton… NY       921 1313    Teacher Education and P…    19500 late…</span>
+<span class="co">#&gt;  8 191676 Houghton… NY       921 1314    Teaching English or Fre…    19500 late…</span>
+<span class="co">#&gt;  9 191676 Houghton… NY       921 1412    Engineering Physics.        19500 late…</span>
+<span class="co">#&gt; 10 191676 Houghton… NY       921 1609    Romance Languages, Lite…    19500 late…</span>
 <span class="co">#&gt; # … with 702 more rows</span></code></pre></div>
 <p><strong>Important note:</strong></p>
 <p>The mapping scheme of data across years isn’t consistent across data elements. From the <a href="https://collegescorecard.ed.gov/assets/FullDataDocumentation.pdf">technical documentation for institution-level data</a>:</p>
