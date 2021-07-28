@@ -1,3 +1,7 @@
+# v0.20.0
+
+- update dictionary for 20 July 2021 release of data
+
 # v0.19.1
 
 ## Bug fix

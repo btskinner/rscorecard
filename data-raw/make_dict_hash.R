@@ -9,8 +9,8 @@ link <- paste0("https://collegescorecard.ed.gov/assets/", file)
 download.file(link, file)
 
 ## sheet names
-sheets <- c("institution_data_dictionary",
-            "FieldOfStudy_data_dictionary")
+sheets <- c("Institution_Data_Dictionary",
+            "FieldOfStudy_Data_Dictionary")
 
 ## read in each sheet, munge, and bind
 df <- purrr::map(sheets,
@@ -45,13 +45,23 @@ df <- purrr::map(sheets,
                             dev_category = na.locf(dev_category),
                             dev_friendly_name = na.locf(dev_friendly_name),
                             varname = na.locf(varname),
-                            source = na.locf(source),
-                            notes = na.locf(notes)) |>
+                            source = na.locf(source)) |>
                      ## roll values forward in can_filter, grouped by variable name
                      group_by(varname) |>
-                     mutate(can_filter = na.locf(can_filter, na.rm = FALSE)) |>
+                     mutate(can_filter = na.locf(can_filter, na.rm = FALSE),
+                            notes = na.locf(notes, na.rm = FALSE)) |>
                      ungroup() |>
-                     mutate(can_filter = ifelse(is.na(can_filter), 0, can_filter))
+                     mutate(can_filter = ifelse(is.na(can_filter), 0, can_filter),
+                            notes_ibid = ifelse(grepl("ibid", notes), 1, 0),
+                            notes_disc = ifelse(grepl("^Discontinued;", notes), 1, 0),
+                            notes = ifelse(grepl("ibid", notes), NA, notes),
+                            notes = ifelse(is.na(notes) & notes_ibid == 1,
+                                           na.locf(notes),
+                                           notes),
+                            notes = ifelse(notes_disc == 1,
+                                           paste("DISCONTINUED:", notes),
+                                           notes)) |>
+                     select(-notes_ibid, -notes_disc)
                  ) |>
     ## bind together
     bind_rows()

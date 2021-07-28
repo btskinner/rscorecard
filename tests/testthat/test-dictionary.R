@@ -10,7 +10,7 @@ test_that('Dictionary does not return correct object', {
                          source = 'IPEDS',
                          dev_friendly_name = 'state',
                          dev_category = 'school',
-                         notes = 'Shown/used on consumer website.',
+                         notes = NA_character_,
                          can_filter = 1)
 
     df2 <- sc_dict('stabbr', return_df = TRUE, print_off = TRUE)
@@ -46,7 +46,7 @@ test_that('Dictionary does not return correct object', {
                          source = 'IPEDS',
                          dev_friendly_name = 'state_fips',
                          dev_category = 'school',
-                         notes = 'Shown/used on consumer website.',
+                         notes = NA_character_,
                          can_filter = 1)
 
     df2 <- sc_dict('st_fips', return_df = TRUE, print_off = TRUE)
