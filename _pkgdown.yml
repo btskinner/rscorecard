@@ -5,6 +5,9 @@ authors:
     href: https://www.btskinner.io
 
 reference:
+  - title: rscorecard
+    contents:
+    - rscorecard
   - title: Begin and end call
     contents:
     - sc_init
