@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.19.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.19.1</span>
       </span>
     </div>
 
@@ -104,7 +104,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>More examples</h1>
             
-            <h4 class="date">2021-07-12</h4>
+            <h4 class="date">2021-07-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/master/vignettes/more_examples.Rmd"><code>vignettes/more_examples.Rmd</code></a></small>
       <div class="hidden name"><code>more_examples.Rmd</code></div>
@@ -150,13 +150,31 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## median earnings for students who first enrolled in a public</span>
 <span class="co">## college in the New England or Mid-Atlantic regions: 10 years later</span>
-<span class="co">## df &lt;- sc_init() %&gt;% </span>
-<span class="co">##     sc_filter(control == 1, region == 1:2, ccbasic == 1:24) %&gt;% </span>
-<span class="co">##     sc_select(unitid, instnm, md_earn_wne_p10) %&gt;% </span>
-<span class="co">##     sc_year(2009) %&gt;%</span>
-<span class="co">##     sc_get()</span></code></pre></div>
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_init.html">sc_init</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu"><a href="../reference/sc_filter.html">sc_filter</a></span><span class="op">(</span><span class="va">control</span> <span class="op">==</span> <span class="fl">1</span>, <span class="va">region</span> <span class="op">==</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="va">ccbasic</span> <span class="op">==</span> <span class="fl">1</span><span class="op">:</span><span class="fl">24</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu"><a href="../reference/sc_select.html">sc_select</a></span><span class="op">(</span><span class="va">unitid</span>, <span class="va">instnm</span>, <span class="va">md_earn_wne_p10</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu"><a href="../reference/sc_year.html">sc_year</a></span><span class="op">(</span><span class="fl">2009</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu"><a href="../reference/sc_get.html">sc_get</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Large request will require: 2 additional pulls.</span>
+<span class="co">#&gt; Request additional chunk 1</span>
+<span class="co">#&gt; Request additional chunk 2</span>
+<span class="co">#&gt; Request complete!</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## df</span></code></pre></div>
+<code class="sourceCode R"><span class="va">df</span>
+<span class="co">#&gt; # A tibble: 283 x 4</span>
+<span class="co">#&gt;    unitid instnm                               md_earn_wne_p10  year</span>
+<span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;                                          &lt;int&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;  1 128577 Asnuntuck Community College                    30200  2009</span>
+<span class="co">#&gt;  2 128771 Central Connecticut State University           46400  2009</span>
+<span class="co">#&gt;  3 128780 Charter Oak State College                         NA  2009</span>
+<span class="co">#&gt;  4 129020 University of Connecticut                      54500  2009</span>
+<span class="co">#&gt;  5 129215 Eastern Connecticut State University           43600  2009</span>
+<span class="co">#&gt;  6 129367 Capital Community College                      34100  2009</span>
+<span class="co">#&gt;  7 129543 Housatonic Community College                   34100  2009</span>
+<span class="co">#&gt;  8 129695 Manchester Community College                   34600  2009</span>
+<span class="co">#&gt;  9 129729 Naugatuck Valley Community College             32000  2009</span>
+<span class="co">#&gt; 10 129756 Middlesex Community College                    34700  2009</span>
+<span class="co">#&gt; # … with 273 more rows</span></code></pre></div>
 </div>
   </div>
 

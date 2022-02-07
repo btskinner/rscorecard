@@ -14,7 +14,7 @@ sheets <- c("Institution_Data_Dictionary",
 
 ## read in each sheet, munge, and bind
 df <- purrr::map(sheets,
-                 ~ read_excel(file, sheet = .x) |>
+                 ~ read_excel(file, sheet = .x, na = c("","NULL")) |>
                      ## lower names
                      rename_all(tolower) |>
                      ## subset/rename
