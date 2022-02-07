@@ -31,6 +31,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -43,7 +45,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.19.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.21.0</span>
       </span>
     </div>
 
@@ -81,14 +83,14 @@
   </a>
 </li>
 <li>
-  <a href="https://github.com/btskinner/rscorecard">
+  <a href="https://github.com/btskinner/rscorecard" class="external-link">
     <span class="fa fa-github fa-lg"></span>
      
     github
   </a>
 </li>
 <li>
-  <a href="https://twitter.com/btskinner">
+  <a href="https://twitter.com/btskinner" class="external-link">
     <span class="fab fa-twitter"></span>
      
     twitter
@@ -106,34 +108,41 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="rscorecard-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#rscorecard-" class="anchor"></a>rscorecard <img src="reference/figures/logo.png" align="right">
+<div class="section level1">
+<div class="page-header"><h1 id="rscorecard-">rscorecard <img src="reference/figures/logo.png" align="right"><a class="anchor" aria-label="anchor" href="#rscorecard-"></a>
 </h1></div>
 
-<p>This package is an R wrapper for the <a href="https://collegescorecard.ed.gov">U.S. Department of Education College Scorecard</a> API. It allows users to select and filter Scorecard variables with piped commands a la <a href="http://github.com/hadley/dplyr"><code>dplyr</code></a>.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<p>This package is an R wrapper for the <a href="https://collegescorecard.ed.gov" class="external-link">U.S. Department of Education
+College Scorecard</a> API. It allows users to select and filter
+Scorecard variables with piped commands a la <a href="http://github.com/hadley/dplyr" class="external-link"><code>dplyr</code></a>.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>Install the latest released version from CRAN with</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rscorecard"</span>)</span></code></pre></div>
 <p>Install the latest development version from Github with</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"btskinner/rscorecard"</span>)</span></code></pre></div>
-<p>This package relies on the Scorecard data dictionary, so I will attempt to update it in a timely fashion whenever new Scorecard data are released. Because it sometimes takes a few days to get a package on CRAN, you may want to download the developmental version in the days immediately following a data update.</p>
+<p>This package relies on the Scorecard data dictionary, so I will
+attempt to update it in a timely fashion whenever new Scorecard data are
+released. Because it sometimes takes a few days to get a package on
+CRAN, you may want to download the developmental version in the days
+immediately following a data update.</p>
 </div>
-<div id="usage" class="section level2">
-<h2 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h2>
-<div id="set-api-key" class="section level3">
-<h3 class="hasAnchor">
-<a href="#set-api-key" class="anchor"></a>Set API key</h3>
-<p>Get your Data.gov API key at <a href="https://api.data.gov/signup/" class="uri">https://api.data.gov/signup/</a>. Save your key in your R environment at the start of your R session using <code><a href="reference/sc_key.html">sc_key()</a></code>:</p>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
+<div class="section level3">
+<h3 id="set-api-key">Set API key<a class="anchor" aria-label="anchor" href="#set-api-key"></a>
+</h3>
+<p>Get your Data.gov API key at <a href="https://api.data.gov/signup/" class="external-link uri">https://api.data.gov/signup/</a>. Save your key in your R
+environment at the start of your R session using
+<code><a href="reference/sc_key.html">sc_key()</a></code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## use your real key in place of the Xs</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sc_key</span>(<span class="st">'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'</span>)</span></code></pre></div>
 </div>
-<div id="request-data" class="section level3">
-<h3 class="hasAnchor">
-<a href="#request-data" class="anchor"></a>Request data</h3>
+<div class="section level3">
+<h3 id="request-data">Request data<a class="anchor" aria-label="anchor" href="#request-data"></a>
+</h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rscorecard)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">sc_init</span>() <span class="sc">%&gt;%</span> </span>
@@ -155,12 +164,15 @@
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 197230 Wells College                                           NY     latest</span></span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 214625 Pennsylvania State University-Penn State New Kensington PA     latest</span></span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 214643 Pennsylvania State University-Penn State Wilkes-Barre   PA     latest</span></span></code></pre></div>
-<p>For more example calls and information about other package commands, see the <a href="https://www.btskinner.io/rscorecard/articles/introduction.html">extended vignette</a>.</p>
+<p>For more example calls and information about other package commands,
+see the <a href="https://www.btskinner.io/rscorecard/articles/introduction.html">extended
+vignette</a>.</p>
 </div>
-<div id="data-dictionary" class="section level3">
-<h3 class="hasAnchor">
-<a href="#data-dictionary" class="anchor"></a>Data dictionary</h3>
-<p>To look up information about data elements, use the <code><a href="reference/sc_dict.html">sc_dict()</a></code> function.</p>
+<div class="section level3">
+<h3 id="data-dictionary">Data dictionary<a class="anchor" aria-label="anchor" href="#data-dictionary"></a>
+</h3>
+<p>To look up information about data elements, use the
+<code><a href="reference/sc_dict.html">sc_dict()</a></code> function.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sc_dict</span>(<span class="st">"control"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
@@ -203,17 +215,22 @@
 <span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="do">## Printed information for 2 of out 2 variables.</span></span></code></pre></div>
 </div>
 </div>
-<div id="further-references" class="section level2">
-<h2 class="hasAnchor">
-<a href="#further-references" class="anchor"></a>Further references</h2>
+<div class="section level2">
+<h2 id="further-references">Further references<a class="anchor" aria-label="anchor" href="#further-references"></a>
+</h2>
 <ul>
-<li><a href="https://collegescorecard.ed.gov">College Scorecard Website</a></li>
-<li><a href="https://collegescorecard.ed.gov/assets/FullDataDocumentation.pdf">Data documentation</a></li>
-<li><a href="https://collegescorecard.ed.gov/assets/CollegeScorecardDataDictionary.xlsx">Data dictionary <span class="math display"><em>X</em><em>L</em><em>S</em></span></a></li>
+<li><a href="https://collegescorecard.ed.gov" class="external-link">College Scorecard
+Website</a></li>
+<li><a href="https://collegescorecard.ed.gov/assets/FullDataDocumentation.pdf" class="external-link">Data
+documentation</a></li>
+<li><a href="https://collegescorecard.ed.gov/assets/CollegeScorecardDataDictionary.xlsx" class="external-link">Data
+dictionary [XLS]</a></li>
 <li>Reports
 <ul>
-<li><a href="https://collegescorecard.ed.gov/assets/BetterInformationForBetterCollegeChoiceAndInstitutionalPerformance.pdf">Policy paper</a></li>
-<li><a href="https://collegescorecard.ed.gov/assets/UsingFederalDataToMeasureAndImprovePerformance.pdf">Technical paper</a></li>
+<li><a href="https://collegescorecard.ed.gov/assets/BetterInformationForBetterCollegeChoiceAndInstitutionalPerformance.pdf" class="external-link">Policy
+paper</a></li>
+<li><a href="https://collegescorecard.ed.gov/assets/UsingFederalDataToMeasureAndImprovePerformance.pdf" class="external-link">Technical
+paper</a></li>
 </ul>
 </li>
 </ul>
@@ -223,56 +240,68 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=rscorecard">https://​cloud.r-project.org/​package=rscorecard</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/btskinner/rscorecard/">https://​github.com/​btskinner/​rscorecard/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/btskinner/rscorecard/issues">https://​github.com/​btskinner/​rscorecard/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=rscorecard" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/btskinner/rscorecard/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/btskinner/rscorecard/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a>
+<a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a>
 </li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>
-<a href="https://www.btskinner.io">Benjamin Skinner</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-0337-7415" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html#citation">Citing rscorecard</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/btskinner/rscorecard/actions"><img src="https://github.com/btskinner/rscorecard/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://github.com/btskinner/rscorecard"><img src="https://img.shields.io/github/release/btskinner/rscorecard.svg" alt="GitHub release"></a></li>
-<li><a href="http://cran.r-project.org/package=rscorecard"><img src="http://www.r-pkg.org/badges/version/rscorecard" alt="CRAN_Status_Badge"></a></li>
+<li>
+<a href="https://www.btskinner.io" class="external-link">Benjamin Skinner</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-0337-7415" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/btskinner/rscorecard/actions" class="external-link"><img src="https://github.com/btskinner/rscorecard/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://github.com/btskinner/rscorecard" class="external-link"><img src="https://img.shields.io/github/release/btskinner/rscorecard.svg" alt="GitHub release"></a></li>
+<li><a href="http://cran.r-project.org/package=rscorecard" class="external-link"><img src="http://www.r-pkg.org/badges/version/rscorecard" alt="CRAN_Status_Badge"></a></li>
+</ul>
 </div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://www.btskinner.io">Benjamin Skinner</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://www.btskinner.io" class="external-link">Benjamin
+Skinner</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.2.</p>
 </div>
 
       </footer>
@@ -280,6 +309,8 @@
 
   
 
+
+  
 
   </body>
 </html>

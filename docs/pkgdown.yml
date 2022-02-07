@@ -1,12 +1,12 @@
-pandoc: 2.14.0.3
-pkgdown: 1.6.1
+pandoc: 2.17.1.1
+pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   commands: commands.html
   introduction: introduction.html
   more_examples: more_examples.html
-last_built: 2021-07-15T20:12Z
+last_built: 2022-02-07T18:53Z
 urls:
-  reference: https://www.btskinner.io/rscorecard//reference
-  article: https://www.btskinner.io/rscorecard//articles
+  reference: https://www.btskinner.io/rscorecard/reference
+  article: https://www.btskinner.io/rscorecard/articles
 
