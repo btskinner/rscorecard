@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.21.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.22.0</span>
       </span>
     </div>
 
@@ -106,7 +106,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Getting started</h1>
             
-            <h4 data-toc-skip class="date">2022-02-07</h4>
+            <h4 data-toc-skip class="date">2022-03-22</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/HEAD/vignettes/introduction.Rmd" class="external-link"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
@@ -216,7 +216,7 @@
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## filter to show only those with non-NA values for median debt</span>
 <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">debt_mdn</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 222 × 8</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 223 × 8</span></span>
 <span class="co">#&gt;    unitid instnm           stabbr  ugds cipcode cipdesc           debt_mdn year </span>
 <span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">191</span>676 Houghton College NY       921 0105    Agricultural and…    <span style="text-decoration: underline;">20</span>000 late…</span>
@@ -229,7 +229,7 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">191</span>676 Houghton College NY       921 1314    Teaching English…    <span style="text-decoration: underline;">20</span>000 late…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">191</span>676 Houghton College NY       921 1412    Engineering Phys…    <span style="text-decoration: underline;">20</span>000 late…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">191</span>676 Houghton College NY       921 1609    Romance Language…    <span style="text-decoration: underline;">20</span>000 late…</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 212 more rows</span></span></code></pre></div>
+<span class="co">#&gt; <span style="color: #949494;"># … with 213 more rows</span></span></code></pre></div>
 <p><strong>Important note:</strong></p>
 <p>The mapping scheme of data across years isn’t consistent across data elements. From the <a href="https://collegescorecard.ed.gov/assets/FullDataDocumentation.pdf" class="external-link">technical documentation for institution-level data</a>:</p>
 <blockquote>
