@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.22.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.23.0</span>
       </span>
     </div>
 
@@ -84,7 +84,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">sc_zip</span><span class="op">(</span><span class="va">sccall</span>, <span class="va">zip</span>, distance <span class="op">=</span> <span class="fl">25</span>, km <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">sc_zip</span><span class="op">(</span><span class="va">sccall</span>, <span class="va">zip</span>, distance <span class="op">=</span> <span class="fl">25</span>, km <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -92,13 +92,20 @@
     <dl><dt>sccall</dt>
 <dd><p>Current list of parameters carried forward from prior
 functions in the chain (ignore)</p></dd>
+
+
 <dt>zip</dt>
 <dd><p>A 5-digit zipcode</p></dd>
+
+
 <dt>distance</dt>
 <dd><p>An integer distance in miles or kilometers</p></dd>
+
+
 <dt>km</dt>
 <dd><p>A boolean value set to <code>TRUE</code> if distance should be
 in kilometers (default is <code>FALSE</code> for miles)</p></dd>
+
 </dl></div>
     <div id="note">
     <h2>Note</h2>
@@ -113,14 +120,14 @@ in kilometers (default is <code>FALSE</code> for miles)</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">37203</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">37203</span>, <span class="fl">50</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">37203</span>, <span class="fl">50</span>, km <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">sc_zip</span><span class="op">(</span><span class="st">'02111'</span><span class="op">)</span>              <span class="co"># 1. Using string</span></span>
-<span class="r-in"><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">02111</span><span class="op">)</span>                <span class="co"># 2. Dropped leading zero will be added</span></span>
-<span class="r-in"><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">2111</span><span class="op">)</span>                 <span class="co"># 3. Will become '02111' (not recommended)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">37203</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">37203</span>, <span class="fl">50</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">37203</span>, <span class="fl">50</span>, km <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">sc_zip</span><span class="op">(</span><span class="st">'02111'</span><span class="op">)</span>              <span class="co"># 1. Using string</span></span></span>
+<span class="r-in"><span><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">02111</span><span class="op">)</span>                <span class="co"># 2. Dropped leading zero will be added</span></span></span>
+<span class="r-in"><span><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">2111</span><span class="op">)</span>                 <span class="co"># 3. Will become '02111' (not recommended)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -135,7 +142,7 @@ in kilometers (default is <code>FALSE</code> for miles)</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

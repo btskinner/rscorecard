@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.22.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.23.0</span>
       </span>
     </div>
 
@@ -106,7 +106,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Commands</h1>
             
-            <h4 data-toc-skip class="date">2022-03-22</h4>
+            <h4 data-toc-skip class="date">2022-07-05</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/HEAD/vignettes/commands.Rmd" class="external-link"><code>vignettes/commands.Rmd</code></a></small>
       <div class="hidden name"><code>commands.Rmd</code></div>
@@ -220,140 +220,140 @@
 </h2>
 <p>Users can search data elements in the College Scorecard data dictionary using <code><a href="../reference/sc_dict.html">sc_dict()</a></code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/btskinner/rscorecard" class="external-link">rscorecard</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/btskinner/rscorecard" class="external-link">rscorecard</a></span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## simple search for 'state' in any part of the dictionary</span>
-<span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'stabbr'</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ---------------------------------------------------------------------</span>
-<span class="co">#&gt; varname: stabbr                                         source: IPEDS</span>
-<span class="co">#&gt; ---------------------------------------------------------------------</span>
-<span class="co">#&gt; DESCRIPTION:</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; State postcode</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; VALUES: NA</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; CAN FILTER? Yes</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ---------------------------------------------------------------------</span>
-<span class="co">#&gt; Printed information for 1 of out 1 variables.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## simple search for 'state' in any part of the dictionary</span></span>
+<span><span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'stabbr'</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ---------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; varname: stabbr                                         source: IPEDS</span></span>
+<span><span class="co">#&gt; ---------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; DESCRIPTION:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; State postcode</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; VALUES: NA</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; CAN FILTER? Yes</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ---------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; Printed information for 1 of out 1 variables.</span></span></code></pre></div>
 <p>You can also search using regular expressions and limit the search to only one dictionary column. For example, the search below only looks for <strong>varnames</strong> starting with “st”:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## variable names starting with 'st'</span>
-<span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'^st'</span>, search_col <span class="op">=</span> <span class="st">'varname'</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ---------------------------------------------------------------------</span>
-<span class="co">#&gt; varname: stabbr                                         source: IPEDS</span>
-<span class="co">#&gt; ---------------------------------------------------------------------</span>
-<span class="co">#&gt; DESCRIPTION:</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; State postcode</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; VALUES: NA</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; CAN FILTER? Yes</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ---------------------------------------------------------------------</span>
-<span class="co">#&gt; varname: st_fips                                        source: IPEDS</span>
-<span class="co">#&gt; ---------------------------------------------------------------------</span>
-<span class="co">#&gt; DESCRIPTION:</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; FIPS code for state</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; VALUES: </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; 1 = Alabama</span>
-<span class="co">#&gt; 2 = Alaska</span>
-<span class="co">#&gt; 4 = Arizona</span>
-<span class="co">#&gt; 5 = Arkansas</span>
-<span class="co">#&gt; 6 = California</span>
-<span class="co">#&gt; 8 = Colorado</span>
-<span class="co">#&gt; 9 = Connecticut</span>
-<span class="co">#&gt; 10 = Delaware</span>
-<span class="co">#&gt; 11 = District of Columbia</span>
-<span class="co">#&gt; 12 = Florida</span>
-<span class="co">#&gt; 13 = Georgia</span>
-<span class="co">#&gt; 15 = Hawaii</span>
-<span class="co">#&gt; 16 = Idaho</span>
-<span class="co">#&gt; 17 = Illinois</span>
-<span class="co">#&gt; 18 = Indiana</span>
-<span class="co">#&gt; 19 = Iowa</span>
-<span class="co">#&gt; 20 = Kansas</span>
-<span class="co">#&gt; 21 = Kentucky</span>
-<span class="co">#&gt; 22 = Louisiana</span>
-<span class="co">#&gt; 23 = Maine</span>
-<span class="co">#&gt; 24 = Maryland</span>
-<span class="co">#&gt; 25 = Massachusetts</span>
-<span class="co">#&gt; 26 = Michigan</span>
-<span class="co">#&gt; 27 = Minnesota</span>
-<span class="co">#&gt; 28 = Mississippi</span>
-<span class="co">#&gt; 29 = Missouri</span>
-<span class="co">#&gt; 30 = Montana</span>
-<span class="co">#&gt; 31 = Nebraska</span>
-<span class="co">#&gt; 32 = Nevada</span>
-<span class="co">#&gt; 33 = New Hampshire</span>
-<span class="co">#&gt; 34 = New Jersey</span>
-<span class="co">#&gt; 35 = New Mexico</span>
-<span class="co">#&gt; 36 = New York</span>
-<span class="co">#&gt; 37 = North Carolina</span>
-<span class="co">#&gt; 38 = North Dakota</span>
-<span class="co">#&gt; 39 = Ohio</span>
-<span class="co">#&gt; 40 = Oklahoma</span>
-<span class="co">#&gt; 41 = Oregon</span>
-<span class="co">#&gt; 42 = Pennsylvania</span>
-<span class="co">#&gt; 44 = Rhode Island</span>
-<span class="co">#&gt; 45 = South Carolina</span>
-<span class="co">#&gt; 46 = South Dakota</span>
-<span class="co">#&gt; 47 = Tennessee</span>
-<span class="co">#&gt; 48 = Texas</span>
-<span class="co">#&gt; 49 = Utah</span>
-<span class="co">#&gt; 50 = Vermont</span>
-<span class="co">#&gt; 51 = Virginia</span>
-<span class="co">#&gt; 53 = Washington</span>
-<span class="co">#&gt; 54 = West Virginia</span>
-<span class="co">#&gt; 55 = Wisconsin</span>
-<span class="co">#&gt; 56 = Wyoming</span>
-<span class="co">#&gt; 60 = American Samoa</span>
-<span class="co">#&gt; 64 = Federated States of Micronesia</span>
-<span class="co">#&gt; 66 = Guam</span>
-<span class="co">#&gt; 69 = Northern Mariana Islands</span>
-<span class="co">#&gt; 70 = Palau</span>
-<span class="co">#&gt; 72 = Puerto Rico</span>
-<span class="co">#&gt; 78 = Virgin Islands</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; CAN FILTER? Yes</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ---------------------------------------------------------------------</span>
-<span class="co">#&gt; Printed information for 2 of out 2 variables.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## variable names starting with 'st'</span></span>
+<span><span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'^st'</span>, search_col <span class="op">=</span> <span class="st">'varname'</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ---------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; varname: stabbr                                         source: IPEDS</span></span>
+<span><span class="co">#&gt; ---------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; DESCRIPTION:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; State postcode</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; VALUES: NA</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; CAN FILTER? Yes</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ---------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; varname: st_fips                                        source: IPEDS</span></span>
+<span><span class="co">#&gt; ---------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; DESCRIPTION:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; FIPS code for state</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; VALUES: </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; 1 = Alabama</span></span>
+<span><span class="co">#&gt; 2 = Alaska</span></span>
+<span><span class="co">#&gt; 4 = Arizona</span></span>
+<span><span class="co">#&gt; 5 = Arkansas</span></span>
+<span><span class="co">#&gt; 6 = California</span></span>
+<span><span class="co">#&gt; 8 = Colorado</span></span>
+<span><span class="co">#&gt; 9 = Connecticut</span></span>
+<span><span class="co">#&gt; 10 = Delaware</span></span>
+<span><span class="co">#&gt; 11 = District of Columbia</span></span>
+<span><span class="co">#&gt; 12 = Florida</span></span>
+<span><span class="co">#&gt; 13 = Georgia</span></span>
+<span><span class="co">#&gt; 15 = Hawaii</span></span>
+<span><span class="co">#&gt; 16 = Idaho</span></span>
+<span><span class="co">#&gt; 17 = Illinois</span></span>
+<span><span class="co">#&gt; 18 = Indiana</span></span>
+<span><span class="co">#&gt; 19 = Iowa</span></span>
+<span><span class="co">#&gt; 20 = Kansas</span></span>
+<span><span class="co">#&gt; 21 = Kentucky</span></span>
+<span><span class="co">#&gt; 22 = Louisiana</span></span>
+<span><span class="co">#&gt; 23 = Maine</span></span>
+<span><span class="co">#&gt; 24 = Maryland</span></span>
+<span><span class="co">#&gt; 25 = Massachusetts</span></span>
+<span><span class="co">#&gt; 26 = Michigan</span></span>
+<span><span class="co">#&gt; 27 = Minnesota</span></span>
+<span><span class="co">#&gt; 28 = Mississippi</span></span>
+<span><span class="co">#&gt; 29 = Missouri</span></span>
+<span><span class="co">#&gt; 30 = Montana</span></span>
+<span><span class="co">#&gt; 31 = Nebraska</span></span>
+<span><span class="co">#&gt; 32 = Nevada</span></span>
+<span><span class="co">#&gt; 33 = New Hampshire</span></span>
+<span><span class="co">#&gt; 34 = New Jersey</span></span>
+<span><span class="co">#&gt; 35 = New Mexico</span></span>
+<span><span class="co">#&gt; 36 = New York</span></span>
+<span><span class="co">#&gt; 37 = North Carolina</span></span>
+<span><span class="co">#&gt; 38 = North Dakota</span></span>
+<span><span class="co">#&gt; 39 = Ohio</span></span>
+<span><span class="co">#&gt; 40 = Oklahoma</span></span>
+<span><span class="co">#&gt; 41 = Oregon</span></span>
+<span><span class="co">#&gt; 42 = Pennsylvania</span></span>
+<span><span class="co">#&gt; 44 = Rhode Island</span></span>
+<span><span class="co">#&gt; 45 = South Carolina</span></span>
+<span><span class="co">#&gt; 46 = South Dakota</span></span>
+<span><span class="co">#&gt; 47 = Tennessee</span></span>
+<span><span class="co">#&gt; 48 = Texas</span></span>
+<span><span class="co">#&gt; 49 = Utah</span></span>
+<span><span class="co">#&gt; 50 = Vermont</span></span>
+<span><span class="co">#&gt; 51 = Virginia</span></span>
+<span><span class="co">#&gt; 53 = Washington</span></span>
+<span><span class="co">#&gt; 54 = West Virginia</span></span>
+<span><span class="co">#&gt; 55 = Wisconsin</span></span>
+<span><span class="co">#&gt; 56 = Wyoming</span></span>
+<span><span class="co">#&gt; 60 = American Samoa</span></span>
+<span><span class="co">#&gt; 64 = Federated States of Micronesia</span></span>
+<span><span class="co">#&gt; 66 = Guam</span></span>
+<span><span class="co">#&gt; 69 = Northern Mariana Islands</span></span>
+<span><span class="co">#&gt; 70 = Palau</span></span>
+<span><span class="co">#&gt; 72 = Puerto Rico</span></span>
+<span><span class="co">#&gt; 78 = Virgin Islands</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; CAN FILTER? Yes</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ---------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; Printed information for 2 of out 2 variables.</span></span></code></pre></div>
 <p>You can also return the data dictionary as a tibble. When storing the dictionary in an object, it may be useful to set <code>print_off = TRUE</code> so that the dictionary results don’t print to the console:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dict_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'stabbr'</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">dict_df</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 9</span></span>
-<span class="co">#&gt;   varname value label description    source dev_friendly_name dev_category notes</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> stabbr     <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    State postcode IPEDS  state             school       <span style="color: #BB0000;">NA</span>   </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 1 more variable: can_filter &lt;dbl&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dict_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'stabbr'</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">dict_df</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 9</span></span></span>
+<span><span class="co">#&gt;   varname value label description    source dev_friendly_name dev_category notes</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> stabbr     <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    State postcode IPEDS  state             school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 1 more variable: can_filter &lt;dbl&gt;</span></span></span></code></pre></div>
 <p>If you want the full data dictionary, simply search for <code>'.'</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dict_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'.'</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">dict_df</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 3,383 × 9</span></span>
-<span class="co">#&gt;    varname    value label description source dev_friendly_na… dev_category notes</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> unitid        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    Unit ID fo… IPEDS  id               root         <span style="color: #BB0000;">NA</span>   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> opeid         <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    8-digit OP… IPEDS  ope8_id          root         <span style="color: #BB0000;">NA</span>   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> opeid6        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    6-digit OP… IPEDS  ope6_id          root         <span style="color: #BB0000;">NA</span>   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> instnm        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    Institutio… IPEDS  name             school       <span style="color: #BB0000;">NA</span>   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> city          <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    City        IPEDS  city             school       <span style="color: #BB0000;">NA</span>   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> stabbr        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    State post… IPEDS  state            school       <span style="color: #BB0000;">NA</span>   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> zip           <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    ZIP code    IPEDS  zip              school       <span style="color: #BB0000;">NA</span>   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> accredage…    <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    Accreditor… FSA    accreditor       school       <span style="color: #BB0000;">NA</span>   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> insturl       <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    URL for in… IPEDS  school_url       school       <span style="color: #BB0000;">NA</span>   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> npcurl        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    URL for in… IPEDS  price_calculato… school       <span style="color: #BB0000;">NA</span>   </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 3,373 more rows, and 1 more variable: can_filter &lt;dbl&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dict_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'.'</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">dict_df</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3,383 × 9</span></span></span>
+<span><span class="co">#&gt;    varname    value label description source dev_friendly_na… dev_category notes</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> unitid        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    Unit ID fo… IPEDS  id               root         <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> opeid         <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    8-digit OP… IPEDS  ope8_id          root         <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> opeid6        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    6-digit OP… IPEDS  ope6_id          root         <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> instnm        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    Institutio… IPEDS  name             school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> city          <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    City        IPEDS  city             school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> stabbr        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    State post… IPEDS  state            school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> zip           <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    ZIP code    IPEDS  zip              school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> accredage…    <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    Accreditor… FSA    accreditor       school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> insturl       <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    URL for in… IPEDS  school_url       school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> npcurl        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    URL for in… IPEDS  price_calculato… school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 3,373 more rows, and 1 more variable: can_filter &lt;dbl&gt;</span></span></span></code></pre></div>
 </div>
   </div>
 
@@ -374,7 +374,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer>

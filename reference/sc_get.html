@@ -19,7 +19,7 @@ that is used to get the data."><meta property="og:image" content="https://www.bt
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.22.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.23.0</span>
       </span>
     </div>
 
@@ -88,13 +88,13 @@ that is used to get the data.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">sc_get</span><span class="op">(</span>
-  <span class="va">sccall</span>,
-  <span class="va">api_key</span>,
-  debug <span class="op">=</span> <span class="cn">FALSE</span>,
-  print_key_debug <span class="op">=</span> <span class="cn">FALSE</span>,
-  return_json <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">sc_get</span><span class="op">(</span></span>
+<span>  <span class="va">sccall</span>,</span>
+<span>  <span class="va">api_key</span>,</span>
+<span>  debug <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  print_key_debug <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  return_json <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -102,23 +102,32 @@ that is used to get the data.</p>
     <dl><dt>sccall</dt>
 <dd><p>Current list of parameters carried forward from prior
 functions in the chain (ignore)</p></dd>
+
+
 <dt>api_key</dt>
 <dd><p>Personal API key requested from
 <a href="https://api.data.gov/signup" class="external-link">https://api.data.gov/signup</a> stored in a string. If you
 first set your key using <code>sc_key</code>, then you may omit this
 parameter. A key set here will take precedence over any set in
 the environment (DATAGOV_API_KEY).</p></dd>
+
+
 <dt>debug</dt>
 <dd><p>Set to true to print and return API call (URL string)
 rather than make actual request. Should only be used when
 debugging calls.</p></dd>
+
+
 <dt>print_key_debug</dt>
 <dd><p>Only used when <code>debug == TRUE</code>. Default
 masks the <code>api_key</code> value. Set to <code>TRUE</code> to print the
 full API call string with the <code>api_key</code> unmasked.</p></dd>
+
+
 <dt>return_json</dt>
 <dd><p>Return data in JSON format rather than as a
 tibble.</p></dd>
+
 </dl></div>
     <div id="obtain-a-key">
     <h2>Obtain a key</h2>
@@ -129,12 +138,12 @@ tibble.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">sc_get</span><span class="op">(</span><span class="st">'&lt;API KEY IN STRING&gt;'</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">key</span> <span class="op">&lt;-</span> <span class="st">'&lt;API KEY IN STRING&gt;'</span></span>
-<span class="r-in"><span class="fu">sc_get</span><span class="op">(</span><span class="va">key</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">sc_get</span><span class="op">(</span><span class="st">'&lt;API KEY IN STRING&gt;'</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">key</span> <span class="op">&lt;-</span> <span class="st">'&lt;API KEY IN STRING&gt;'</span></span></span>
+<span class="r-in"><span><span class="fu">sc_get</span><span class="op">(</span><span class="va">key</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -149,7 +158,7 @@ tibble.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

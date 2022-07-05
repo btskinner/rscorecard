@@ -18,7 +18,7 @@ converts idiomatic R into the format required by the API call."><meta property="
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.22.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.23.0</span>
       </span>
     </div>
 
@@ -86,9 +86,9 @@ converts idiomatic R into the format required by the API call.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">sc_filter</span><span class="op">(</span><span class="va">sccall</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">sc_filter_</span><span class="op">(</span><span class="va">sccall</span>, <span class="va">filter_string</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">sc_filter</span><span class="op">(</span><span class="va">sccall</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">sc_filter_</span><span class="op">(</span><span class="va">sccall</span>, <span class="va">filter_string</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -96,11 +96,16 @@ converts idiomatic R into the format required by the API call.</p>
     <dl><dt>sccall</dt>
 <dd><p>Current list of parameters carried forward from prior
 functions in the chain (ignore)</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Expressions to evaluate</p></dd>
+
+
 <dt>filter_string</dt>
 <dd><p>Filter as character string or vector of
 filters as character strings</p></dd>
+
 </dl></div>
     <div id="functions">
     <h2>Functions</h2>
@@ -112,27 +117,27 @@ or vector of strings when using this version)</p></li>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">sc_filter</span><span class="op">(</span><span class="va">region</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="co"># New England institutions</span></span>
-<span class="r-in"><span class="fu">sc_filter</span><span class="op">(</span><span class="va">stabbr</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'TN'</span>,<span class="st">'KY'</span><span class="op">)</span><span class="op">)</span> <span class="co"># institutions in Tennessee and Kentucky</span></span>
-<span class="r-in"><span class="fu">sc_filter</span><span class="op">(</span><span class="va">control</span> <span class="op">!=</span> <span class="fl">3</span><span class="op">)</span> <span class="co"># exclude private, for-profit institutions</span></span>
-<span class="r-in"><span class="fu">sc_filter</span><span class="op">(</span><span class="va">control</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># same as above</span></span>
-<span class="r-in"><span class="fu">sc_filter</span><span class="op">(</span><span class="va">control</span> <span class="op">==</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span> <span class="co"># same as above</span></span>
-<span class="r-in"><span class="fu">sc_filter</span><span class="op">(</span><span class="va">stabbr</span> <span class="op">==</span> <span class="st">'TN'</span>, <span class="va">control</span> <span class="op">==</span> <span class="fl">1</span>, <span class="va">locale</span> <span class="op">==</span> <span class="fl">41</span><span class="op">:</span><span class="fl">43</span><span class="op">)</span> <span class="co"># TN rural publics</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">sc_filter_</span><span class="op">(</span><span class="st">'region == 1'</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">sc_filter_</span><span class="op">(</span><span class="st">'control != 3'</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## With internal strings, you must either use both double and single quotes</span></span>
-<span class="r-in"><span class="co">## or escape internal quotes</span></span>
-<span class="r-in"><span class="fu">sc_filter_</span><span class="op">(</span><span class="st">"stabbr == c('TN','KY')"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">sc_filter_</span><span class="op">(</span><span class="st">'stabbr == c(\'TN\',\'KY\')'</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## stored in object</span></span>
-<span class="r-in"><span class="va">filters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'control == 1'</span>, <span class="st">'locale == 41:43'</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">sc_filter_</span><span class="op">(</span><span class="va">filters</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">sc_filter</span><span class="op">(</span><span class="va">region</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="co"># New England institutions</span></span></span>
+<span class="r-in"><span><span class="fu">sc_filter</span><span class="op">(</span><span class="va">stabbr</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'TN'</span>,<span class="st">'KY'</span><span class="op">)</span><span class="op">)</span> <span class="co"># institutions in Tennessee and Kentucky</span></span></span>
+<span class="r-in"><span><span class="fu">sc_filter</span><span class="op">(</span><span class="va">control</span> <span class="op">!=</span> <span class="fl">3</span><span class="op">)</span> <span class="co"># exclude private, for-profit institutions</span></span></span>
+<span class="r-in"><span><span class="fu">sc_filter</span><span class="op">(</span><span class="va">control</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># same as above</span></span></span>
+<span class="r-in"><span><span class="fu">sc_filter</span><span class="op">(</span><span class="va">control</span> <span class="op">==</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span> <span class="co"># same as above</span></span></span>
+<span class="r-in"><span><span class="fu">sc_filter</span><span class="op">(</span><span class="va">stabbr</span> <span class="op">==</span> <span class="st">'TN'</span>, <span class="va">control</span> <span class="op">==</span> <span class="fl">1</span>, <span class="va">locale</span> <span class="op">==</span> <span class="fl">41</span><span class="op">:</span><span class="fl">43</span><span class="op">)</span> <span class="co"># TN rural publics</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">sc_filter_</span><span class="op">(</span><span class="st">'region == 1'</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">sc_filter_</span><span class="op">(</span><span class="st">'control != 3'</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## With internal strings, you must either use both double and single quotes</span></span></span>
+<span class="r-in"><span><span class="co">## or escape internal quotes</span></span></span>
+<span class="r-in"><span><span class="fu">sc_filter_</span><span class="op">(</span><span class="st">"stabbr == c('TN','KY')"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">sc_filter_</span><span class="op">(</span><span class="st">'stabbr == c(\'TN\',\'KY\')'</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## stored in object</span></span></span>
+<span class="r-in"><span><span class="va">filters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'control == 1'</span>, <span class="st">'locale == 41:43'</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">sc_filter_</span><span class="op">(</span><span class="va">filters</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -147,7 +152,7 @@ or vector of strings when using this version)</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>
