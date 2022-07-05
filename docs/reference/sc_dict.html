@@ -18,7 +18,7 @@ data dictionary."><meta property="og:image" content="https://www.btskinner.io/rs
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.21.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.23.0</span>
       </span>
     </div>
 
@@ -86,20 +86,20 @@ data dictionary.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">sc_dict</span><span class="op">(</span>
-  <span class="va">search_string</span>,
-  search_col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"all"</span>, <span class="st">"description"</span>, <span class="st">"varname"</span>, <span class="st">"dev_friendly_name"</span>, <span class="st">"dev_category"</span>,
-    <span class="st">"label"</span>, <span class="st">"source"</span><span class="op">)</span>,
-  ignore_case <span class="op">=</span> <span class="cn">TRUE</span>,
-  limit <span class="op">=</span> <span class="fl">10</span>,
-  confirm <span class="op">=</span> <span class="cn">FALSE</span>,
-  print_dev <span class="op">=</span> <span class="cn">FALSE</span>,
-  print_notes <span class="op">=</span> <span class="cn">FALSE</span>,
-  return_df <span class="op">=</span> <span class="cn">FALSE</span>,
-  print_off <span class="op">=</span> <span class="cn">FALSE</span>,
-  can_filter <span class="op">=</span> <span class="cn">FALSE</span>,
-  filter_vars <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">sc_dict</span><span class="op">(</span></span>
+<span>  <span class="va">search_string</span>,</span>
+<span>  search_col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"all"</span>, <span class="st">"description"</span>, <span class="st">"varname"</span>, <span class="st">"dev_friendly_name"</span>, <span class="st">"dev_category"</span>,</span>
+<span>    <span class="st">"label"</span>, <span class="st">"source"</span><span class="op">)</span>,</span>
+<span>  ignore_case <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  limit <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>  confirm <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  print_dev <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  print_notes <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  return_df <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  print_off <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  can_filter <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  filter_vars <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -109,45 +109,66 @@ data dictionary.</p>
 expression for search. Must escape special characters,
 <code>. \ | ( ) [ { ^ $ * + ?</code>, with a doublebackslash
 <code>\\</code>.</p></dd>
+
+
 <dt>search_col</dt>
 <dd><p>Column to search. The default is to search all
 columns.  Other options include: "varname",
 "dev_friendly_name", "dev_category", "label".</p></dd>
+
+
 <dt>ignore_case</dt>
 <dd><p>Search is case insensitive by default. Change to
 <code>FALSE</code> to restrict search to exact case matches.</p></dd>
+
+
 <dt>limit</dt>
 <dd><p>Only the first 10 dictionary items are returned by
 default. Increase to return more values. Set to <code>Inf</code> to
 return all items matched in search'</p></dd>
+
+
 <dt>confirm</dt>
 <dd><p>Use to confirm status of variable name in
 dictionary. Returns <code>TRUE</code> or <code>FALSE</code>.</p></dd>
+
+
 <dt>print_dev</dt>
 <dd><p>Set to <code>TRUE</code> if you want to see the
 developer friendly name and category used in the API call.</p></dd>
+
+
 <dt>print_notes</dt>
 <dd><p>Set to <code>TRUE</code> if you want to see the notes
 included in the data dictionary (if any).</p></dd>
+
+
 <dt>return_df</dt>
 <dd><p>Return a tibble of the subset data dictionary.</p></dd>
+
+
 <dt>print_off</dt>
 <dd><p>Do not print to console; useful if you only want
 to return a tibble of dictionary values.</p></dd>
+
+
 <dt>can_filter</dt>
 <dd><p>Use to confirm that a variable can be used as a
 filtering variable. Returns <code>TRUE</code> or <code>FALSE</code></p></dd>
+
+
 <dt>filter_vars</dt>
 <dd><p>Use to print variables that can be used to
 filter calls. Use with argument <code>return_df = TRUE</code> to
 return a tibble of these variables in addition to console
 output.</p></dd>
+
 </dl></div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## simple search for 'state' in any part of the dictionary</span></span>
-<span class="r-in"><span class="fu">sc_dict</span><span class="op">(</span><span class="st">'state'</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## simple search for 'state' in any part of the dictionary</span></span></span>
+<span class="r-in"><span><span class="fu">sc_dict</span><span class="op">(</span><span class="st">'state'</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> varname: stabbr                                         source: IPEDS</span>
@@ -258,9 +279,9 @@ output.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Printed information for 4 of out 4 variables.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## variable names starting with 'st'</span></span>
-<span class="r-in"><span class="fu">sc_dict</span><span class="op">(</span><span class="st">'^st'</span>, search_col <span class="op">=</span> <span class="st">'varname'</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## variable names starting with 'st'</span></span></span>
+<span class="r-in"><span><span class="fu">sc_dict</span><span class="op">(</span><span class="st">'^st'</span>, search_col <span class="op">=</span> <span class="st">'varname'</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> varname: stabbr                                         source: IPEDS</span>
@@ -347,13 +368,13 @@ output.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Printed information for 2 of out 2 variables.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## return full dictionary (only recommended if not printing and</span></span>
-<span class="r-in"><span class="co">## storing in object)</span></span>
-<span class="r-in"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">sc_dict</span><span class="op">(</span><span class="st">'.'</span>, limit <span class="op">=</span> <span class="cn">Inf</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## print list of variables that can be used to filter</span></span>
-<span class="r-in"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">sc_dict</span><span class="op">(</span><span class="st">'.'</span>, filter_vars <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## return full dictionary (only recommended if not printing and</span></span></span>
+<span class="r-in"><span><span class="co">## storing in object)</span></span></span>
+<span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">sc_dict</span><span class="op">(</span><span class="st">'.'</span>, limit <span class="op">=</span> <span class="cn">Inf</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## print list of variables that can be used to filter</span></span></span>
+<span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">sc_dict</span><span class="op">(</span><span class="st">'.'</span>, filter_vars <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> The following variables can be used in sc_filter():</span>
@@ -375,7 +396,7 @@ output.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  - curroper</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  - debt_all_stgp_any_mdn</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  - dolprovider</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - earn_mdn_hi_2yr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - earn_ne_mdn_3yr</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  - fedschcd</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  - gt_25k_p6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  - gt_threshold_p6_supp</span>
@@ -449,13 +470,11 @@ output.</p></dd>
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by <a href="https://www.btskinner.io" class="external-link">Benjamin
-Skinner</a>.</p>
+  <p></p><p>Developed by <a href="https://www.btskinner.io" class="external-link">Benjamin Skinner</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

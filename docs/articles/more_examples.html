@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.21.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.23.0</span>
       </span>
     </div>
 
@@ -106,7 +106,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>More examples</h1>
             
-            <h4 data-toc-skip class="date">2022-02-07</h4>
+            <h4 data-toc-skip class="date">2022-07-05</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/HEAD/vignettes/more_examples.Rmd" class="external-link"><code>vignettes/more_examples.Rmd</code></a></small>
       <div class="hidden name"><code>more_examples.Rmd</code></div>
@@ -116,34 +116,34 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/btskinner/rscorecard" class="external-link">rscorecard</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/btskinner/rscorecard" class="external-link">rscorecard</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="using-area-within-zip-code">Using area within zip code<a class="anchor" aria-label="anchor" href="#using-area-within-zip-code"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## public schools within 50 miles of midtown Nashville, TN</span>
-<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_init.html">sc_init</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-    <span class="fu"><a href="../reference/sc_filter.html">sc_filter</a></span><span class="op">(</span><span class="va">control</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-    <span class="fu"><a href="../reference/sc_select.html">sc_select</a></span><span class="op">(</span><span class="va">unitid</span>, <span class="va">instnm</span>, <span class="va">stabbr</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-    <span class="fu"><a href="../reference/sc_year.html">sc_year</a></span><span class="op">(</span><span class="fl">2013</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-    <span class="fu"><a href="../reference/sc_zip.html">sc_zip</a></span><span class="op">(</span><span class="fl">37203</span>, <span class="fl">50</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-    <span class="fu"><a href="../reference/sc_get.html">sc_get</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Request complete!</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## public schools within 50 miles of midtown Nashville, TN</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_init.html">sc_init</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="../reference/sc_filter.html">sc_filter</a></span><span class="op">(</span><span class="va">control</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="../reference/sc_select.html">sc_select</a></span><span class="op">(</span><span class="va">unitid</span>, <span class="va">instnm</span>, <span class="va">stabbr</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="../reference/sc_year.html">sc_year</a></span><span class="op">(</span><span class="fl">2013</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="../reference/sc_zip.html">sc_zip</a></span><span class="op">(</span><span class="fl">37203</span>, <span class="fl">50</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="../reference/sc_get.html">sc_get</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Request complete!</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 4</span></span>
-<span class="co">#&gt;    unitid instnm                                               stabbr  year</span>
-<span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">219</span>602 Austin Peay State University                         TN      <span style="text-decoration: underline;">2</span>013</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">219</span>888 Columbia State Community College                     TN      <span style="text-decoration: underline;">2</span>013</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">219</span>994 Tennessee College of Applied Technology-Dickson      TN      <span style="text-decoration: underline;">2</span>013</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">220</span>279 Tennessee College of Applied Technology-Hartsville   TN      <span style="text-decoration: underline;">2</span>013</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">220</span>978 Middle Tennessee State University                    TN      <span style="text-decoration: underline;">2</span>013</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">221</span>102 Tennessee College of Applied Technology-Murfreesboro TN      <span style="text-decoration: underline;">2</span>013</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">221</span>184 Nashville State Community College                    TN      <span style="text-decoration: underline;">2</span>013</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">221</span>838 Tennessee State University                           TN      <span style="text-decoration: underline;">2</span>013</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">222</span>053 Volunteer State Community College                    TN      <span style="text-decoration: underline;">2</span>013</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">248</span>925 Tennessee College of Applied Technology Nashville    TN      <span style="text-decoration: underline;">2</span>013</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 4</span></span></span>
+<span><span class="co">#&gt;    unitid instnm                                               stabbr  year</span></span>
+<span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">219</span>602 Austin Peay State University                         TN      <span style="text-decoration: underline;">2</span>013</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">219</span>888 Columbia State Community College                     TN      <span style="text-decoration: underline;">2</span>013</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">219</span>994 Tennessee College of Applied Technology-Dickson      TN      <span style="text-decoration: underline;">2</span>013</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">220</span>279 Tennessee College of Applied Technology-Hartsville   TN      <span style="text-decoration: underline;">2</span>013</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">220</span>978 Middle Tennessee State University                    TN      <span style="text-decoration: underline;">2</span>013</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">221</span>102 Tennessee College of Applied Technology-Murfreesboro TN      <span style="text-decoration: underline;">2</span>013</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">221</span>184 Nashville State Community College                    TN      <span style="text-decoration: underline;">2</span>013</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">221</span>838 Tennessee State University                           TN      <span style="text-decoration: underline;">2</span>013</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">222</span>053 Volunteer State Community College                    TN      <span style="text-decoration: underline;">2</span>013</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">248</span>925 Tennessee College of Applied Technology Nashville    TN      <span style="text-decoration: underline;">2</span>013</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="large-pull">Large pull<a class="anchor" aria-label="anchor" href="#large-pull"></a>
@@ -152,33 +152,33 @@
 there are more than 100 results, the package will make multiple pulls
 and append all results before returning.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## median earnings for students who first enrolled in a public</span>
-<span class="co">## college in the New England or Mid-Atlantic regions: 10 years later</span>
-<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_init.html">sc_init</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-    <span class="fu"><a href="../reference/sc_filter.html">sc_filter</a></span><span class="op">(</span><span class="va">control</span> <span class="op">==</span> <span class="fl">1</span>, <span class="va">region</span> <span class="op">==</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="va">ccbasic</span> <span class="op">==</span> <span class="fl">1</span><span class="op">:</span><span class="fl">24</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-    <span class="fu"><a href="../reference/sc_select.html">sc_select</a></span><span class="op">(</span><span class="va">unitid</span>, <span class="va">instnm</span>, <span class="va">md_earn_wne_p10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-    <span class="fu"><a href="../reference/sc_year.html">sc_year</a></span><span class="op">(</span><span class="fl">2009</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-    <span class="fu"><a href="../reference/sc_get.html">sc_get</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Large request will require: 2 additional pulls.</span>
-<span class="co">#&gt; Request additional chunk 1</span>
-<span class="co">#&gt; Request additional chunk 2</span>
-<span class="co">#&gt; Request complete!</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## median earnings for students who first enrolled in a public</span></span>
+<span><span class="co">## college in the New England or Mid-Atlantic regions: 10 years later</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_init.html">sc_init</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="../reference/sc_filter.html">sc_filter</a></span><span class="op">(</span><span class="va">control</span> <span class="op">==</span> <span class="fl">1</span>, <span class="va">region</span> <span class="op">==</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="va">ccbasic</span> <span class="op">==</span> <span class="fl">1</span><span class="op">:</span><span class="fl">24</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="../reference/sc_select.html">sc_select</a></span><span class="op">(</span><span class="va">unitid</span>, <span class="va">instnm</span>, <span class="va">md_earn_wne_p10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="../reference/sc_year.html">sc_year</a></span><span class="op">(</span><span class="fl">2009</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="../reference/sc_get.html">sc_get</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Large request will require: 2 additional pulls.</span></span>
+<span><span class="co">#&gt; Request additional chunk 1</span></span>
+<span><span class="co">#&gt; Request additional chunk 2</span></span>
+<span><span class="co">#&gt; Request complete!</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 280 × 4</span></span>
-<span class="co">#&gt;    unitid instnm                               md_earn_wne_p10  year</span>
-<span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">128</span>577 Asnuntuck Community College                    <span style="text-decoration: underline;">30</span>200  <span style="text-decoration: underline;">2</span>009</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">128</span>771 Central Connecticut State University           <span style="text-decoration: underline;">46</span>400  <span style="text-decoration: underline;">2</span>009</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">128</span>780 Charter Oak State College                         <span style="color: #BB0000;">NA</span>  <span style="text-decoration: underline;">2</span>009</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">129</span>020 University of Connecticut                      <span style="text-decoration: underline;">54</span>500  <span style="text-decoration: underline;">2</span>009</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">129</span>215 Eastern Connecticut State University           <span style="text-decoration: underline;">43</span>600  <span style="text-decoration: underline;">2</span>009</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">129</span>367 Capital Community College                      <span style="text-decoration: underline;">34</span>100  <span style="text-decoration: underline;">2</span>009</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">129</span>543 Housatonic Community College                   <span style="text-decoration: underline;">34</span>100  <span style="text-decoration: underline;">2</span>009</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">129</span>695 Manchester Community College                   <span style="text-decoration: underline;">34</span>600  <span style="text-decoration: underline;">2</span>009</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">129</span>729 Naugatuck Valley Community College             <span style="text-decoration: underline;">32</span>000  <span style="text-decoration: underline;">2</span>009</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">129</span>756 Middlesex Community College                    <span style="text-decoration: underline;">34</span>700  <span style="text-decoration: underline;">2</span>009</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 270 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 259 × 4</span></span></span>
+<span><span class="co">#&gt;    unitid instnm                               md_earn_wne_p10  year</span></span>
+<span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">128</span>577 Asnuntuck Community College                    <span style="text-decoration: underline;">30</span>200  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">128</span>771 Central Connecticut State University           <span style="text-decoration: underline;">46</span>400  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">128</span>780 Charter Oak State College                         <span style="color: #BB0000;">NA</span>  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">129</span>020 University of Connecticut                      <span style="text-decoration: underline;">54</span>500  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">129</span>215 Eastern Connecticut State University           <span style="text-decoration: underline;">43</span>600  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">129</span>367 Capital Community College                      <span style="text-decoration: underline;">34</span>100  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">129</span>543 Housatonic Community College                   <span style="text-decoration: underline;">34</span>100  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">129</span>695 Manchester Community College                   <span style="text-decoration: underline;">34</span>600  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">129</span>729 Naugatuck Valley Community College             <span style="text-decoration: underline;">32</span>000  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">129</span>756 Middlesex Community College                    <span style="text-decoration: underline;">34</span>700  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 249 more rows</span></span></span></code></pre></div>
 </div>
   </div>
 
@@ -194,14 +194,12 @@ and append all results before returning.</p>
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by <a href="https://www.btskinner.io" class="external-link">Benjamin
-Skinner</a>.</p>
+<p>Developed by <a href="https://www.btskinner.io" class="external-link">Benjamin Skinner</a>.</p>
 </div>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer>

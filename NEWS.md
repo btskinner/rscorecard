@@ -1,3 +1,7 @@
+# v0.23.0
+
+- update dictionary for 2 May 2022 release of data
+
 # v0.22.0
 
 - update dictionary for 14 March 2022 release of data
