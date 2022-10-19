@@ -24,11 +24,11 @@ converts idiomatic R into the format required by the API call.
 }
 \section{Functions}{
 \itemize{
-\item \code{sc_filter_}: Standard evaluation version of
+\item \code{sc_filter_()}: Standard evaluation version of
 \code{\link{sc_filter}} (\code{filter_string} must be a string
 or vector of strings when using this version)
-}}
 
+}}
 \examples{
 \dontrun{
 sc_filter(region == 1) # New England institutions

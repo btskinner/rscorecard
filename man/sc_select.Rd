@@ -23,11 +23,11 @@ This function is used to select the variables returned in the final dataset.
 }
 \section{Functions}{
 \itemize{
-\item \code{sc_select_}: Standard evaluation version of
+\item \code{sc_select_()}: Standard evaluation version of
 \code{\link{sc_select}} (\code{vars} must be string or vector
 of strings when using this version)
-}}
 
+}}
 \examples{
 \dontrun{
 sc_select(UNITID)
