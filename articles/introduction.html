@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.25.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.26.0</span>
       </span>
     </div>
 
@@ -106,7 +106,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Getting started</h1>
             
-            <h4 data-toc-skip class="date">2023-01-24</h4>
+            <h4 data-toc-skip class="date">2023-04-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/HEAD/vignettes/introduction.Rmd" class="external-link"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
@@ -174,10 +174,10 @@ areas:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 5</span></span></span>
 <span><span class="co">#&gt;   unitid instnm                                  stabbr  ugds year  </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">191</span>676 Houghton College                        NY       838 latest</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> <span style="text-decoration: underline;">194</span>392 Paul Smiths College of Arts and Science NY       665 latest</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> <span style="text-decoration: underline;">196</span>051 SUNY Morrisville                        NY      <span style="text-decoration: underline;">2</span>418 latest</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> <span style="text-decoration: underline;">197</span>230 Wells College                           NY       356 latest</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">191</span>676 Houghton University                     NY       841 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> <span style="text-decoration: underline;">194</span>392 Paul Smiths College of Arts and Science NY       707 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> <span style="text-decoration: underline;">196</span>051 SUNY Morrisville                        NY      <span style="text-decoration: underline;">1</span>939 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> <span style="text-decoration: underline;">197</span>230 Wells College                           NY       341 latest</span></span></code></pre></div>
 <p>Because we didn’t include a specific year, the <code>latest</code>
 data are returned. We could have specifically asked for the latest data
 using <code>sc_year('latest')</code>:</p>
@@ -193,10 +193,10 @@ using <code>sc_year('latest')</code>:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 5</span></span></span>
 <span><span class="co">#&gt;   unitid instnm                                  stabbr  ugds year  </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">191</span>676 Houghton College                        NY       838 latest</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> <span style="text-decoration: underline;">194</span>392 Paul Smiths College of Arts and Science NY       665 latest</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> <span style="text-decoration: underline;">196</span>051 SUNY Morrisville                        NY      <span style="text-decoration: underline;">2</span>418 latest</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> <span style="text-decoration: underline;">197</span>230 Wells College                           NY       356 latest</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">191</span>676 Houghton University                     NY       841 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> <span style="text-decoration: underline;">194</span>392 Paul Smiths College of Arts and Science NY       707 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> <span style="text-decoration: underline;">196</span>051 SUNY Morrisville                        NY      <span style="text-decoration: underline;">1</span>939 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> <span style="text-decoration: underline;">197</span>230 Wells College                           NY       341 latest</span></span></code></pre></div>
 <p>For a prior year’s data, change the value in
 <code><a href="../reference/sc_year.html">sc_year()</a></code>:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -211,7 +211,7 @@ using <code>sc_year('latest')</code>:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 5</span></span></span>
 <span><span class="co">#&gt;   unitid instnm                                  stabbr  ugds  year</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">191</span>676 Houghton College                        NY      <span style="text-decoration: underline;">1</span>368  <span style="text-decoration: underline;">2</span>005</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">191</span>676 Houghton University                     NY      <span style="text-decoration: underline;">1</span>368  <span style="text-decoration: underline;">2</span>005</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> <span style="text-decoration: underline;">194</span>392 Paul Smiths College of Arts and Science NY       841  <span style="text-decoration: underline;">2</span>005</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> <span style="text-decoration: underline;">196</span>051 SUNY Morrisville                        NY      <span style="text-decoration: underline;">2</span>964  <span style="text-decoration: underline;">2</span>005</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> <span style="text-decoration: underline;">197</span>230 Wells College                           NY       407  <span style="text-decoration: underline;">2</span>005</span></span></code></pre></div>
@@ -231,20 +231,20 @@ can be requested alongside institution-level data:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## filter to show only those with non-NA values for median debt</span></span>
 <span><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">debt_mdn</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 168 × 8</span></span></span>
-<span><span class="co">#&gt;    unitid instnm           stabbr  ugds cipcode cipdesc            debt_…¹ year </span></span>
-<span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">191</span>676 Houghton College NY       838 0105    Agricultural and …   <span style="text-decoration: underline;">20</span>000 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">191</span>676 Houghton College NY       838 0501    Area Studies.        <span style="text-decoration: underline;">20</span>000 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">191</span>676 Houghton College NY       838 0901    Communication and…   <span style="text-decoration: underline;">20</span>000 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">191</span>676 Houghton College NY       838 1101    Computer and Info…   <span style="text-decoration: underline;">20</span>000 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">191</span>676 Houghton College NY       838 1104    Information Scien…   <span style="text-decoration: underline;">20</span>000 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">191</span>676 Houghton College NY       838 1312    Teacher Education…   <span style="text-decoration: underline;">20</span>000 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">191</span>676 Houghton College NY       838 1313    Teacher Education…   <span style="text-decoration: underline;">20</span>000 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">191</span>676 Houghton College NY       838 1314    Teaching English …   <span style="text-decoration: underline;">20</span>000 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">191</span>676 Houghton College NY       838 1412    Engineering Physi…   <span style="text-decoration: underline;">20</span>000 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">191</span>676 Houghton College NY       838 1609    Romance Languages…   <span style="text-decoration: underline;">20</span>000 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 158 more rows, and abbreviated variable name ¹​debt_mdn</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 170 × 8</span></span></span>
+<span><span class="co">#&gt;    unitid instnm              stabbr  ugds cipcode cipdesc        debt_mdn year </span></span>
+<span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       841 0105    Agricultural …    <span style="text-decoration: underline;">20</span>313 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       841 0501    Area Studies.     <span style="text-decoration: underline;">20</span>313 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       841 0901    Communication…    <span style="text-decoration: underline;">20</span>313 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       841 1101    Computer and …    <span style="text-decoration: underline;">20</span>313 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       841 1104    Information S…    <span style="text-decoration: underline;">20</span>313 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       841 1312    Teacher Educa…    <span style="text-decoration: underline;">20</span>313 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       841 1313    Teacher Educa…    <span style="text-decoration: underline;">20</span>313 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       841 1313    Teacher Educa…    <span style="text-decoration: underline;">20</span>313 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       841 1314    Teaching Engl…    <span style="text-decoration: underline;">20</span>313 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       841 1412    Engineering P…    <span style="text-decoration: underline;">20</span>313 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 160 more rows</span></span></span></code></pre></div>
 <p><strong>Important note:</strong></p>
 <p>The mapping scheme of data across years isn’t consistent across data
 elements. From the <a href="https://collegescorecard.ed.gov/assets/FullDataDocumentation.pdf" class="external-link">technical
