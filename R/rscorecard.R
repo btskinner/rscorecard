@@ -17,6 +17,7 @@
 #'
 #' @docType package
 #' @name rscorecard
+#' @aliases rscorecard-package
 NULL
 
 
