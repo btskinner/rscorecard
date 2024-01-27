@@ -15,10 +15,7 @@
 #' \code{\link{sc_zip}}, can come in any order in the pipe chain. Only
 #' \code{\link{sc_select}} is required.
 #'
-#' @docType package
 #' @name rscorecard
 #' @aliases rscorecard-package
-NULL
-
-
-
+#' @keywords internal
+"_PACKAGE"

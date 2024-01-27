@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.23.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.27.0</span>
       </span>
     </div>
 
@@ -106,7 +106,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Commands</h1>
             
-            <h4 data-toc-skip class="date">2022-07-05</h4>
+            <h4 data-toc-skip class="date">2024-01-27</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/HEAD/vignettes/commands.Rmd" class="external-link"><code>vignettes/commands.Rmd</code></a></small>
       <div class="hidden name"><code>commands.Rmd</code></div>
@@ -387,8 +387,20 @@ only one dictionary column. For example, the search below only looks for
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; CAN FILTER? Yes</span></span>
 <span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ---------------------------------------------------------------------</span></span>
-<span><span class="co">#&gt; Printed information for 2 of out 2 variables.</span></span></code></pre></div>
+<span><span class="co">#&gt; varname: stufacr                                        source: IPEDS</span></span>
+<span><span class="co">#&gt; ---------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; DESCRIPTION:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Undergraduate student to instructional faculty ratio</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; VALUES: NA</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; CAN FILTER? No</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ---------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; Printed information for 3 of out 3 variables.</span></span></code></pre></div>
 <p>You can also return the data dictionary as a tibble. When storing the
 dictionary in an object, it may be useful to set
 <code>print_off = TRUE</code> so that the dictionary results don’t print
@@ -400,26 +412,27 @@ to the console:</p>
 <span><span class="co">#&gt;   varname value label description    source dev_friendly_name dev_category notes</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> stabbr     <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    State postcode IPEDS  state             school       <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 1 more variable: can_filter &lt;dbl&gt;</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: can_filter &lt;dbl&gt;</span></span></span></code></pre></div>
 <p>If you want the full data dictionary, simply search for
 <code>'.'</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dict_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'.'</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">dict_df</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3,383 × 9</span></span></span>
-<span><span class="co">#&gt;    varname    value label description source dev_friendly_na… dev_category notes</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> unitid        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    Unit ID fo… IPEDS  id               root         <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> opeid         <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    8-digit OP… IPEDS  ope8_id          root         <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> opeid6        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    6-digit OP… IPEDS  ope6_id          root         <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> instnm        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    Institutio… IPEDS  name             school       <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> city          <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    City        IPEDS  city             school       <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> stabbr        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    State post… IPEDS  state            school       <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> zip           <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    ZIP code    IPEDS  zip              school       <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> accredage…    <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    Accreditor… FSA    accreditor       school       <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> insturl       <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    URL for in… IPEDS  school_url       school       <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> npcurl        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    URL for in… IPEDS  price_calculato… school       <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 3,373 more rows, and 1 more variable: can_filter &lt;dbl&gt;</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3,668 × 9</span></span></span>
+<span><span class="co">#&gt;    varname   value label description source dev_friendly_name dev_category notes</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> unitid       <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    Unit ID fo… IPEDS  id                root         <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> opeid        <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    8-digit OP… IPEDS  ope8_id           root         <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> opeid6       <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    6-digit OP… IPEDS  ope6_id           root         <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> instnm       <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    Institutio… IPEDS  name              school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> city         <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    City        IPEDS  city              school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> stabbr       <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    State post… IPEDS  state             school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> zip          <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    ZIP code    IPEDS  zip               school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> accredag…    <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    Accreditor… FSA    accreditor        school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> insturl      <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    URL for in… IPEDS  school_url        school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> npcurl       <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    URL for in… IPEDS  price_calculator… school       <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 3,658 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: can_filter &lt;dbl&gt;</span></span></span></code></pre></div>
 </div>
   </div>
 
@@ -440,7 +453,7 @@ to the console:</p>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

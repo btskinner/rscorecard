@@ -22,3 +22,16 @@ All command pipes must start with \code{sc_init()}, end with
 \code{\link{sc_zip}}, can come in any order in the pipe chain. Only
 \code{\link{sc_select}} is required.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/btskinner/rscorecard}
+  \item Report bugs at \url{https://github.com/btskinner/rscorecard/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Benjamin Skinner \email{btskinner@coe.ufl.edu} (\href{https://orcid.org/0000-0002-0337-7415}{ORCID})
+
+}
+\keyword{internal}
