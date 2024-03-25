@@ -32,15 +32,15 @@ or vector of strings when using this version)
 \examples{
 \dontrun{
 sc_filter(region == 1) # New England institutions
-sc_filter(stabbr == c('TN','KY')) # institutions in Tennessee and Kentucky
+sc_filter(stabbr == c("TN","KY")) # institutions in Tennessee and Kentucky
 sc_filter(control != 3) # exclude private, for-profit institutions
 sc_filter(control == c(1,2)) # same as above
 sc_filter(control == 1:2) # same as above
-sc_filter(stabbr == 'TN', control == 1, locale == 41:43) # TN rural publics
+sc_filter(stabbr == "TN", control == 1, locale == 41:43) # TN rural publics
 }
 \dontrun{
-sc_filter_('region == 1')
-sc_filter_('control != 3')
+sc_filter_("region == 1")
+sc_filter_("control != 3")
 
 ## With internal strings, you must either use both double and single quotes
 ## or escape internal quotes
@@ -48,7 +48,7 @@ sc_filter_("stabbr == c('TN','KY')")
 sc_filter_('stabbr == c(\'TN\',\'KY\')')
 
 ## stored in object
-filters <- c('control == 1', 'locale == 41:43')
+filters <- c("control == 1", "locale == 41:43")
 sc_filter_(filters)
 }
 }

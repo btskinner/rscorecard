@@ -22,11 +22,11 @@ Subset results to those within specified area around zip code.
 }
 \section{Note}{
  Zip codes with leading zeros (Northeast) can be
-    called either using a string (\code{'02111'}) or as a numeric
+    called either using a string (\code{"02111"}) or as a numeric
     (\code{02111}). R will drop the leading zero from the second
     version, but \code{sc_zip()} will add it back before the
     call. The shortened version without the leading zero may also
-    be used (2111 and '2111' both become '02111'), but is not
+    be used (2111 and "2111" both become "02111"), but is not
     recommended for clarity.
 }
 
@@ -35,8 +35,8 @@ Subset results to those within specified area around zip code.
 sc_zip(37203)
 sc_zip(37203, 50)
 sc_zip(37203, 50, km = TRUE)
-sc_zip('02111')              # 1. Using string
+sc_zip("02111")              # 1. Using string
 sc_zip(02111)                # 2. Dropped leading zero will be added
-sc_zip(2111)                 # 3. Will become '02111' (not recommended)
+sc_zip(2111)                 # 3. Will become "02111" (not recommended)
 }
 }

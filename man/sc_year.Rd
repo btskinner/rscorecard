@@ -34,7 +34,7 @@ documentation report} when choosing the year.
 \examples{
 \dontrun{
 sc_year() # latest
-sc_year('latest')
+sc_year("latest")
 sc_year(2012)
 }
 }

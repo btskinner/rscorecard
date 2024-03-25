@@ -15,12 +15,12 @@
 #' @export
 sc_init <- function(dfvars = FALSE) {
 
-    list('sc_init_list' = TRUE,
-         'dfvars' = dfvars,
-         'select' = NULL,
-         'select_order' = NULL,
-         'filter' = NULL,
-         'zip' = NULL,
-         'year' = 'latest')
+  list("sc_init_list" = TRUE,
+       "dfvars" = dfvars,
+       "select" = NULL,
+       "select_order" = NULL,
+       "filter" = NULL,
+       "zip" = NULL,
+       "year" = "latest")
 
 }

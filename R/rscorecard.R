@@ -8,12 +8,12 @@
 #' queried. This package requires an API key, which can be requested
 #' at \url{https://api.data.gov/signup/}.
 #'
-#' All command pipes must start with \code{sc_init()}, end with
-#' \code{sc_get()}, and be linked with the magrittr pipe function,
-#' \code{\%>\%}.  Internal commands, \code{\link{sc_select}},
-#' \code{\link{sc_filter}}, \code{\link{sc_year}},
-#' \code{\link{sc_zip}}, can come in any order in the pipe chain. Only
-#' \code{\link{sc_select}} is required.
+#' All command pipes must start with \code{sc_init()}, end with \code{sc_get()},
+#' and be linked with the base pipe, \code{|>}, or magrittr pipe function,
+#' \code{\%>\%}. Internal commands, \code{\link{sc_select}},
+#' \code{\link{sc_filter}}, \code{\link{sc_year}}, \code{\link{sc_zip}}, can
+#' come in any order in the pipe chain. Only \code{\link{sc_select}} is
+#' required.
 #'
 #' @name rscorecard
 #' @aliases rscorecard-package

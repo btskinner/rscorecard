@@ -1,3 +1,14 @@
+# v0.28.0
+
+- update to fix error #17
+- converted single quotes to double throughout
+- converted old magrittr pipe to new base R pipe
+- now require at least R version 4.1 (current version is 4.3.3)
+
+# v0.27.0
+
+- update dictionary for 10 October 2023 release of date
+
 # v0.26.0
 
 - update dictionary for 25 April 2023 release of data

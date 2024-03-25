@@ -76,10 +76,10 @@ between R and the Scorecard, shown in the table below.
 
 |Scorecard|R|R example|Conversion|
 |:--------|:-----------|:------|:----|
-|`,`|`c()`|`sc_filter(stabbr == c('KY','TN'))`|`school.state=KY,TN`|
-|`__not`|`!=`|`sc_filter(stabbr != 'KY')`|`school.state__not=KY`|
+|`,`|`c()`|`sc_filter(stabbr == c("KY","TN"))`|`school.state=KY,TN`|
+|`__not`|`!=`|`sc_filter(stabbr != "KY")`|`school.state__not=KY`|
 |`__range`,`..`|`#:#`|`sc_filter(ccbasic==10:14)`|`school.carnegie_basic__range=1..14`|
-|spaces (`%20`)|' '|`sc_filter(instnm == 'New York')`|`school.name=New%20York`|
+|spaces (`%20`)|" "|`sc_filter(instnm == "New York")`|`school.name=New%20York`|
 
 A few notes:
 
@@ -132,8 +132,8 @@ library(rscorecard)
 ```
 
 ```{r}
-## simple search for 'state' in any part of the dictionary
-sc_dict('stabbr')
+## simple search for "state" in any part of the dictionary
+sc_dict("stabbr")
 ```
 
 You can also search using regular expressions and limit the search to
@@ -141,23 +141,23 @@ only one dictionary column. For example, the search below only looks
 for **varnames** starting with "st": 
 
 ```{r}
-## variable names starting with 'st'
-sc_dict('^st', search_col = 'varname')
+## variable names starting with "st"
+sc_dict("^st", search_col = "varname")
 ```
 
 You can also return the data dictionary as a tibble. When storing the
 dictionary in an object, it may be useful to set `print_off = TRUE` so
-that the dictionary results don't print to the console:
+that the dictionary results don"t print to the console:
 
 ```{r}
-dict_df <- sc_dict('stabbr', print_off = TRUE, return_df = TRUE)
+dict_df <- sc_dict("stabbr", print_off = TRUE, return_df = TRUE)
 dict_df
 ```
 
-If you want the full data dictionary, simply search for `'.'`:
+If you want the full data dictionary, simply search for `"."`:
 
 ```{r}
-dict_df <- sc_dict('.', print_off = TRUE, return_df = TRUE)
+dict_df <- sc_dict(".", print_off = TRUE, return_df = TRUE)
 dict_df
 ```
 

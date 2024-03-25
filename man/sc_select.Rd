@@ -35,12 +35,12 @@ sc_select(UNITID, INSTNM)
 sc_select(unitid, instnm)
 }
 \dontrun{
-sc_select_('UNITID')
-sc_select_(c('UNITID', 'INSTNM'))
-sc_select_(c('unitid', 'instnm'))
+sc_select_("UNITID")
+sc_select_(c("UNITID", "INSTNM"))
+sc_select_(c("unitid", "instnm"))
 
 ## stored in object
-vars_to_pull <- c('unitid','instnm')
+vars_to_pull <- c("unitid","instnm")
 sc_select(vars_to_pull)
 }
 
