@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.27.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.28.0</span>
       </span>
     </div>
 
@@ -106,7 +106,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Commands</h1>
             
-            <h4 data-toc-skip class="date">2024-01-27</h4>
+            <h4 data-toc-skip class="date">2024-03-25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/HEAD/vignettes/commands.Rmd" class="external-link"><code>vignettes/commands.Rmd</code></a></small>
       <div class="hidden name"><code>commands.Rmd</code></div>
@@ -202,13 +202,13 @@ below.</p>
 <tr class="odd">
 <td align="left"><code>,</code></td>
 <td align="left"><code><a href="https://rdrr.io/r/base/c.html" class="external-link">c()</a></code></td>
-<td align="left"><code>sc_filter(stabbr == c('KY','TN'))</code></td>
+<td align="left"><code>sc_filter(stabbr == c("KY","TN"))</code></td>
 <td align="left"><code>school.state=KY,TN</code></td>
 </tr>
 <tr class="even">
 <td align="left"><code>__not</code></td>
 <td align="left"><code>!=</code></td>
-<td align="left"><code>sc_filter(stabbr != 'KY')</code></td>
+<td align="left"><code>sc_filter(stabbr != "KY")</code></td>
 <td align="left"><code>school.state__not=KY</code></td>
 </tr>
 <tr class="odd">
@@ -221,8 +221,8 @@ below.</p>
 </tr>
 <tr class="even">
 <td align="left">spaces (<code>%20</code>)</td>
-<td align="left">’ ’</td>
-<td align="left"><code>sc_filter(instnm == 'New York')</code></td>
+<td align="left">” ”</td>
+<td align="left"><code>sc_filter(instnm == "New York")</code></td>
 <td align="left"><code>school.name=New%20York</code></td>
 </tr>
 </tbody>
@@ -282,8 +282,8 @@ dictionary using <code><a href="../reference/sc_dict.html">sc_dict()</a></code>.
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/btskinner/rscorecard" class="external-link">rscorecard</a></span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">## simple search for 'state' in any part of the dictionary</span></span>
-<span><span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'stabbr'</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co">## simple search for "state" in any part of the dictionary</span></span>
+<span><span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">"stabbr"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ---------------------------------------------------------------------</span></span>
 <span><span class="co">#&gt; varname: stabbr                                         source: IPEDS</span></span>
@@ -302,8 +302,8 @@ dictionary using <code><a href="../reference/sc_dict.html">sc_dict()</a></code>.
 only one dictionary column. For example, the search below only looks for
 <strong>varnames</strong> starting with “st”:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">## variable names starting with 'st'</span></span>
-<span><span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'^st'</span>, search_col <span class="op">=</span> <span class="st">'varname'</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co">## variable names starting with "st"</span></span>
+<span><span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">"^st"</span>, search_col <span class="op">=</span> <span class="st">"varname"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ---------------------------------------------------------------------</span></span>
 <span><span class="co">#&gt; varname: stabbr                                         source: IPEDS</span></span>
@@ -403,10 +403,10 @@ only one dictionary column. For example, the search below only looks for
 <span><span class="co">#&gt; Printed information for 3 of out 3 variables.</span></span></code></pre></div>
 <p>You can also return the data dictionary as a tibble. When storing the
 dictionary in an object, it may be useful to set
-<code>print_off = TRUE</code> so that the dictionary results don’t print
+<code>print_off = TRUE</code> so that the dictionary results don”t print
 to the console:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">dict_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'stabbr'</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">dict_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">"stabbr"</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">dict_df</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 9</span></span></span>
 <span><span class="co">#&gt;   varname value label description    source dev_friendly_name dev_category notes</span></span>
@@ -414,9 +414,9 @@ to the console:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> stabbr     <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>    State postcode IPEDS  state             school       <span style="color: #BB0000;">NA</span>   </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: can_filter &lt;dbl&gt;</span></span></span></code></pre></div>
 <p>If you want the full data dictionary, simply search for
-<code>'.'</code>:</p>
+<code>"."</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">dict_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">'.'</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">dict_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sc_dict.html">sc_dict</a></span><span class="op">(</span><span class="st">"."</span>, print_off <span class="op">=</span> <span class="cn">TRUE</span>, return_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">dict_df</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3,668 × 9</span></span></span>
 <span><span class="co">#&gt;    varname   value label description source dev_friendly_name dev_category notes</span></span>

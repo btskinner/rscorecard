@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rscorecard</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.27.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.28.0</span>
       </span>
     </div>
 
@@ -110,11 +110,11 @@ in kilometers (default is <code>FALSE</code> for miles)</p></dd>
     <div id="note">
     <h2>Note</h2>
     <p>Zip codes with leading zeros (Northeast) can be
-    called either using a string (<code>'02111'</code>) or as a numeric
+    called either using a string (<code>"02111"</code>) or as a numeric
     (<code>02111</code>). R will drop the leading zero from the second
     version, but <code>sc_zip()</code> will add it back before the
     call. The shortened version without the leading zero may also
-    be used (2111 and '2111' both become '02111'), but is not
+    be used (2111 and "2111" both become "02111"), but is not
     recommended for clarity.</p>
     </div>
 
@@ -124,9 +124,9 @@ in kilometers (default is <code>FALSE</code> for miles)</p></dd>
 <span class="r-in"><span><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">37203</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">37203</span>, <span class="fl">50</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">37203</span>, <span class="fl">50</span>, km <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">sc_zip</span><span class="op">(</span><span class="st">'02111'</span><span class="op">)</span>              <span class="co"># 1. Using string</span></span></span>
+<span class="r-in"><span><span class="fu">sc_zip</span><span class="op">(</span><span class="st">"02111"</span><span class="op">)</span>              <span class="co"># 1. Using string</span></span></span>
 <span class="r-in"><span><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">02111</span><span class="op">)</span>                <span class="co"># 2. Dropped leading zero will be added</span></span></span>
-<span class="r-in"><span><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">2111</span><span class="op">)</span>                 <span class="co"># 3. Will become '02111' (not recommended)</span></span></span>
+<span class="r-in"><span><span class="fu">sc_zip</span><span class="op">(</span><span class="fl">2111</span><span class="op">)</span>                 <span class="co"># 3. Will become "02111" (not recommended)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
