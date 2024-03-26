@@ -150,7 +150,8 @@ sc_get <- function(sccall, api_key, debug = FALSE, print_key_debug = FALSE,
       ## get number of pages needed
       pages <- floor(init_meta[["total"]] / 100)
       ## get column types for bind (in case they aren't the same across pulls)
-      coltypes <- sapply(init_list[["df"]], class) |> unname()
+      init_col_types <- unname(sapply(init_list[["df"]], class))
+      init_col_names <- names(init_list[["df"]])
 
       message("Large request will require: " %+% pages %+% " additional pulls.")
 
@@ -163,9 +164,13 @@ sc_get <- function(sccall, api_key, debug = FALSE, print_key_debug = FALSE,
         if (return_json) {
           page_list[[i]] <- content
         } else {
-          ## need to convert column types for each pull to match first
-          page_list[[i]] <- convert_json_to_tibble(content)[["df"]] |>
-            purrr::map2(paste0("as.", coltypes), ~ get(.y)(.x)) |>
+          ## need to convert column types for each pull to match first if it has
+          ## same names
+          tmp <- convert_json_to_tibble(content)[["df"]]
+          tmp_names <- names(tmp)
+          adj_col_types <- init_col_types[match(tmp_names, init_col_names)]
+          page_list[[i]] <- tmp |>
+            purrr::map2(paste0("as.", adj_col_types), ~ do.call(.y, list(.x))) |>
             tibble::as_tibble()
         }
       }
