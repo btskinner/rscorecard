@@ -1,3 +1,8 @@
+# v0.28.1
+
+- fix to the way columns have their types changed that takes into account column
+  names since not all subsequent data pulls have the same columns 
+
 # v0.28.0
 
 - update to fix error #17
