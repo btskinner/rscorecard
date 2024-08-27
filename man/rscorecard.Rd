@@ -25,7 +25,7 @@ required.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/btskinner/rscorecard}
+  \item \url{https://www.btskinner.io/rscorecard/}
   \item Report bugs at \url{https://github.com/btskinner/rscorecard/issues}
 }
 

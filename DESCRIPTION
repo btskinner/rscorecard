@@ -1,16 +1,16 @@
 Package: rscorecard
 Title: A Method to Download Department of Education College Scorecard Data
-Version: 0.28.1
+Version: 0.29.0
 Authors@R: person("Benjamin", "Skinner",
            email = "bskinner@neh.gov",
            role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-0337-7415"))
 Maintainer: Benjamin Skinner <bskinner@neh.gov>
-URL: https://github.com/btskinner/rscorecard
+URL: https://www.btskinner.io/rscorecard/
 BugReports: https://github.com/btskinner/rscorecard/issues
 Description: A method to download Department of Education College
      Scorecard data using the public API
-     <https://collegescorecard.ed.gov/data/documentation/>. It is based on
+     <https://collegescorecard.ed.gov/data/data-documentation/>. It is based on
      the 'dplyr' model of piped commands to select and filter data in a
      single chained function call.  An API key from the U.S. Department of
      Education is required.
@@ -26,7 +26,7 @@ Imports: dplyr,
     tidyselect,
     tidyr,
     purrr
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Encoding: UTF-8
 Suggests: knitr,
     rmarkdown,

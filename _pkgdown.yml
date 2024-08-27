@@ -1,5 +1,8 @@
 url: https://www.btskinner.io/rscorecard/
 
+template:
+  bootstrap: 5
+
 authors:
   Benjamin Skinner:
     href: https://www.btskinner.io
@@ -29,6 +32,7 @@ navbar:
   left:
     - icon: fa-home
       href: index.html
+      aria-label: Home
     - text: 'Getting started'
       href: articles/introduction.html
     - text: 'Commands'

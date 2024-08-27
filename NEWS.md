@@ -1,48 +1,52 @@
-# v0.28.1
+# rscorecard v0.29.0
+
+- update dictionary for 13 June 2024 release of date
+
+# rscorecard v0.28.1
 
 - fix to the way columns have their types changed that takes into account column
   names since not all subsequent data pulls have the same columns 
 
-# v0.28.0
+# rscorecard v0.28.0
 
 - update to fix error #17
 - converted single quotes to double throughout
 - converted old magrittr pipe to new base R pipe
 - now require at least R version 4.1 (current version is 4.3.3)
 
-# v0.27.0
+# rscorecard v0.27.0
 
 - update dictionary for 10 October 2023 release of date
 
-# v0.26.0
+# rscorecard v0.26.0
 
 - update dictionary for 25 April 2023 release of data
 
-# v0.25.0
+# rscorecard v0.25.0
 
 - update dictionary for 14 September 2022 release of data
 
-# v0.24.0
+# rscorecard v0.24.0
 
 - update dictionary for 12 September 2022 release of data
 
-# v0.23.0
+# rscorecard v0.23.0
 
 - update dictionary for 2 May 2022 release of data
 
-# v0.22.0
+# rscorecard v0.22.0
 
 - update dictionary for 14 March 2022 release of data
 
-# v0.21.0
+# rscorecard v0.21.0
 
 - update dictionary for 7 February 2022 release of data
 
-# v0.20.0
+# rscorecard v0.20.0
 
 - update dictionary for 20 July 2021 release of data
 
-# v0.19.1
+# rscorecard v0.19.1
 
 ## Bug fix
 
@@ -56,28 +60,28 @@
 - updated error messages
 - additional tests for new base R pipe `|>`
 
-# v0.19.0
+# rscorecard v0.19.0
 
 - update to only allow filtering on variables allowed due to API
   changes on 4 April 2021
 
-# v0.18.0
+# rscorecard v0.18.0
 
 - update dictionary for 12 January 2021 release of data
 
-# v0.17.0
+# rscorecard v0.17.0
 
 - update dictionary for 2 December 2020 release of data
 
-# v0.16.0
+# rscorecard v0.16.0
 
 - update dictionary for 1 June 2020 release of data
 
-# v0.15.0
+# rscorecard v0.15.0
 
 - update dictionary for 30 March 2020 release of data
 
-# v0.14.0
+# rscorecard v0.14.0
 
 - update dictionary for 12 December 2019 release of data
 - users can now request field of study-level data elements
@@ -101,15 +105,15 @@
   
 - some new tests
 
-# v0.13.0
+# rscorecard v0.13.0
 
 - update dictionary for 30 September 2019 release of data
 
-# v0.12.0
+# rscorecard v0.12.0
 
 - update dictionary for 21 May 2019 release of data
 
-# v0.11.1
+# rscorecard v0.11.1
 
 ## Bug fix
 - correct error in regular expression that converted dev-friendly
@@ -120,13 +124,13 @@
 ## Updates
 - added tests for conversion
 
-# v0.11.0
+# rscorecard v0.11.0
 - update dictionary for 30 October 2018 release of data
 
-# v0.10.0
+# rscorecard v0.10.0
 - update dictionary for 28 September 2018 release of data
 
-# v0.9.0
+# rscorecard v0.9.0
 
 ## Potentially breaking changes
 - default value for `sc_year()` is now `'latest'` rather
@@ -147,38 +151,38 @@
   available.
 - update dictionary for 6 September 2018 release of data
 
-# v0.8.0
+# rscorecard v0.8.0
 
 ## Changes
 - improved error handling when submitting bad request 
 - added `sc_select_()` and `sc_filter_()`, which allow users to select
   and filter variables using strings stored in environment variable
 
-# v0.7.1
+# rscorecard v0.7.1
 
 ## Changes
 - update dictionary for March 2018 release of scorecard data
 
-# v0.7.0
+# rscorecard v0.7.0
 
 ## Changes
 - update dictionary for 19 December 2017 release of scorecard data
 
-# v0.6.0
+# rscorecard v0.6.0
 
 ## Changes
 - allow `sc_zip()` to take zip codes that start with zero (h/t
   @nateaff), either with string value or by returning leading zeros to
   numeric values that R drops
 
-# v0.5.0
+# rscorecard v0.5.0
 
 ## Changes
 - changed way API call is made (now using [`httr`](https://CRAN.R-project.org/package=httr) to make call rather than `jsonlite` directly) in order to improve parsing on bad lines
 - added `debug` option to `sc_get()` so that the API URL string could be returned when debugging call
 - removed old namespace import/exports no longer being used
 
-# v0.4.0
+# rscorecard v0.4.0
 
 - update dictionary for 28 September 2017 release of scorecard data
 - update link in introduction vignette
@@ -188,26 +192,26 @@
 - correct `sc_get()` to use `floor()` instead of `ceiling()` so that
   it doesn't make unnecessary API request/pull (h/t @jjchern)
 
-# v0.3.3
+# rscorecard v0.3.3
 
 ## Bug fix
 - allow `sc_filter()` to use subset object vectors
 
-# v0.3.2
+# rscorecard v0.3.2
 
 - allow `sc_filter()` to use vectors stored in objects
 - allow `sc_filter()` to use `%in%` operator
 
-# v0.3.1
+# rscorecard v0.3.1
 
 - update dictionary for 13 January 2017 release of scorecard data
 - update `sc_dict()` to search all columns by default
 - update internal hash lookup environment to have less generic name
 
-# v0.2.5
+# rscorecard v0.2.5
 
 - fixed `sc_dict()` bug that wouldn't allow for search by developer friendly names
 
-# v0.2.4
+# rscorecard v0.2.4
 
 - initial release

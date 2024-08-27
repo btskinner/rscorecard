@@ -27,7 +27,7 @@ years (fall to spring), it is likely the year represents the fall data (\emph{e.
 }
 
 Be sure to check with the College Scorecard
-\href{https://collegescorecard.ed.gov/data/documentation/}{data
+\href{https://collegescorecard.ed.gov/data/data-documentation/}{data
 documentation report} when choosing the year.
 }
 

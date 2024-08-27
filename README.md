@@ -42,10 +42,10 @@ key in your R environment at the start of your R session using
 
     library(rscorecard)
 
-    df <- sc_init() %>% 
-        sc_filter(region == 2, ccbasic == c(21,22,23), locale == 41:43) %>% 
-        sc_select(unitid, instnm, stabbr) %>% 
-        sc_year("latest") %>% 
+    df <- sc_init() |> 
+        sc_filter(region == 2, ccbasic == c(21,22,23), locale == 41:43) |> 
+        sc_select(unitid, instnm, stabbr) |> 
+        sc_year("latest") |> 
         sc_get()
 
     ## Request complete!
