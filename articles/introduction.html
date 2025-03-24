@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Getting started">
 </head>
 <body>
@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rscorecard</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.30.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.31.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,9 +59,9 @@
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Getting started</h1>
             
-            <h4 data-toc-skip class="date">2024-10-23</h4>
+            <h4 data-toc-skip class="date">2025-03-24</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/v0.30.0/vignettes/introduction.Rmd" class="external-link"><code>vignettes/introduction.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/main/vignettes/introduction.Rmd" class="external-link"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="d-none name"><code>introduction.Rmd</code></div>
     </div>
 
@@ -123,13 +123,21 @@ areas:</p>
 <span><span class="co">#&gt; Request complete!</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 5</span></span></span>
-<span><span class="co">#&gt;   unitid instnm                                  stabbr  ugds year  </span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">191</span>676 Houghton University                     NY       745 latest</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> <span style="text-decoration: underline;">194</span>392 Paul Smiths College of Arts and Science NY       668 latest</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> <span style="text-decoration: underline;">196</span>051 SUNY Morrisville                        NY      <span style="text-decoration: underline;">1</span>776 latest</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> <span style="text-decoration: underline;">197</span>230 Wells College                           NY       349 latest</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 12 × 5</span></span></span>
+<span><span class="co">#&gt;    unitid instnm                                  stabbr  ugds year  </span></span>
+<span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">163</span>912 St. Mary's College of Maryland          MD      <span style="text-decoration: underline;">1</span>476 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">189</span>088 Bard College                            NY      <span style="text-decoration: underline;">2</span>174 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">189</span>848 Cazenovia College                       NY       633 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">190</span>099 Colgate University                      NY      <span style="text-decoration: underline;">3</span>124 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">191</span>676 Houghton University                     NY       745 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">194</span>392 Paul Smiths College of Arts and Science NY       668 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">196</span>006 SUNY College of Technology at Alfred    NY      <span style="text-decoration: underline;">3</span>334 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">196</span>024 SUNY College of Technology at Delhi     NY      <span style="text-decoration: underline;">2</span>459 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">196</span>051 SUNY Morrisville                        NY      <span style="text-decoration: underline;">1</span>776 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">197</span>230 Wells College                           NY       349 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> <span style="text-decoration: underline;">211</span>608 Cheyney University of Pennsylvania      PA       686 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> <span style="text-decoration: underline;">216</span>807 Westminster College                     PA      <span style="text-decoration: underline;">1</span>023 latest</span></span></code></pre></div>
 <p>Because we didn’t include a specific year, the <code>latest</code>
 data are returned. We could have specifically asked for the latest data
 using <code>sc_year("latest")</code>:</p>
@@ -142,13 +150,21 @@ using <code>sc_year("latest")</code>:</p>
 <span><span class="co">#&gt; Request complete!</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 5</span></span></span>
-<span><span class="co">#&gt;   unitid instnm                                  stabbr  ugds year  </span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">191</span>676 Houghton University                     NY       745 latest</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> <span style="text-decoration: underline;">194</span>392 Paul Smiths College of Arts and Science NY       668 latest</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> <span style="text-decoration: underline;">196</span>051 SUNY Morrisville                        NY      <span style="text-decoration: underline;">1</span>776 latest</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> <span style="text-decoration: underline;">197</span>230 Wells College                           NY       349 latest</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 12 × 5</span></span></span>
+<span><span class="co">#&gt;    unitid instnm                                  stabbr  ugds year  </span></span>
+<span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">163</span>912 St. Mary's College of Maryland          MD      <span style="text-decoration: underline;">1</span>476 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">189</span>088 Bard College                            NY      <span style="text-decoration: underline;">2</span>174 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">189</span>848 Cazenovia College                       NY       633 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">190</span>099 Colgate University                      NY      <span style="text-decoration: underline;">3</span>124 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">191</span>676 Houghton University                     NY       745 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">194</span>392 Paul Smiths College of Arts and Science NY       668 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">196</span>006 SUNY College of Technology at Alfred    NY      <span style="text-decoration: underline;">3</span>334 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">196</span>024 SUNY College of Technology at Delhi     NY      <span style="text-decoration: underline;">2</span>459 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">196</span>051 SUNY Morrisville                        NY      <span style="text-decoration: underline;">1</span>776 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">197</span>230 Wells College                           NY       349 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> <span style="text-decoration: underline;">211</span>608 Cheyney University of Pennsylvania      PA       686 latest</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> <span style="text-decoration: underline;">216</span>807 Westminster College                     PA      <span style="text-decoration: underline;">1</span>023 latest</span></span></code></pre></div>
 <p>For a prior year’s data, change the value in
 <code><a href="../reference/sc_year.html">sc_year()</a></code>:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -160,13 +176,21 @@ using <code>sc_year("latest")</code>:</p>
 <span><span class="co">#&gt; Request complete!</span></span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 5</span></span></span>
-<span><span class="co">#&gt;   unitid instnm                                  stabbr  ugds  year</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">191</span>676 Houghton University                     NY      <span style="text-decoration: underline;">1</span>368  <span style="text-decoration: underline;">2</span>005</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> <span style="text-decoration: underline;">194</span>392 Paul Smiths College of Arts and Science NY       841  <span style="text-decoration: underline;">2</span>005</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> <span style="text-decoration: underline;">196</span>051 SUNY Morrisville                        NY      <span style="text-decoration: underline;">2</span>964  <span style="text-decoration: underline;">2</span>005</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> <span style="text-decoration: underline;">197</span>230 Wells College                           NY       407  <span style="text-decoration: underline;">2</span>005</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 12 × 5</span></span></span>
+<span><span class="co">#&gt;    unitid instnm                                  stabbr  ugds  year</span></span>
+<span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">163</span>912 St. Mary's College of Maryland          MD      <span style="text-decoration: underline;">1</span>879  <span style="text-decoration: underline;">2</span>005</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">189</span>088 Bard College                            NY      <span style="text-decoration: underline;">1</span>831  <span style="text-decoration: underline;">2</span>005</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">189</span>848 Cazenovia College                       NY       909  <span style="text-decoration: underline;">2</span>005</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">190</span>099 Colgate University                      NY      <span style="text-decoration: underline;">2</span>743  <span style="text-decoration: underline;">2</span>005</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">191</span>676 Houghton University                     NY      <span style="text-decoration: underline;">1</span>368  <span style="text-decoration: underline;">2</span>005</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">194</span>392 Paul Smiths College of Arts and Science NY       841  <span style="text-decoration: underline;">2</span>005</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">196</span>006 SUNY College of Technology at Alfred    NY      <span style="text-decoration: underline;">3</span>187  <span style="text-decoration: underline;">2</span>005</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">196</span>024 SUNY College of Technology at Delhi     NY      <span style="text-decoration: underline;">2</span>288  <span style="text-decoration: underline;">2</span>005</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">196</span>051 SUNY Morrisville                        NY      <span style="text-decoration: underline;">2</span>964  <span style="text-decoration: underline;">2</span>005</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">197</span>230 Wells College                           NY       407  <span style="text-decoration: underline;">2</span>005</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> <span style="text-decoration: underline;">211</span>608 Cheyney University of Pennsylvania      PA      <span style="text-decoration: underline;">1</span>351  <span style="text-decoration: underline;">2</span>005</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> <span style="text-decoration: underline;">216</span>807 Westminster College                     PA      <span style="text-decoration: underline;">1</span>597  <span style="text-decoration: underline;">2</span>005</span></span></code></pre></div>
 <div class="section level4">
 <h4 id="field-of-study-data">Field of study data<a class="anchor" aria-label="anchor" href="#field-of-study-data"></a>
 </h4>
@@ -183,20 +207,20 @@ can be requested alongside institution-level data:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## filter to show only those with non-NA values for median debt</span></span>
 <span><span class="va">df</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">debt_mdn</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 179 × 8</span></span></span>
-<span><span class="co">#&gt;    unitid instnm              stabbr  ugds cipcode cipdesc        debt_mdn year </span></span>
-<span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       745 0105    Agricultural …    <span style="text-decoration: underline;">20</span>313 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       745 0501    Area Studies.     <span style="text-decoration: underline;">20</span>313 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       745 0901    Communication…    <span style="text-decoration: underline;">20</span>313 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       745 1101    Computer and …    <span style="text-decoration: underline;">20</span>313 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       745 1104    Information S…    <span style="text-decoration: underline;">20</span>313 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       745 1312    Teacher Educa…    <span style="text-decoration: underline;">20</span>313 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       745 1313    Teacher Educa…    <span style="text-decoration: underline;">20</span>313 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       745 1313    Teacher Educa…    <span style="text-decoration: underline;">20</span>313 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       745 1314    Teaching Engl…    <span style="text-decoration: underline;">20</span>313 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">191</span>676 Houghton University NY       745 1412    Engineering P…    <span style="text-decoration: underline;">20</span>313 late…</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 169 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 564 × 8</span></span></span>
+<span><span class="co">#&gt;    unitid instnm                     stabbr  ugds cipcode cipdesc debt_mdn year </span></span>
+<span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">163</span>912 St. Mary's College of Mar… MD      <span style="text-decoration: underline;">1</span>476 0301    Natura…    <span style="text-decoration: underline;">17</span>000 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">163</span>912 St. Mary's College of Mar… MD      <span style="text-decoration: underline;">1</span>476 0501    Area S…    <span style="text-decoration: underline;">17</span>000 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">163</span>912 St. Mary's College of Mar… MD      <span style="text-decoration: underline;">1</span>476 1101    Comput…    <span style="text-decoration: underline;">17</span>000 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">163</span>912 St. Mary's College of Mar… MD      <span style="text-decoration: underline;">1</span>476 1301    Educat…    <span style="text-decoration: underline;">17</span>000 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">163</span>912 St. Mary's College of Mar… MD      <span style="text-decoration: underline;">1</span>476 1601    Lingui…    <span style="text-decoration: underline;">17</span>000 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">163</span>912 St. Mary's College of Mar… MD      <span style="text-decoration: underline;">1</span>476 2301    Englis…    <span style="text-decoration: underline;">17</span>000 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">163</span>912 St. Mary's College of Mar… MD      <span style="text-decoration: underline;">1</span>476 2601    Biolog…    <span style="text-decoration: underline;">17</span>000 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">163</span>912 St. Mary's College of Mar… MD      <span style="text-decoration: underline;">1</span>476 2602    Bioche…    <span style="text-decoration: underline;">17</span>000 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">163</span>912 St. Mary's College of Mar… MD      <span style="text-decoration: underline;">1</span>476 2701    Mathem…    <span style="text-decoration: underline;">17</span>000 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">163</span>912 St. Mary's College of Mar… MD      <span style="text-decoration: underline;">1</span>476 3001    Biolog…    <span style="text-decoration: underline;">17</span>000 late…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 554 more rows</span></span></span></code></pre></div>
 <p><strong>Important note:</strong></p>
 <p>The mapping scheme of data across years isn’t consistent across data
 elements. From the <a href="https://collegescorecard.ed.gov/assets/FullDataDocumentation.pdf" class="external-link">technical
