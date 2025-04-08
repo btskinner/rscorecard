@@ -31,7 +31,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Benjamin Skinner \email{bskinner@neh.gov} (\href{https://orcid.org/0000-0002-0337-7415}{ORCID})
+\strong{Maintainer}: Benjamin Skinner \email{ben@btskinner.io} (\href{https://orcid.org/0000-0002-0337-7415}{ORCID})
 
 }
 \keyword{internal}

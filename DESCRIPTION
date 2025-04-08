@@ -2,10 +2,10 @@ Package: rscorecard
 Title: A Method to Download Department of Education College Scorecard Data
 Version: 0.31.0
 Authors@R: person("Benjamin", "Skinner",
-           email = "bskinner@neh.gov",
+           email = "ben@btskinner.io",
            role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-0337-7415"))
-Maintainer: Benjamin Skinner <bskinner@neh.gov>
+Maintainer: Benjamin Skinner <ben@btskinner.io>
 URL: https://www.btskinner.io/rscorecard/
 BugReports: https://github.com/btskinner/rscorecard/issues
 Description: A method to download Department of Education College
