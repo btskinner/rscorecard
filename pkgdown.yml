@@ -1,11 +1,11 @@
 pandoc: 3.1.11
-pkgdown: 2.1.1
+pkgdown: 2.1.2
 pkgdown_sha: ~
 articles:
   commands: commands.html
   introduction: introduction.html
   more_examples: more_examples.html
-last_built: 2025-04-08T15:29Z
+last_built: 2025-04-30T14:26Z
 urls:
   reference: https://www.btskinner.io/rscorecard/reference
   article: https://www.btskinner.io/rscorecard/articles

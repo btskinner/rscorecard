@@ -6,12 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>More examples • rscorecard</title>
-<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
-<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+<link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" sizes="any" href="../favicon.ico">
+<link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
@@ -26,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rscorecard</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.31.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.32.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +58,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>More examples</h1>
             
-            <h4 data-toc-skip class="date">2025-04-08</h4>
+            <h4 data-toc-skip class="date">2025-04-30</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/btskinner/rscorecard/blob/main/vignettes/more_examples.Rmd" class="external-link"><code>vignettes/more_examples.Rmd</code></a></small>
       <div class="d-none name"><code>more_examples.Rmd</code></div>
@@ -117,20 +116,20 @@ and append all results before returning.</p>
 <span><span class="co">#&gt; Request complete!</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 255 × 4</span></span></span>
-<span><span class="co">#&gt;    unitid instnm                                         md_earn_wne_p10  year</span></span>
-<span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">128</span>577 Asnuntuck Community College                              <span style="text-decoration: underline;">30</span>200  <span style="text-decoration: underline;">2</span>009</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">128</span>771 Central Connecticut State University                     <span style="text-decoration: underline;">46</span>400  <span style="text-decoration: underline;">2</span>009</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">128</span>780 Charter Oak State College                                   <span style="color: #BB0000;">NA</span>  <span style="text-decoration: underline;">2</span>009</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">129</span>020 University of Connecticut                                <span style="text-decoration: underline;">54</span>500  <span style="text-decoration: underline;">2</span>009</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">129</span>215 Eastern Connecticut State University                     <span style="text-decoration: underline;">43</span>600  <span style="text-decoration: underline;">2</span>009</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">129</span>367 Connecticut State Community College                      <span style="text-decoration: underline;">34</span>100  <span style="text-decoration: underline;">2</span>009</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">129</span>543 Connecticut State Community College Housatonic           <span style="text-decoration: underline;">34</span>100  <span style="text-decoration: underline;">2</span>009</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">129</span>695 Manchester Community College                             <span style="text-decoration: underline;">34</span>600  <span style="text-decoration: underline;">2</span>009</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">129</span>729 Naugatuck Valley Community College                       <span style="text-decoration: underline;">32</span>000  <span style="text-decoration: underline;">2</span>009</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">129</span>756 Middlesex Community College                              <span style="text-decoration: underline;">34</span>700  <span style="text-decoration: underline;">2</span>009</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 245 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 242 × 4</span></span></span>
+<span><span class="co">#&gt;    unitid instnm                                     md_earn_wne_p10  year</span></span>
+<span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">128</span>771 Central Connecticut State University                 <span style="text-decoration: underline;">46</span>400  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">128</span>780 Charter Oak State College                               <span style="color: #BB0000;">NA</span>  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">129</span>020 University of Connecticut                            <span style="text-decoration: underline;">54</span>500  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">129</span>215 Eastern Connecticut State University                 <span style="text-decoration: underline;">43</span>600  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">129</span>367 Connecticut State Community College                  <span style="text-decoration: underline;">34</span>100  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">130</span>493 Southern Connecticut State University                <span style="text-decoration: underline;">44</span>300  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">130</span>776 Western Connecticut State University                 <span style="text-decoration: underline;">44</span>100  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">130</span>907 Delaware Technical Community College-Terry           <span style="text-decoration: underline;">30</span>900  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">130</span>934 Delaware State University                            <span style="text-decoration: underline;">38</span>100  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">130</span>943 University of Delaware                               <span style="text-decoration: underline;">56</span>300  <span style="text-decoration: underline;">2</span>009</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 232 more rows</span></span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
@@ -143,7 +142,7 @@ and append all results before returning.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
 </div>
 
     </footer>
