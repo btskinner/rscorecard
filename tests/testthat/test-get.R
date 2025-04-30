@@ -13,10 +13,10 @@ test_that("Errors for missing sc_select()", {
 
 ## not on CRAN -----------------------------------
 
-test_that("Request doesn\"t match expected", {
+test_that("Request doesn't match expected", {
   check_api()
 
-  df1 <- dplyr::tibble("unitid" = 196051L, "year" = 2013)
+  df1 <- dplyr::tibble("unitid" = c(196006L, 196051L), "year" = 2013)
 
   df2 <- sc_init() |>
     sc_filter(region == 2, ccbasic == 23, locale == 41:43) |>
@@ -28,7 +28,7 @@ test_that("Request doesn\"t match expected", {
 
 })
 
-test_that("Debug doesn\"t return string", {
+test_that("Debug doesn't return string", {
   check_api()
 
   out <- sc_init() |>
