@@ -1,3 +1,7 @@
+# rscorecard v0.33.0
+
+- update dictionary for 30 March 2026 release of data
+
 # rscorecard v0.32.0
 
 - update dictionary for 23 April 2025 release of data
