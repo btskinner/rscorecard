@@ -1,7 +1,7 @@
 # rscorecard <img src="man/figures/logo.png" align="right" />
 
 [![R build
-status](https://github.com/btskinner/rscorecard/workflows/R-CMD-check/badge.svg)](https://github.com/btskinner/rscorecard/actions)
+status](https://github.com/btskinner/rscorecard/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/btskinner/rscorecard/actions)
 [![GitHub
 release](https://img.shields.io/github/release/btskinner/rscorecard.svg)](https://github.com/btskinner/rscorecard)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/rscorecard)](http://cran.r-project.org/package=rscorecard)
