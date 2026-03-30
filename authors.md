@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/btskinner/rscorecard/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/btskinner/rscorecard/blob/v0.33.0/DESCRIPTION)
 
 Skinner B (2026). *rscorecard: A Method to Download Department of
 Education College Scorecard Data*. R package version 0.33.0,
